@@ -45,8 +45,8 @@ from the microcontroller and opts for an external L293D driver.
 
 The only material I found reporting success without using
 a separate controller chip is
-[this thread](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=126097896)
-but the thread ends unsatisfyingly at the first hints of success.
+[this thread from tobycatlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
+in the Arduino forum, but the thread ends unsatisfyingly at the first hints of success.
 
 I figure it's worth a shot and Arduinos are cheap.
 
