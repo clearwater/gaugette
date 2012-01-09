@@ -33,25 +33,26 @@ Driving Directly from the Arduino
 =================================
 
 The data sheet says 
-_"The motor can operate directly from a numerical, i.e. digital, driving signal to move and position a pointer to visualise any parameter required"_
-It appears the motors draws something under 20mA per winding at 5V, 
+_"The motor can operate directly from a numerical, i.e. digital, driving signal to move and position a pointer to visualise any parameter required."_
+
+So that sounds promising.  It appears the motors draws 15-20mA per winding at 5V,
 and the Arduino 5v digital output pins can
 [source or sink up to 40mA each.](http://www.arduino.cc/en/Main/arduinoBoardUno)
 
-There are a few articles about interfacing these motors to an Arduino.  
-This [introduction](http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge)
-is great, but the author expresses concerns about driving inductive loads directly
+There are a few articles about interfacing these motors to an Arduino.
+This [discussion of the motors by Mike Powell](http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge) is excellent, but the author expresses concerns about driving inductive loads directly
 from the microcontroller and opts for an external L293D driver.
 
 The only material I found reporting success without using
 a separate controller chip is
 [this thread from tobycatlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
 in the Arduino forum, but the thread ends unsatisfyingly at the first hints of success.
+Maybe it went up in smoke?
 
-I figure it's worth a shot and Arduinos are cheap.
+Meh, I figure it's worth a shot.  Life is short and Arduinos are cheap.
 
 The short answer is yes, it works.
-I've had good success driving the motor directly from the Arduino.
+I've had very good success driving the motor directly from the Arduino.
 It takes 4 IO pins.  In theory you could use 3 because the 2nd and 3rd pin
 always have the same output voltage, but unless I run out of pins I figure
 it's best not to tempt the over-current gods.
