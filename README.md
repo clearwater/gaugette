@@ -26,7 +26,7 @@ It seems that they were available until recently
 from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
 but after Swatch 
 [sold the stepping motor business](http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology)
-to Singapore-based [Juken Techonology](www.jukenswisstech.com) in 2009, 
+to Singapore-based [Juken Techonology](http://www.jukenswisstech.com) in 2009, 
 that website disappeared.
 
 Driving Directly from the Arduino
@@ -47,11 +47,9 @@ The only material I found reporting success without using
 a separate controller chip is
 [this thread from tobycatlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
 in the Arduino forum, but the thread ends unsatisfyingly at the first hints of success.
-Maybe it went up in smoke?
+Maybe it worked fine, maybe went up in smoke?  Meh, I figure it's worth a shot.  Life is short and Arduinos are cheap.
 
-Meh, I figure it's worth a shot.  Life is short and Arduinos are cheap.
-
-The short answer is [yes, it works.](http://youtu.be/vwAxRk_5oXA)
+The short answer is yes, it works, [video here.](http://youtu.be/vwAxRk_5oXA)
 I've had very good success driving the motor directly from the Arduino.
 It takes 4 IO pins.  In theory you could use 3 because the 2nd and 3rd pin
 always have the same output voltage, but unless I run out of pins I figure
