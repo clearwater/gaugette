@@ -116,6 +116,7 @@ void Command::dump()
     if (i>0) Serial.print(",");
     Serial.print(value[i+1]);
   }
+  Serial.println();
 }
 
 

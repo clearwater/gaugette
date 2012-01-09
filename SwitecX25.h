@@ -18,15 +18,20 @@ class SwitecX25
    unsigned char *pins;
    unsigned char currentState;
    unsigned int currentStep;
+   unsigned int targetStep;
    unsigned int steps;
-   
+   unsigned long time0;  // time when we entered this state
+   boolean stopped;  
    
    SwitecX25(unsigned int steps, unsigned char pins[4]);
    void stepUp();
    void stepDown();
    void zero();
-   
+   void setPosition(unsigned int pos);
+  void update();
+  
  private:
+   void advance();
    void writeIO();
 };
 

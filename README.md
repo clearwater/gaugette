@@ -51,7 +51,7 @@ Maybe it went up in smoke?
 
 Meh, I figure it's worth a shot.  Life is short and Arduinos are cheap.
 
-The short answer is yes, it works.
+The short answer is [yes, it works.](http://youtu.be/vwAxRk_5oXA)
 I've had very good success driving the motor directly from the Arduino.
 It takes 4 IO pins.  In theory you could use 3 because the 2nd and 3rd pin
 always have the same output voltage, but unless I run out of pins I figure

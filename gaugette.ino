@@ -20,10 +20,16 @@ void setup(void) {
 }
 
 void loop(void) {
+  motor1.update();
   if (cmd.parseInput()) {
     cmd.dump();
-    if (cmd.command == 'z') {
-      motor1.zero();
+    switch (cmd.command) {
+      case 'z':
+        motor1.zero();
+        break;
+      case 's':
+        motor1.setPosition(cmd.value[1]);
+        break;
     }
   }
 }
