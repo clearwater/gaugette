@@ -1,6 +1,6 @@
 /*
  Copyright (c) 2011 Guy Carpenter
-*/
+ */
 
 #include <Arduino.h>
 #include "Command.h"
@@ -57,10 +57,12 @@ boolean Command::parseTuple(char **line, int *len, value_t *tuple)
         (*len)--;
         (*line)++;
         result = false;  // need another int to succeed
-      } else {
+      } 
+      else {
         break;
       }
-    } else {
+    } 
+    else {
       break;
     }
   }        
@@ -71,10 +73,11 @@ boolean Command::parseLine(char *line, int len)
 {
   boolean result = false;
   if (parseCommand(&line, &len, &command) &&
-      parseTuple(&line, &len, address) &&
-      parseTuple(&line, &len, value)) {
-        result = true;
-  } else {
+    parseTuple(&line, &len, address) &&
+    parseTuple(&line, &len, value)) {
+    result = true;
+  } 
+  else {
     Serial.println("$Error Invalid command syntax");
   }
   return result;
@@ -86,20 +89,33 @@ boolean Command::parseInput()
   boolean result = false;
   static char line[CMDBUF_LEN];  // NOT zero terminated
   static int len = 0;
-  
+
   if (Serial.available()) {
     char c = Serial.read();
     if (c==10 || c==13) {
       result = parseLine(line, len);
       len = 0;
-    } else if (len < CMDBUF_LEN) {
+    } 
+    else if (len < CMDBUF_LEN) {
       line[len++] = c;
     }
     return result;
   }
 }
 
-
-
+void Command::dump()
+{
+  Serial.print(command);
+  Serial.print(" ");
+  for (int i=0;i<address[0];i++) {
+    if (i>0) Serial.print(",");
+    Serial.print(address[i+1]);
+  }
+  Serial.print(" ");
+  for (int i=0;i<value[0];i++) {
+    if (i>0) Serial.print(",");
+    Serial.print(value[i+1]);
+  }
+}
 
 

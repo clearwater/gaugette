@@ -21,6 +21,7 @@ class Command
     boolean parseLine(char *line, int len);
   public:
     boolean parseInput();
+    void dump();
 };
 
 #endif

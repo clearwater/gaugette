@@ -9,7 +9,7 @@ int count = 157;
 // 180:1 gear
 // 180 * 6 steps per rotation
 // 2 degrees per 6-states
-// stops liit to 315 degrees
+// stops limit to 315 degrees
 // 315 = 157.5 steps
 // maximum speed seems to be about 800 microseconds delay
 
