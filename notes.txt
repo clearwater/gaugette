@@ -1,0 +1,92 @@
+PROTOCOL:
+
+Actions:
+
+DIAL <n> <value>
+  set gauge to value
+  I think 100 is not enough steps,
+  so maybe express as float or 1000ths or 0..255
+  or query the device to get the fsd range
+
+LED <n> <value>
+  set led on or off.  If we have multiple leds
+  per device we could address them as 1,1
+  RGB values? LED 1,1 100,255,128
+
+So what about generalizing dial and led to a single command:
+
+SET a v
+where n is an address (which could be a comma separated list)
+and v is a value (which could be a comma separated list)
+
+SET 0 0
+GET 0 echos back "a v" (or maybe "a v t", see below regarding time stamps)
+
+Later if we support input we can get unsolicited input: "a v"
+in the same format, so a push button event might be:
+
+0,1 1
+0,1 0
+
+Maybe we want a time stamp to help determine duration of events?
+
+0,1 1 1234
+0,1 1 1238
+
+======================================================================
+command parser
+
+What we want to get:
+  First letter of command
+  Address tuple
+  Value tuple
+
+Each tuple should be
+count,value0,value1...
+
+parser should call
+  command_handler(command, address, value)
+where command is a byte representing the command.
+(the first character of the command?), address is a vector of bytes,
+and value is a vector of bytes.
+
+Hmmm - that limits me to 256 step resolution, which seems poor.
+What about making the values 16-bit signed integers instead?
+That seems better.
+
+S 0,0 1000
+S 0,0 0
+G 0,0
+
+Maximum tuple length is 3 (for rgb) so we need 2 x 4 int16 arrays or 16 bytes.
+Seems fine.
+
+So in loop we call the parser
+loop:
+   if there is a character ready, parse_character
+end
+
+parse_command checks for serial input.
+It could state-machine or parse on CRLF.  The latter
+would allow backspaces!
+
+parse_character(c)
+  if input 
+    if input is crlf terminate input string and parse it
+  else 
+    if buffer is not full add to end of buffer
+
+parse_line(buffer, length)
+  c = parse_command
+  a = parse_tuple
+  v = parse_tuple
+
+command_handler(c,a,v)
+
+
+
+  
+
+
+
+
