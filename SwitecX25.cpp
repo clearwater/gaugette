@@ -78,9 +78,9 @@ void SwitecX25::setPosition(unsigned int pos)
 void SwitecX25::update()
 {
   if (!stopped) {
-    unsigned long delta = time0 - micros();
-    if (delta >= 1000) {  // hack - magic number
-      Serial.println("advance");
+    unsigned long delta = micros() - time0;
+    if (delta >= 4000) {  // hack - magic number
+      //Serial.println("advance");
       advance();
     }
   }
