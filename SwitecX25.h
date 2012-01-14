@@ -23,7 +23,13 @@ class SwitecX25
    unsigned int targetStep;
    unsigned int steps;
    unsigned long time0;  // time when we entered this state
-   boolean stopped;  
+   boolean stopped;
+   float velMin;  // steps per second
+   float velMax;  // steps per second
+   float accel; // steps per second per second
+   float vel;
+   unsigned int microDelay;
+   unsigned int minDelay;
    
    SwitecX25(unsigned int steps, unsigned char pins[4]);
    void stepUp();
@@ -34,6 +40,7 @@ class SwitecX25
   
  private:
    void advance();
+   void setDelay();
    void writeIO();
 };
 
