@@ -11,12 +11,21 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pins[4])
     pinMode(pins[i], OUTPUT);
   }
   microDelay = 0; // microseconds
-  minMicroDelay = 500;    // fast limit
+  minMicroDelay = 200;    // fast limit
   maxMicroDelay = 5000;  // slow limit
-  microDelayAccel = 950;  // accel factor /1000
   currentStep = 0;
   targetStep = 0;
+  vel = 0.0f;      // steps per sec
+  dt = 0.0f;
   stopped = true;
+
+  // these constants should be configurable
+  accel = 2000.0f;  // steps per sec per sec
+  decel = 2000.0f; // steps per sec per sec
+  velMin = 1000000.0f/(float)maxMicroDelay;
+  
+  // max steps per second for given min micro delay
+  velMax = 1000000.0f/(float)minMicroDelay;
 }
 
 void SwitecX25::writeIO()
@@ -81,15 +90,6 @@ void SwitecX25::zero()
 void SwitecX25::advance()
 {
   time0 = micros();
-
-  // can't use statics for real - make these instance vars
-  static float vel = 0.0f;      // steps per sec
-  static float accel = 5000.0f;  // steps per sec per sec
-  static float decel = 2000.0f; // steps per sec per sec
-  static float velMin = 500.0f;
-  static float velMax = 1000000.0f/(float)minMicroDelay;
-  static float dt = 0.0f;
-  static float M = 1000000.0f;
   
   boolean fwd = targetStep > currentStep;
   if (targetStep == currentStep) {

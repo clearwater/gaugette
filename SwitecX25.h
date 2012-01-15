@@ -27,7 +27,13 @@ class SwitecX25
    unsigned int microDelay;
    unsigned int minMicroDelay;
    unsigned int maxMicroDelay;
-   unsigned int microDelayAccel;
+   // REVISIT - with care this could all be done in integer arithmetic
+   float vel;      // steps per sec
+   float accel;  // steps per sec per sec
+   float decel; // steps per sec per sec
+   float velMin;
+   float velMax;
+   float dt;
    
    SwitecX25(unsigned int steps, unsigned char pins[4]);
    void stepUp();
