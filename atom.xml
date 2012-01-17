@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
+  <link href="http://clearwater.github.com/gaugette/"/>
+  <updated>2012-01-17T10:57:33+10:00</updated>
+  <id>http://clearwater.github.com/gaugette/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test Post]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/17/test-post/"/>
+    <updated>2012-01-17T09:04:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/17/test-post</id>
+    <content type="html"><![CDATA[<p>This is the first post.</p>
+]]></content>
+  </entry>
+  
+</feed>
