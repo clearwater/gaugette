@@ -36,6 +36,15 @@ void loop(void) {
       case 's':
         motor->setPosition(cmd.value[1]);
         break;
+      case 'a':
+        motor->setAccel(cmd.value[1],cmd.value[2]);
+        break;
+      case 'v':
+        motor->setSpeed(cmd.value[1],cmd.value[2]);
+        break;
+      case 'd':
+        motor->setDelay(cmd.value[1],cmd.value[2]);
+        break;
     }
   }
 }

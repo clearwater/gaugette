@@ -11,26 +11,57 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pins[4])
     pinMode(pins[i], OUTPUT);
   }
   microDelay = 0; // microseconds
-  minMicroDelay = 200;    // fast limit
-  maxMicroDelay = 5000;  // slow limit
   currentStep = 0;
   targetStep = 0;
   vel = 0.0f;      // steps per sec
   dt = 0.0f;
   stopped = true;
 
-  // these constants should be configurable
-  accel = 2000.0f;  // steps per sec per sec
+  // these are configurable at runtime
+  minMicroDelay = 600;    // fast limit
+  maxMicroDelay = 5000;  // slow limit
+  accel = 4000.0f;  // steps per sec per sec
   decel = 2000.0f; // steps per sec per sec
-  velMin = 1000000.0f/(float)maxMicroDelay;
   
-  // max steps per second for given min micro delay
+  // min and max vel in steps per second for given micro delay
+  velMin = 1000000.0f/(float)maxMicroDelay;
   velMax = 1000000.0f/(float)minMicroDelay;
+}
+
+void SwitecX25::setSpeed(float minStepsPerSec, float maxStepsPerSec)
+{
+  velMin = minStepsPerSec;
+  velMax = maxStepsPerSec;
+  maxMicroDelay = 1000000.0f / minStepsPerSec;
+  minMicroDelay = 1000000.0f / maxStepsPerSec;
+}
+
+void SwitecX25::setDelay(int minMicroSec, int maxMicroSec)
+{
+  minMicroDelay = minMicroSec;
+  maxMicroDelay = maxMicroSec;
+  velMin = 1000000.0f / (float)maxMicroDelay;
+  velMax = 1000000.0f / (float)minMicroDelay;
+}
+
+void SwitecX25::setAccel(float accelStepsPerSecPerSec, float decelStepsPerSecPerSec)
+{
+  accel = accelStepsPerSecPerSec;
+  decel = decelStepsPerSecPerSec;
 }
 
 void SwitecX25::writeIO()
 {
-  byte mask = SwitecX25StateMap[currentState];  
+  // State  3 2 1 0   Value
+  // 0      1 0 0 1   0x9
+  // 1      0 0 0 1   0x1
+  // 2      0 1 1 1   0x7
+  // 3      0 1 1 0   0x6
+  // 4      1 1 1 0   0xE
+  // 5      1 0 0 0   0x8
+  static byte stateMap[] = {0x9, 0x1, 0x7, 0x6, 0xE, 0x8};
+
+  byte mask = stateMap[currentState];  
   for (int i=0;i<pinCount;i++) {
     digitalWrite(pins[i], mask & 0x1);
     mask >>= 1;
@@ -152,7 +183,7 @@ void SwitecX25::setPosition(unsigned int pos)
   if (pos > steps-1) pos = steps-1;
   targetStep = pos; 
   stopped = false;
-  Serial.println(targetStep);
+  //Serial.println(targetStep);
 }
 
 
