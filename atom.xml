@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-23T15:12:29+10:00</updated>
+  <updated>2012-01-23T15:21:43+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -22,8 +22,7 @@
 connect two motors to the Arduino.  Once concern
 I have is that the control logic that manages the acceleration and
 deceleration could be so slow that it will interfere with the motor
-drive signalling when trying to control more than one motor.<br/>
-I have in mind to replace the
+drive signalling when trying to control more than one motor.  I have in mind to replace the
 floating point logic with a lookup table, but for now I like being
 able to easily fiddle with the motion parameters.</p>
 
