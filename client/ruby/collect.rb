@@ -1,24 +1,19 @@
 # appears we can pull
 # GET /ifstats.php?if=vr0
-# from pfsense
-# after authentication
+# from pfsense without authentication
 
 require 'rubygems'
 require 'curb'
-require 'sqlite3'
-require 'database'
 require 'serialport'
 require 'gaugette'
 require 'pp'
 
 URL = "http://pfsense.clearwater.com.au/ifstats.php?if=vr0"
-DB = 'vr0.db'
 
 @curl = Curl::Easy.new()
 @curl.enable_cookies = true
 @curl.follow_location = false
 @curl.url = URL
-@db = Database.new(DB)
 @gaugette = Gaugette.new("/dev/tty.usbmodem24411")
 [0,1].each do |i|
   @gaugette.zero(i)
@@ -41,7 +36,6 @@ while true
     #PP.pp [delta_time, bps_in, bps_out]
     @gaugette.set(0, bps_in / 100000.0)
     @gaugette.set(1, bps_out/ 100000.0)
-    @db.write(Time.now.to_i, bps_in, bps_out)
   end
   last_time = time
   last_bytes_in = bytes_in
