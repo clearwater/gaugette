@@ -1,3 +1,7 @@
+Project Page
+============
+Full details of this project can be found at [the Gaugette Blog](http://clearwater.github.com/gaugette/).
+
 Driving Switec X25 Instrument Steppers With an Arduino
 ======================================================
 
