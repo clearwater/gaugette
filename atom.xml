@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-23T15:21:43+10:00</updated>
+  <updated>2012-01-23T17:33:27+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -31,6 +31,28 @@ code.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[X12 Quad Driver Chip]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/"/>
+    <updated>2012-01-19T17:10:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip</id>
+    <content type="html"><![CDATA[<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/resources/X12_Quad_Driver.png" align="right">
+The <a href="http://clearwater.github.com/gaugette/resources/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
+describes the X12 family of driver chips which allow
+up to 4 Switec motors to be controlled over a 3-wire serial interface.
+I like the look of these for keeping the I/O count down, and offloading
+a bunch of processing from the Arduino.</p>
+
+<p>However I have been unable to find a supplier for X12 quad driver chips.
+It seems that they were available until recently
+from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
+but after Swatch
+<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
+to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
+that website disappeared.</p>
 ]]></content>
   </entry>
   
@@ -96,7 +118,7 @@ But it is quite bulky and noisy, so I started looking for something better.</p>
 
 <h2>The Switec X25 Stepper Motor</h2>
 
-<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/images/Switec_X25_168.jpg" align="right">
+<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg" align="right">
 I noticed a lot of sellers on ebay selling tiny Switec X25
 motors as replacements for GM auto instrument clusters.  They were developed
 by the technology arm of Swatch, so I figured they should be low power and
