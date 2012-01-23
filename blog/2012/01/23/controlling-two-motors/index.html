@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Gaugette</title>
+  <title>Two Motors, One Arduino - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Blog Archive 2012 Two Motors, One Arduino
-Jan 23 2012 Initial Results
-Jan 09 2012 posted in arduino, switec, x25 What is Gaugette?
-Jan 05 2012 &hellip;">
+  <meta name="description" content="Last night I built a pair of improved wiring harnesses so I could
+connect two motors to the Arduino. Once concern
+I have is that the control logic &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Jan 05 2012 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/archives">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -66,59 +65,91 @@ Jan 05 2012 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Two Motors, One Arduino</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-23T14:39:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>Last night I built a pair of improved wiring harnesses so I could
+connect two motors to the Arduino.  Once concern
+I have is that the control logic that manages the acceleration and
+deceleration could be so slow that it will interfere with the motor
+drive signalling when trying to control more than one motor.<br/>
+I have in mind to replace the
+floating point logic with a lookup table, but for now I like being
+able to easily fiddle with the motion parameters.</p>
 
-  
-  <h2>2012</h2>
+<p>It turns out that two motors work pretty well with only minor tweaks to the existing
+code.</p>
 
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a></h1>
-<time datetime="2012-01-23T14:39:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>23</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a></h1>
-<time datetime="2012-01-09T14:16:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/05/what-is-gaugette/">What is Gaugette?</a></h1>
-<time datetime="2012-01-05T13:11:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>05</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
-
-
-</article>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Guy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-23T14:39:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/09/initial-results/" title="Previous Post: Initial Results">&laquo; Initial Results</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

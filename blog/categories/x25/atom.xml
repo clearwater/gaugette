@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Gaugette]]></title>
-  <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
+  <title><![CDATA[Category: x25 | Gaugette]]></title>
+  <link href="http://clearwater.github.com/gaugette/blog/categories/x25/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
   <updated>2012-01-23T15:12:29+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
@@ -12,28 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Two Motors, One Arduino]]></title>
-    <link href="http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors/"/>
-    <updated>2012-01-23T14:39:00+10:00</updated>
-    <id>http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors</id>
-    <content type="html"><![CDATA[<p>Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino.  Once concern
-I have is that the control logic that manages the acceleration and
-deceleration could be so slow that it will interfere with the motor
-drive signalling when trying to control more than one motor.<br/>
-I have in mind to replace the
-floating point logic with a lookup table, but for now I like being
-able to easily fiddle with the motion parameters.</p>
-
-<p>It turns out that two motors work pretty well with only minor tweaks to the existing
-code.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Initial Results]]></title>
@@ -46,7 +24,7 @@ code.</p>
 about cooking the motors while soldering, I opted to make up a harness with a connector rather than
 soldering directly to the motor.
 The pins on each winding exactly match the spacing of the first and fourth pins
-of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
+of a standard 0.1" connector.  JST RE connectors are the right pitch, but the pins on the motor are
 too short and too narrow to engage with the connectors.  For my first harness I cut up
 a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
 pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
@@ -86,13 +64,13 @@ and a single arduino can drive multiple motors.</p>
 <a href="http://www.adafruit.com/products/171">motor shield party pack</a> from Adafruit,
 I started thinking it would be fun to have a couple of analog gauges
 mounted on the wall somewhere to show system health indication; maybe network bandwidth or
-web traffice?  Of course I&#8217;ve seen the very beautiful
+web traffice?  Of course I've seen the very beautiful
 <a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
-which just makes me weep, but I don&#8217;t have a beautiful brass antique voltmeter to go that route.</p>
+which just makes me weep, but I don't have a beautiful brass antique voltmeter to go that route.</p>
 
-<p>The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges.  The little stepper they
+<p>The servos and steppers in the Adafruit pack aren't ideal for driving gauges.  The little stepper they
 include runs really hot.  The servo seemed
-like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield.
+like possibility and it is driven by PWM, so I wouldn't even need the motor shield.
 But it is quite bulky and noisy, so I started looking for something better.</p>
 
 <h2>The Switec X25 Stepper Motor</h2>
@@ -126,7 +104,7 @@ Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quan
 In all it cost about $25 including postage from the US to Australia.
 At the time of writing they carry both the X25.168
 with rear contacts, and the X25.589 with front contacts and a longer indicator shaft.
-Both have internal stops.  See the <a href="http://clearwater.github.com/gaugette/resources/ISM_Buyers_Guide.pdf">buyers guide</a> for details
+Both have internal stops.  See the <a href="/resources/ISM_Buyers_Guide.pdf">buyers guide</a> for details
 on the different models.</p>
 ]]></content>
   </entry>

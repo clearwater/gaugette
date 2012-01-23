@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gaugette</title>
+  <title>What is Gaugette? - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino. Once concern
-I have is that the control logic &hellip;">
+  <meta name="description" content="Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+directly from the Arduino data IO lines. Each motor requires 4 digital &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ I have is that the control logic &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -64,121 +63,12 @@ I have is that the control logic &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-23T14:39:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino.  Once concern
-I have is that the control logic that manages the acceleration and
-deceleration could be so slow that it will interfere with the motor
-drive signalling when trying to control more than one motor.<br/>
-I have in mind to replace the
-floating point logic with a lookup table, but for now I like being
-able to easily fiddle with the motion parameters.</p>
-
-<p>It turns out that two motors work pretty well with only minor tweaks to the existing
-code.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-09T14:16:00+10:00" pubdate data-updated="true">Jan 9<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Wiring It Up</h2>
-
-<p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than
-soldering directly to the motor.
-The pins on each winding exactly match the spacing of the first and fourth pins
-of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
-too short and too narrow to engage with the connectors.  For my first harness I cut up
-a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
-pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
-very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
-
-<p>I wrote some code for the Arduino to step the motor using the IO pattern established
-in <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">this post</a>
-and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
-
-<p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/05/what-is-gaugette/">What Is Gaugette?</a></h1>
+      <h1 class="entry-title">What Is Gaugette?</h1>
     
     
       <p class="meta">
@@ -201,7 +91,7 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
   </header>
 
 
-  <div class="entry-content"><p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+<div class="entry-content"><p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
 directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
 and a single arduino can drive multiple motors.</p>
 
@@ -260,18 +150,59 @@ with rear contacts, and the X25.589 with front contacts and a longer indicator s
 Both have internal stops.  See the <a href="/gaugette/resources/ISM_Buyers_Guide.pdf">buyers guide</a> for details
 on the different models.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Guy</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2012-01-05T13:11:00+10:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/gaugette/blog/categories/arduino/'>arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="/gaugette/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/" >Tweet</a>
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/09/initial-results/" title="next Post: Initial Results">Initial Results &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -300,6 +231,7 @@ on the different models.</p>
 
   
 </aside>
+
 
     </div>
   </div>
