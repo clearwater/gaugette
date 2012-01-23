@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-23T17:43:14+10:00</updated>
+  <updated>2012-01-23T20:26:30+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -53,6 +53,42 @@ but after Swatch
 <a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
 to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
 that website disappeared.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Motor Acceleration and Deceleration]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/"/>
+    <updated>2012-01-15T19:38:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration</id>
+    <content type="html"><![CDATA[<iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
+
+
+<p>My first cut at the <a href="https://github.com/clearwater/gaugette">SwitecX25 library</a>
+stepped the needle at a constant speed.  You can see the constant speed
+motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
+
+<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
+it seems more aesthetically pleasing, and partly because I have a notion that
+I should be able to reach faster peak speeds by ramping the speed up.  Motion is
+now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
+
+<p>For now I&#8217;ve used floating point calculations to compute each step period
+standard newtonian velocity/distance/time
+calculations.  This works okay, but is unnecessarily compute-intensive.</p>
+
+<p>The SwitecX25 library supports multiple motors
+and no doubt this compuation will become a factor when I try to drive more than
+one motor, so I&#8217;ll have to address that at some point.</p>
+
+<p>One interesting aspect of the control logic is that the calculations are done at the start
+of each step, in distance-domain rather than in time domain like most simulations.
+This means the calculations must be done more frequently at higher needle
+speeds.  This is going to set an upper bound on maximum step rate.</p>
+
+<p>When it does become an issue,
+I think I could replace the entire floating point calculation with a small table of pre-computed
+(step-count, step-period) pairs with little perceptible difference.</p>
 ]]></content>
   </entry>
   

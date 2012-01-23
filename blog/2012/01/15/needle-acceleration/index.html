@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>X12 Quad Driver Chip - Gaugette</title>
+  <title>Motor Acceleration and Deceleration - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="The X25 data sheet
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I &hellip;">
+  <meta name="description" content="My first cut at the SwitecX25 library
+stepped the needle at a constant speed. You can see the constant speed
+motion in the original video. I&#8217; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -82,7 +81,7 @@ I &hellip;">
   
   <header>
     
-      <h1 class="entry-title">X12 Quad Driver Chip</h1>
+      <h1 class="entry-title">Motor Acceleration and Deceleration</h1>
     
     
       <p class="meta">
@@ -98,27 +97,41 @@ I &hellip;">
   
 
 
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img alt="Switec X26.168 Stepper Motor" src="/gaugette/resources/X12_Quad_Driver.png" align="right">
-The <a href="/gaugette/resources/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I like the look of these for keeping the I/O count down, and offloading
-a bunch of processing from the Arduino.</p>
+<div class="entry-content"><iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
 
-<p>However I have been unable to find a supplier for X12 quad driver chips.
-It seems that they were available until recently
-from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
-but after Swatch
-<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
-to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
-that website disappeared.</p>
+
+<p>My first cut at the <a href="https://github.com/clearwater/gaugette">SwitecX25 library</a>
+stepped the needle at a constant speed.  You can see the constant speed
+motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
+
+<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
+it seems more aesthetically pleasing, and partly because I have a notion that
+I should be able to reach faster peak speeds by ramping the speed up.  Motion is
+now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
+
+<p>For now I&#8217;ve used floating point calculations to compute each step period
+standard newtonian velocity/distance/time
+calculations.  This works okay, but is unnecessarily compute-intensive.</p>
+
+<p>The SwitecX25 library supports multiple motors
+and no doubt this compuation will become a factor when I try to drive more than
+one motor, so I&#8217;ll have to address that at some point.</p>
+
+<p>One interesting aspect of the control logic is that the calculations are done at the start
+of each step, in distance-domain rather than in time domain like most simulations.
+This means the calculations must be done more frequently at higher needle
+speeds.  This is going to set an upper bound on maximum step rate.</p>
+
+<p>When it does become an issue,
+I think I could replace the entire floating point calculation with a small table of pre-computed
+(step-count, step-period) pairs with little perceptible difference.</p>
 </div>
 
 
@@ -141,7 +154,7 @@ that website disappeared.</p>
   
 
 
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 
@@ -149,7 +162,7 @@ that website disappeared.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/" >Tweet</a>
   
   
   
@@ -158,10 +171,10 @@ that website disappeared.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/15/needle-acceleration/" title="Previous Post: Motor Acceleration and Deceleration">&laquo; Motor Acceleration and Deceleration</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/09/initial-results/" title="Previous Post: Initial Results">&laquo; Initial Results</a>
       
       
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/23/controlling-two-motors/" title="next Post: Two Motors, One Arduino">Two Motors, One Arduino &raquo;</a>
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/" title="next Post: X12 Quad Driver Chip">X12 Quad Driver Chip &raquo;</a>
       
     </p>
   </footer>
