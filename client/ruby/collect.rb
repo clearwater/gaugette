@@ -20,10 +20,16 @@ DB = 'vr0.db'
 @curl.url = URL
 @db = Database.new(DB)
 @gaugette = Gaugette.new("/dev/tty.usbmodem24411")
+[0,1].each do |i|
+  @gaugette.zero(i)
+  @gaugette.accel(i,500, 500)
+  @gaugette.delay(i,400, 800)
+end
 
 last_time = nil
 last_bytes_in = nil
 last_bytes_out = nil
+interval = 2 # polling interval in seconds 
 
 while true
   @curl.http_get
@@ -33,11 +39,12 @@ while true
     bps_in = (bytes_in-last_bytes_in)/delta_time
     bps_out = (bytes_out-last_bytes_out)/delta_time
     #PP.pp [delta_time, bps_in, bps_out]
-    @gaugette.write(bps_in / 100000.0)
+    @gaugette.set(0, bps_in / 100000.0)
+    @gaugette.set(1, bps_out/ 100000.0)
     @db.write(Time.now.to_i, bps_in, bps_out)
   end
   last_time = time
   last_bytes_in = bytes_in
   last_bytes_out = bytes_out
-  sleep 1
+  sleep interval
 end
