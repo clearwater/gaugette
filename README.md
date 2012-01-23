@@ -1,9 +1,14 @@
-Project Page
+Project Blog
 ============
 Full details of this project can be found at [the Gaugette Blog](http://clearwater.github.com/gaugette/).
 
+Gaugette and SwitecX25 library
+==============================
+There are two pieces of code in this repository.  
+
 Using The SwitecX25 Library
-===========================
+---------------------------
+The SwitecX25 library is a general purpose library for integrating with your own Arduino sketches.
 
 ```C++
 #import "SwitecX25.h"
@@ -37,6 +42,12 @@ void loop(void) {
 
 Using Gaugette
 ==============
+Gaugette.ino is an Ardiuno sketch that uses a simple serial
+command language to control one or more X25's.
+The following ruby sample code sends command sequences
+to the attached Arduino from a host computer.  The clients directory includes
+a complete example that showns bandwidth in and out from a pfSense firewall
+on two analog gauges.
 
 ```ruby
 require 'gaugette'
