@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # Exercise the gaugette device
 
 require 'rubygems'

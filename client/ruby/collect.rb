@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # appears we can pull
 # GET /ifstats.php?if=vr0
 # from pfsense without authentication
