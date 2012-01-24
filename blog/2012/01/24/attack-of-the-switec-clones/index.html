@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>X12 Quad Driver Chip - Gaugette</title>
+  <title>Attack of the Switec Clones? - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="The X25 data sheet
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I &hellip;">
+  <meta name="description" content="When my ebay Switec X25.168 motors arrived, they didn&#8217;t look at all like
+the white motors with the &#8220;Switec&#8221; branding that I see in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +82,7 @@ I &hellip;">
   
   <header>
     
-      <h1 class="entry-title">X12 Quad Driver Chip</h1>
+      <h1 class="entry-title">Attack of the Switec Clones?</h1>
     
     
       <p class="meta">
@@ -100,27 +98,35 @@ I &hellip;">
   
 
 
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+<time datetime="2012-01-24T09:29:00+10:00" pubdate data-updated="true">Jan 24<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img alt="Switec X26.168 Stepper Motor" src="/gaugette/resources/X12_Quad_Driver.png" align="right">
-The <a href="/gaugette/resources/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I like the look of these for keeping the I/O count down, and offloading
-a bunch of processing from the Arduino.</p>
+<div class="entry-content"><p><img alt="Switec Clones" src="/gaugette/resources/X25_clone.png" align="right">
+When my ebay Switec X25.168 motors arrived, they didn&#8217;t look at all like
+the white motors with the &#8220;Switec&#8221; branding that I see in all of the pictures
+online.  I finally got around to tracking down what exactly they are.
+They have two identification numbers printed black on black:
+<code>vid29-02p</code> and <code>d11455db</code>.</p>
 
-<p>However I have been unable to find a supplier for X12 quad driver chips.
-It seems that they were available until recently
-from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
-but after Swatch
-<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
-to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
-that website disappeared.</p>
+<p><img alt="Motor Diagram" src="/gaugette/resources/VID29_diagram.png" align="right">
+It turns out that the first number is the model, and these are in reality VID29 series stepper motors
+from <a href="http://www.vid.wellgain.com/product.aspx">Hong Kong VID</a>.  Interestingly their
+<a href="/gaugette/resources/20091026113525_VID29_manual_EN-080606.pdf">data sheet</a>
+includes details of recommended acceleration characteristics to bring the motors
+to full speed without visible and audible jitter.  Cool cool cool.</p>
+
+<p>Armed with that information
+I turned up what appears to be a third manufacturer, <a href="http://www.mcrmotor.com/en/">MCR Motor</a> who
+call this motor the MR1108.  The MCR <a href="/gaugette/resources/2010410104720473.pdf">data sheet</a>
+lists the Switec and VID motors as alternatives.</p>
+
+<p>The ebay seller had these marked unabiguously as Switec motors in their auction.  Maybe VID
+and MCR have licensed the technology from Switec Juken, or maybe VID and MCR are
+just ripping off the designs?</p>
 </div>
 
 
@@ -143,7 +149,7 @@ that website disappeared.</p>
   
 
 
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+<time datetime="2012-01-24T09:29:00+10:00" pubdate data-updated="true">Jan 24<span>th</span>, 2012</time>
       
 
 
@@ -151,7 +157,7 @@ that website disappeared.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" >Tweet</a>
   
   
   
@@ -160,10 +166,8 @@ that website disappeared.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/15/needle-acceleration/" title="Previous Post: Motor Acceleration and Deceleration">&laquo; Motor Acceleration and Deceleration</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/23/controlling-two-motors/" title="Previous Post: Two Motors, One Arduino">&laquo; Two Motors, One Arduino</a>
       
-      
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/23/controlling-two-motors/" title="next Post: Two Motors, One Arduino">Two Motors, One Arduino &raquo;</a>
       
     </p>
   </footer>

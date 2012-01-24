@@ -4,7 +4,7 @@
   <title><![CDATA[Category: x25 | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/x25/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-24T09:18:45+10:00</updated>
+  <updated>2012-01-24T10:39:54+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -86,7 +86,7 @@ pretty quiet.  Certainly they are cheap; under $5 each!</p>
 
 <p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a
 resolution of 1/3 degree.
-The <a href="X25_xxx_01_SP_E-1.pdf">spec sheet</a>
+The <a href="/resources/X25_xxx_01_SP_E-1.pdf">data sheet</a>
 indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V
 Arduno data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I
 understand the risks associated with wiring inductive loads directly to the microcontroller.  Arduinos are
