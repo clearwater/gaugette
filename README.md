@@ -13,13 +13,11 @@ The SwitecX25 library is a general purpose library for integrating with your own
 ```C++
 #import "SwitecX25.h"
 
-// declare motor1 on pins 8-11
-unsigned char motor1pins[4] = {8,9,10,11};
-SwitecX25 motor1(315 * 3, motor1pins);
+// declare motor1 on pins 4-7
+SwitecX25 motor2(315*3, 4,5,6,7);
 
-// declare motor2 on pins 4-7
-unsigned char motor2pins[4] = {4,5,6,7};
-SwitecX25 motor2(315 * 3, motor2pins);
+// declare motor2 on pins 8-11
+SwitecX25 motor1(315*3, 8,9,10,11);
 
 void setup(void) {
   Serial.begin(9600);

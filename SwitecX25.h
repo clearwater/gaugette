@@ -6,7 +6,7 @@ class SwitecX25
  public:
    static const unsigned char pinCount = 4;
    static const unsigned char stateCount = 6;
-   unsigned char *pins;
+   unsigned char pins[pinCount];
    unsigned char currentState;
    unsigned int currentStep;
    unsigned int targetStep;
@@ -24,7 +24,7 @@ class SwitecX25
    float velMax;
    float dt;
    
-   SwitecX25(unsigned int steps, unsigned char pins[4]);
+   SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4);
    void setSpeed(float minStepsPerSec, float maxStepsPerSec);
    void setDelay(int minMicroSec, int maxMicroSec);
    void setAccel(float accelStepsPerSecPerSec, float decelStepsPerSecPerSec);

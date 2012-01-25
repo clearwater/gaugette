@@ -2,11 +2,14 @@
 
 #include "SwitecX25.h"
 
-SwitecX25::SwitecX25(unsigned int steps, unsigned char pins[4])
+SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4)
 {
   this->currentState = 0;
   this->steps = steps;
-  this->pins = pins;
+  this->pins[0] = pin1;
+  this->pins[1] = pin2;
+  this->pins[2] = pin3;
+  this->pins[3] = pin4;
   for (int i=0;i<pinCount;i++) {
     pinMode(pins[i], OUTPUT);
   }

@@ -10,11 +10,8 @@ Command cmd;
 // 1/3 degree per step
 // 315 degrees full-scale-deflection
 
-unsigned char motor1pins[4] = {8,9,10,11};
-SwitecX25 motor1(315 * 3, motor1pins);
-
-unsigned char motor2pins[4] = {4,5,6,7};
-SwitecX25 motor2(315 * 3, motor2pins);
+SwitecX25 motor1(315 * 3, 8, 9, 10, 11);
+SwitecX25 motor2(315 * 3, 4,5,6,7);
 
 void setup(void) {
   Serial.begin(9600);
