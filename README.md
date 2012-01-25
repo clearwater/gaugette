@@ -6,9 +6,9 @@ Gaugette and SwitecX25 library
 ==============================
 There are two pieces of code in this repository.  
 
-Using The SwitecX25 Library
----------------------------
-The SwitecX25 library is a general purpose library for integrating with your own Arduino sketches.
+The SwitecX25 Library
+---------------------
+The SwitecX25 library is a general purpose library for integrating into Arduino sketches.
 
 ```C++
 #import "SwitecX25.h"
@@ -38,8 +38,8 @@ void loop(void) {
 
 ```
 
-Using Gaugette
-==============
+Gaugette
+--------
 Gaugette.ino is an Ardiuno sketch that uses a simple serial
 command language to control one or more X25's.
 The following ruby sample code sends command sequences
