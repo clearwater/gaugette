@@ -12,17 +12,11 @@ class SwitecX25
    unsigned int targetStep;
    unsigned int steps;
    unsigned long time0;  // time when we entered this state
-   boolean stopped;
    unsigned int microDelay;
-   unsigned int minMicroDelay;
-   unsigned int maxMicroDelay;
-   // REVISIT - with care this could all be done in integer arithmetic
-   float vel;      // steps per sec
-   float accel;  // steps per sec per sec
-   float decel; // steps per sec per sec
-   float velMin;
-   float velMax;
-   float dt;
+   unsigned int maxVel;
+   unsigned int vel;  // velocity surrogate (measured in steps of accel)
+   char dir;  // direction -1,0,1  
+   boolean stopped;
    
    SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4);
    void setSpeed(float minStepsPerSec, float maxStepsPerSec);

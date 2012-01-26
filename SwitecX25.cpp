@@ -2,6 +2,16 @@
 
 #include "SwitecX25.h"
 
+// This table defines the acceleration curve.
+// 1st value is the speed step, 2nd value is delay in microseconds
+// 1st value in each row must be > 1st value in subsequent row
+// 1st value in last row should be == maxVel, must be <= maxVel
+unsigned short accelTable[][2] = {
+  {   50, 4000}, // v, uDelay
+  {  100, 2000},
+  {  500, 1000}
+};
+
 SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4)
 {
   this->currentState = 0;
@@ -13,24 +23,15 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
   for (int i=0;i<pinCount;i++) {
     pinMode(pins[i], OUTPUT);
   }
-  microDelay = 0; // microseconds
+  
+  dir = 0;
+  vel = 0; 
+  stopped = true;
   currentStep = 0;
   targetStep = 0;
-  vel = 0.0f;      // steps per sec
-  dt = 0.0f;
-  stopped = true;
-
-  // these are configurable at runtime
-  minMicroDelay = 600;    // fast limit
-  maxMicroDelay = 5000;  // slow limit
-  accel = 4000.0f;  // steps per sec per sec
-  decel = 2000.0f; // steps per sec per sec
-  
-  // min and max vel in steps per second for given micro delay
-  velMin = 1000000.0f/(float)maxMicroDelay;
-  velMax = 1000000.0f/(float)minMicroDelay;
+  maxVel = 500;
 }
-
+/*
 void SwitecX25::setSpeed(float minStepsPerSec, float maxStepsPerSec)
 {
   velMin = minStepsPerSec;
@@ -52,7 +53,7 @@ void SwitecX25::setAccel(float accelStepsPerSecPerSec, float decelStepsPerSecPer
   accel = accelStepsPerSecPerSec;
   decel = decelStepsPerSecPerSec;
 }
-
+*/
 void SwitecX25::writeIO()
 {
   // State  3 2 1 0   Value
@@ -101,7 +102,8 @@ void SwitecX25::zero()
   }
   currentStep = 0;
   targetStep = 0;
-  stopped = true;
+  vel = 0;
+  dir = 0;
 }
 
 
@@ -125,66 +127,63 @@ void SwitecX25::advance()
 {
   time0 = micros();
   
-  boolean fwd = targetStep > currentStep;
-  if (targetStep == currentStep) {
+  // detect stopped state
+  if (currentStep==targetStep && vel==0) {
     stopped = true;
-    microDelay = 0;
+    dir = 0;
     return;
   }
-
-  if (microDelay == 0) {
-    vel = fwd ? velMin : -velMin;    
-    stopped = false;
-  } else {
-    // accel towards the target
-    float a = fwd ? accel : -accel;
-   
-    // determine if we should start breaking
-    //Serial.print(vel);
-
-    float d = (float)targetStep - (float)currentStep;  // how many steps to travel
-    //Serial.print(" d=");
-    //Serial.print(d);
-    //Serial.print(" v=");
-    //Serial.print(vel);
-    if (d * vel > 0) { // signs are same, so travelling towards target
-      float requiredDec = vel / d * vel / 2; // decel required to stop      
-      //Serial.print(" r=");
-      //Serial.println(requiredDec);
-      if (fabs(requiredDec) >= decel) {
-        a = -requiredDec;
-        //Serial.print(" brakes");
-      }
-    }
-    //Serial.print(" a=");
-    //Serial.println(a);
-    vel = vel + a * dt;
-    if (vel>velMax) vel=velMax;
-    if (vel<-velMax) vel=-velMax;
-  }
-  dt = 1.0f / fabs(vel);  // time for 1 step at vel
   
-  microDelay = dt * 1000000.0f;
+  // if stopped, determine direction, start moving, quit
+  if (vel==0) {
+    dir = currentStep<targetStep ? 1 : -1;
+    vel = 1;
+    return;
+  }
+  
+  if (dir>0) {
+    stepUp();
+  } else {
+    stepDown();
+  }
+  
+  // determine delta, number of steps in current direction to target.
+  // may be negative if we are headed away from target
+  int delta = dir>0 ? targetStep-currentStep : currentStep-targetStep;
+  
+  if (delta>0) {
+    // case 1 : moving towards target (maybe under accel or decel)
+    if (delta <= vel) { // time to declerate
+      //Serial.println("decel");
+      vel--;
+    } else if (vel < maxVel) {
+      //Serial.println("accel");
+      vel++;
+    } else {
+      //Serial.println("top speed");
+      // at full speed - stay there
+    }
+  } else {
+    // case 2 : at or moving away from target (slow down!)
+    vel--;
+  }
+    
+  // vel now defines delay
+  unsigned char i = 0;
+  // this is why vel must not be greater than the last vel in the table.
+  while (accelTable[i][0]<vel) {
+    i++;
+  }
+  microDelay = accelTable[i][1];
   //Serial.print(vel);
   //Serial.print(" ");
   //Serial.println(microDelay);
-  if (microDelay < minMicroDelay) microDelay = minMicroDelay;
-  if (microDelay > maxMicroDelay) microDelay = maxMicroDelay; 
-
-  if (vel > 0) {
-    stepUp();
-  } else if (vel < 0) {
-    stepDown();
-  } else {
-    microDelay = 0; // signal to self that it was stopped 
-    stopped = true;
-  }
 }
 
 void SwitecX25::setPosition(unsigned int pos)
 {
   if (pos > steps-1) pos = steps-1;
-  targetStep = pos; 
+  targetStep = pos;
   stopped = false;
   //Serial.println(targetStep);
 }

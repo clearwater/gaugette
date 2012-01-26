@@ -34,13 +34,13 @@ void loop(void) {
         motor->setPosition(cmd.value[1]);
         break;
       case 'a':
-        motor->setAccel(cmd.value[1],cmd.value[2]);
+        //motor->setAccel(cmd.value[1],cmd.value[2]);
         break;
       case 'v':
-        motor->setSpeed(cmd.value[1],cmd.value[2]);
+        //motor->setSpeed(cmd.value[1],cmd.value[2]);
         break;
       case 'd':
-        motor->setDelay(cmd.value[1],cmd.value[2]);
+        //motor->setDelay(cmd.value[1],cmd.value[2]);
         break;
     }
   }
