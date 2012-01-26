@@ -10,8 +10,47 @@ require 'pp'
 @gaugette.zero(0)
 @gaugette.zero(1)
 
-# Both motors move in sync
 v = 0
+5.times do |pattern|
+  6.times do |i|
+    @gaugette.set(0,v)
+    t0 = Time.now
+    case pattern
+    when 0:
+        # in sync
+        @gaugette.set(1,v)
+    when 1:
+        # out of sync
+        @gaugette.set(1,1-v)
+    when 2:
+        # lag by .5 sec
+        sleep 0.5
+      @gaugette.set(1,v)
+    when 3:
+        # half amplitude
+        @gaugette.set(1,0.25+v/2.0)
+    when 4:
+        # double time
+        @gaugette.set(1,0.40)
+      sleep 0.25
+        @gaugette.set(1,0.60)
+      sleep 0.25
+        @gaugette.set(1,0.40)
+      sleep 0.25
+        @gaugette.set(1,0.60)
+    end
+    v = 1-v
+    t1 = Time.now
+    sleep 1.0 - (t1-t0)  # 1 second cycles
+  end
+  @gaugette.set(0,0.5)
+  @gaugette.set(1,0.5)
+  sleep 1
+end
+    
+raise 'done'
+  
+# Both motors move in sync
 6.times do |i|
   @gaugette.set(1, v)
   @gaugette.set(0, v)
@@ -50,5 +89,6 @@ end
 @gaugette.set(0, 0.5)
 @gaugette.set(1, 0.5)
 
+0
 
 

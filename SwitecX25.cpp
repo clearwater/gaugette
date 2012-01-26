@@ -7,9 +7,11 @@
 // 1st value in each row must be > 1st value in subsequent row
 // 1st value in last row should be == maxVel, must be <= maxVel
 unsigned short accelTable[][2] = {
-  {   50, 4000}, // v, uDelay
-  {  100, 2000},
-  {  500, 1000}
+  {   10, 5000},
+  {   20, 1500},
+  {  100, 1000},
+  {  150,  800},
+  {  300,  600}
 };
 
 SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4)
@@ -29,7 +31,7 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
   stopped = true;
   currentStep = 0;
   targetStep = 0;
-  maxVel = 500;
+  maxVel = 300;
 }
 /*
 void SwitecX25::setSpeed(float minStepsPerSec, float maxStepsPerSec)
