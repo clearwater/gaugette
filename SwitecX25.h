@@ -19,10 +19,7 @@ class SwitecX25
    boolean stopped;
    
    SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4);
-   void setSpeed(float minStepsPerSec, float maxStepsPerSec);
-   void setDelay(int minMicroSec, int maxMicroSec);
-   void setAccel(float accelStepsPerSecPerSec, float decelStepsPerSecPerSec);
-   
+  
    void stepUp();
    void stepDown();
    void zero();

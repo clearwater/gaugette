@@ -33,29 +33,7 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
   targetStep = 0;
   maxVel = 300;
 }
-/*
-void SwitecX25::setSpeed(float minStepsPerSec, float maxStepsPerSec)
-{
-  velMin = minStepsPerSec;
-  velMax = maxStepsPerSec;
-  maxMicroDelay = 1000000.0f / minStepsPerSec;
-  minMicroDelay = 1000000.0f / maxStepsPerSec;
-}
 
-void SwitecX25::setDelay(int minMicroSec, int maxMicroSec)
-{
-  minMicroDelay = minMicroSec;
-  maxMicroDelay = maxMicroSec;
-  velMin = 1000000.0f / (float)maxMicroDelay;
-  velMax = 1000000.0f / (float)minMicroDelay;
-}
-
-void SwitecX25::setAccel(float accelStepsPerSecPerSec, float decelStepsPerSecPerSec)
-{
-  accel = accelStepsPerSecPerSec;
-  decel = decelStepsPerSecPerSec;
-}
-*/
 void SwitecX25::writeIO()
 {
   // State  3 2 1 0   Value
@@ -108,23 +86,10 @@ void SwitecX25::zero()
   dir = 0;
 }
 
-
-// decel:
-// know v
-// know d
-// v = d / t
-// d = t * v
-// t = d / v
-// v2 = v1 + a.t
-// v2 = 0
-// 0 = v + a.t
-// v = a.t
-// a = v / t
-
-// start to stop from v in d takes time st = d / v/2 = 2d / v 
-// decel rate is v / st = v / (2d / v) = 1 / 2d 
-
-
+// Called each time the motor needs to step.
+// Determines the direction of the step and the
+// delay until the next step.  Keep it fast,
+// this gets called frequently.
 void SwitecX25::advance()
 {
   time0 = micros();
@@ -136,11 +101,9 @@ void SwitecX25::advance()
     return;
   }
   
-  // if stopped, determine direction, start moving, quit
+  // if stopped, determine direction
   if (vel==0) {
     dir = currentStep<targetStep ? 1 : -1;
-    vel = 1;
-    return;
   }
   
   if (dir>0) {
@@ -155,14 +118,13 @@ void SwitecX25::advance()
   
   if (delta>0) {
     // case 1 : moving towards target (maybe under accel or decel)
-    if (delta <= vel) { // time to declerate
-      //Serial.println("decel");
+    if (delta < vel) {
+      // time to declerate
       vel--;
     } else if (vel < maxVel) {
-      //Serial.println("accel");
+      // accelerating
       vel++;
     } else {
-      //Serial.println("top speed");
       // at full speed - stay there
     }
   } else {
@@ -177,17 +139,18 @@ void SwitecX25::advance()
     i++;
   }
   microDelay = accelTable[i][1];
-  //Serial.print(vel);
-  //Serial.print(" ");
-  //Serial.println(microDelay);
 }
 
 void SwitecX25::setPosition(unsigned int pos)
 {
   if (pos > steps-1) pos = steps-1;
   targetStep = pos;
-  stopped = false;
-  //Serial.println(targetStep);
+  if (stopped) {
+    // reset the timer to avoid possible time overflow giving spurious deltas
+    stopped = false;
+    time0 = micros();
+    microDelay = 0;
+  }
 }
 
 
