@@ -104,6 +104,7 @@ void SwitecX25::advance()
   // if stopped, determine direction
   if (vel==0) {
     dir = currentStep<targetStep ? 1 : -1;
+    vel = 1; // REVISIT - why cant we leave this 0?
   }
   
   if (dir>0) {
