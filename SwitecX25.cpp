@@ -8,10 +8,13 @@
 // 1st value in last row should be == maxVel, must be <= maxVel
 unsigned short accelTable[][2] = {
   {   10, 5000},
-  {   20, 1500},
+  {   30, 1500},
   {  100, 1000},
   {  150,  800},
   {  300,  600}
+  // experimentation suggests that 400uS is about the step limit 
+  // with my hand-made needles made by cutting up aluminium from
+  // floppy disk sliders.  A lighter needle will go faster.
 };
 
 SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4)
@@ -86,10 +89,21 @@ void SwitecX25::zero()
   dir = 0;
 }
 
-// Called each time the motor needs to step.
-// Determines the direction of the step and the
-// delay until the next step.  Keep it fast,
-// this gets called frequently.
+// This function determines the speed and accel
+// characteristics of the motor.  Ultimately it 
+// steps the motor once (up or down) and computes
+// the delay until the next step.  Because it gets
+// called once per step per motor, the calcuations
+// here need to be as light-weight as possible, so
+// we are avoiding floating-point arithmetic.
+//
+// To model acceleration we maintain vel, which indirectly represents
+// velocity as the number of motor steps travelled under acceleration
+// since starting.  This value is used to look up the corresponding
+// delay in accelTable.  So from a standing start, vel is incremented
+// once each step until it reaches maxVel.  Under deceleration 
+// vel is decremented once each step until it reaches zero.
+
 void SwitecX25::advance()
 {
   time0 = micros();
@@ -104,7 +118,8 @@ void SwitecX25::advance()
   // if stopped, determine direction
   if (vel==0) {
     dir = currentStep<targetStep ? 1 : -1;
-    vel = 1; // REVISIT - why cant we leave this 0?
+    // do not set to 0 or it could go negative in case 2 below
+    vel = 1; 
   }
   
   if (dir>0) {
