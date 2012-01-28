@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-28T20:52:16+10:00</updated>
+  <updated>2012-01-28T20:53:31+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Gauge Build Number One]]></title>
-    <link href="http://clearwater.github.com/gaugette/blog/2012/01/28/thermometer-repurposing/"/>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/"/>
     <updated>2012-01-28T15:56:00+10:00</updated>
-    <id>http://clearwater.github.com/gaugette/blog/2012/01/28/thermometer-repurposing</id>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one</id>
     <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/thermo_original.jpg" align="left" alt="$5 Hygrometer"/>
 This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
 from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
