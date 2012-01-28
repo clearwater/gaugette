@@ -110,56 +110,56 @@ and replaced the thermometer mechanism with the &hellip;">
 This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
 from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
 and replaced the thermometer mechanism with the
-Aruidno-controlled Switec X25.168 stepper.  It turned out relatively easy,
-modulo one wrong turn.</p>
+Aruidno-controlled Switec X25.168 stepper.</p>
 
 <p><img src="/gaugette/resources/thermo_back.jpg" align="right" alt="back removed"/>
-There are no screws or seams on the themometer housing, so it wasn&#8217;t clear how to get into
-it.  I used a dremel to cut away the back panel, which gave me access to the
-themometer mechanism, but to my surprise the face was still firmly secured.  After a bit
-of poking around I discovered that I could push the whole assembly out forward - in fact
-the plastic lens is only held in by friction, and the dial and mechanism are held in by
-the lens.</p>
-
-<p>This turns out to be really important because after careful measurement I realized
-that the motor would have to be mounted snugly against the the back of the housing to
-leave enough drive shaft protruding to attach a needle.
-I had just cut away the nice plastic panel that I would have been ideal to screw the motor to!  Derp.
-I guess that&#8217;s why I bought 4 of these.</p>
+The thermometer and hydrometer are installed
+in identical one-part plastic housings with no screws
+or seams, so it wasn&#8217;t clear how to crack them open.
+I used a dremel to cut away the back panel giving access to the
+themometer mechanism, but to my surprise the dial face was still firmly
+locked in place.  After a bit
+of poking around I discovered that I could push the whole assembly out
+forward - in fact the plastic lens is only held in by friction, and
+the dial and mechanism are held in by the lens.  No cutting was
+required.</p>
 
 <p><img src="/gaugette/resources/thermo_disassembly.jpg" align="left" alt="themometer disassembly"/>
-Starting again with an undamaged housing, I gently pryed out the plastic lens, removed the face and mechanism,
-no cutting required. #LFMF.</p>
+This turned out to be important because after careful measurement I realized
+that the motor would have to be mounted snugly against the the back of the housing to
+leave the drive shaft protruding enough to attach a needle.  The plastic panel I cut away
+would have been ideal to screw the motor to.  #LFMF
+Starting again with an undamaged housing, I gently pryed out the plastic lens, removed the face and mechanism.</p>
 
 <p><img src="/gaugette/resources/thermo_mount.jpg" align="right" alt="mechanism removal"/>
-The needle and the bi-metal thermometer coil come off the face easily enough, but the mounting for the coil
+The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil
 is a crafty two-piece deal that mounts through the centre of the dial.  It appeared to be
 assembled a bit like a rivet, and couple solid blows from the back with a hammer and punch
-released it cleanly from the face.</p>
+released it cleanly from the dial face.</p>
 
 <p><img src="/gaugette/resources/thermo_glued.jpg" align="left" alt="hot glue"/>
 I originally intended to use screws to secure the stepper to the back of the housing, but there isn&#8217;t much tolerance for positional
-error, which made me nervous.  Instead I repurposed part of the rivet-thing to help centre the shaft in the hole in the dial face, and hot-glued the motor to the back of the housing.  Much better solution than screws!</p>
+error, which made me nervous.  Instead I used the conical rivet-thingy to precisely align the motor drive shaft with the hole in the dial, and squirted some hot glue around the motor.  Alignment was spot on the the motor seems to be well secured.  So far so good.</p>
 
-<p>So far so good.  Now put the needle back on, align the internal motor zero stop with zero
-on the dial and figure out calibration.  Sounds easy, but there are some
-issues to consider.  The motor has a sweep of 314 degrees, but this dial only
-allows about 230 degrees of movement.  My library code resets the motor on power up
-by running it first forward 315 degrees, then backward 315 degrees, hitting both of
-the stops.  The far stop isn&#8217;t reachable now, so I changed the library to only run the motor
-backwards 315 degrees to hit the 0 stop.  I also added soft-limits to
-the library to ensure that I never move past 700 steps forward.</p>
+<p>Next I wired up the Arduino and zeroed the motor against the low stop and put the needle on.
+There were some unexpected complications at this point.
+The motor has a sweep of 315 degrees, but this dial only
+allows about 230 degrees of needle movement.  I modified the library to support a
+soft range limit to avoid exceeding 230 degrees.</p>
 
-<p>While trying to calibrate the dial I found the needle slipping a little, aggravated
-by the vibration caused by the power-on reset.  With the needle slipping, calibration was impossible.
-I tried applying the smallest drop of hot glue I could manage to the back of the needle.  That failed
-because even an almost invisible drop would catch on the dial face.  So I removed the needle, cleaned
-off the glue dot and gave it a smack on the hole
-with a hammer; that tightened it up nicely.  It worked so well I had to ream it out a bit with a thumb tack.
-I believe the needle hole is dished a little, so you can tighten it up by flattening it out.</p>
+<p>While trying to calibrate the dial I found the needle slipping at times, especially under
+vibration caused by the power-on reset or slow stepping.<br/>
+With the needle slipping calibration was impossible.
+I tried applying the smallest drop of hot glue I could manage to the back of the needle.  That really didn&#8217;t ork out too well - it created a small irregular mass between the needle and the dial face which would sometimes
+bind against the dial face, causing more problems.</p>
 
-<p>So here&#8217;s how it looks assembled.  I haven&#8217;t quite nailed calibration, but I&#8217;m going to make
-a new dial face anyway, so no need to sweat it.</p>
+<p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away,
+and smacked it with a hammer to flatten out the dish and close up the hole.  That worked
+a little too well and I had to ream the hole out a bit with a thumb tack.  Now the needle
+is nice and snug, no slippage.</p>
+
+<p>So here&#8217;s how it looks assembled.  Calibration is slightly out, but I&#8217;m going to make
+a new dial face anyway, so no need to sweat about that.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/UJKaaRR9W6g" frameborder="0" allowfullscreen></iframe>
 
