@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Well Aint That Shiny! - Gaugette</title>
+  <title>Gauge Build Number One - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across &hellip;">
+  <meta name="description" content="This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
+from Lets Make Time
+and replaced the thermometer mechanism with the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ across &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/28/thermometer-repurposing">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +83,7 @@ across &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Well Aint That Shiny!</h1>
+      <h1 class="entry-title">Gauge Build Number One</h1>
     
     
       <p class="meta">
@@ -100,38 +99,70 @@ across &hellip;">
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-28T15:56:00+10:00" pubdate data-updated="true">Jan 28<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/shiny_things.jpg" alt="Shiny Things" align="right"/>
-I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-here in Australia who carry clock and weather station
-parts at very reasonable prices.
-It&#8217;s always hard to gauge build quality from pictures, so I laid
-down some cash and bought a grab bag of stuff.</p>
+<div class="entry-content"><p><img src="/gaugette/resources/thermo_original.jpg" align="left" alt="$5 Hygrometer"/>
+This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
+from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
+and replaced the thermometer mechanism with the
+Aruidno-controlled Switec X25.168 stepper.</p>
 
-<p>The order arrived and it all looks great.
-It was no surprise to find the rectangular gauges are made from
-plastic and look a bit cheap, but I really love the retro shape
-and they actually don&#8217;t look too bad.  I haven&#8217;t cut one open yet,
-but from the outside everything looks great for my purposes.</p>
+<p><img src="/gaugette/resources/thermo_back.jpg" align="right" alt="back removed"/>
+The thermometer and hydrometer are installed
+in identical one-part plastic housings with no screws
+or seams, so it wasn&#8217;t clear how to crack them open.
+I used a dremel to cut away the back panel giving access to the
+themometer mechanism, but to my surprise the dial face was still firmly
+locked in place.  After a bit
+of poking around I discovered that I could push the whole assembly out
+forward - in fact the plastic lens is only held in by friction, and
+the dial and mechanism are held in by the lens.  No cutting was
+required.</p>
 
-<p>The large lens is glass, with a metal rim, mounted over
-a plastic frame.  I&#8217;m very pleased with it too.</p>
+<p><img src="/gaugette/resources/thermo_disassembly.jpg" align="left" alt="themometer disassembly"/>
+This turned out to be important because after careful measurement I realized
+that the motor would have to be mounted snugly against the the back of the housing to
+leave the drive shaft protruding enough to attach a needle.  The plastic panel I cut away
+would have been ideal to screw the motor to.  #LFMF
+Starting again with an undamaged housing, I gently pryed out the plastic lens, removed the face and mechanism.</p>
 
-<p>The circular thermometers turned out to be the real gem in
-this collection.  The outer ring is metal, and the lens is acrylic
-but well finished and looks beautiful.  The printed dial seems to be made out
-of metal too - maybe aluminium with a gold-coloured foil on both sides.
-As an extra-happy bonus, the needle fits the shaft of the X25s so it
-can be used with no modification.</p>
+<p><img src="/gaugette/resources/thermo_mount.jpg" align="right" alt="mechanism removal"/>
+The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil
+is a crafty two-piece deal that mounts through the centre of the dial.  It appeared to be
+assembled a bit like a rivet, and a couple of solid blows from the back with a punch
+released it cleanly from the dial face.</p>
+
+<p><img src="/gaugette/resources/thermo_glued.jpg" align="left" alt="hot glue"/>
+I originally intended to use screws to secure the stepper to the back of the housing, but there isn&#8217;t much tolerance for positional
+error, which made me nervous.  Instead I used the conical rivet-thingy to precisely align the motor drive shaft with the hole in the dial, and squirted some hot glue around the motor.  Alignment was spot on the the motor seems to be well secured.  So far so good.</p>
+
+<p>Next I wired up the Arduino and zeroed the motor against the low stop and put the needle on.
+There were some unexpected complications at this point.
+The motor has a sweep of 315 degrees, but this dial only
+allows about 230 degrees of needle movement.  I modified the library to support a
+soft range limit to avoid exceeding 230 degrees.</p>
+
+<p>While trying to calibrate the dial I found the needle slipping at times, especially under
+vibration caused by the power-on reset or slow stepping.<br/>
+With the needle slipping calibration was impossible.
+I tried applying the smallest drop of hot glue I could manage to the back of the needle.  That really didn&#8217;t ork out too well - it created a small irregular mass between the needle and the dial face which would sometimes
+bind against the dial face, causing more problems.</p>
+
+<p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away,
+and smacked it with a hammer to flatten out the dish and close up the hole.  That worked
+a little too well and I had to ream the hole out a bit with a thumb tack.  Now the needle
+is nice and snug, no slippage.</p>
+
+<p>So here&#8217;s how it looks assembled.  Calibration is slightly out, but I&#8217;m going to make
+a new dial face anyway, so no need to sweat about that.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/UJKaaRR9W6g" frameborder="0" allowfullscreen></iframe>
+
 </div>
 
 
@@ -154,7 +185,7 @@ can be used with no modification.</p>
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-28T15:56:00+10:00" pubdate data-updated="true">Jan 28<span>th</span>, 2012</time>
       
 
 
@@ -162,7 +193,7 @@ can be used with no modification.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/28/thermometer-repurposing/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/28/thermometer-repurposing/" >Tweet</a>
   
   
   
@@ -171,10 +202,8 @@ can be used with no modification.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" title="Previous Post: Attack of the Switec Clones?">&laquo; Attack of the Switec Clones?</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/28/build-number-one/" title="Previous Post: Gauge Build Number One">&laquo; Gauge Build Number One</a>
       
-      
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/28/build-number-one/" title="next Post: Gauge Build Number One">Gauge Build Number One &raquo;</a>
       
     </p>
   </footer>
