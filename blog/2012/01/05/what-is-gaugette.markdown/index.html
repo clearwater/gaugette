@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Well Ain't That Shiny! - Gaugette</title>
+  <title>What is Gaugette? - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across &hellip;">
+  <meta name="description" content="Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+directly from the Arduino data IO lines. Each motor requires 4 digital &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ across &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +82,7 @@ across &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Well Ain't That Shiny!</h1>
+      <h1 class="entry-title">What Is Gaugette?</h1>
     
     
       <p class="meta">
@@ -100,38 +98,80 @@ across &hellip;">
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-05T13:11:00+10:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/shiny_things.jpg" alt="Shiny Things" align="right"/>
-I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-here in Australia who carry clock and weather station
-parts at very reasonable prices.
-It&#8217;s always hard to gauge build quality from pictures, so I laid
-down some cash and bought a grab bag of stuff.</p>
+<div class="entry-content">Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
+and a single arduino can drive multiple motors.
 
-<p>The order arrived and it all looks great.
-It was no surprise to find the rectangular gauges are made from
-plastic and look a bit cheap, but I really love the retro shape
-and they actually don&#8217;t look too bad.  I haven&#8217;t cut one open yet,
-but from the outside everything looks great for my purposes.</p>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
-<p>The large lens is glass, with a metal rim, mounted over
-a plastic frame.  I&#8217;m very pleased with it too.</p>
+The source code for the library, and some sample client code is available from the
+[GitHub repository](https://github.com/clearwater/gaugette).
 
-<p>The circular thermometers turned out to be the real gem in
-this collection.  The outer ring is metal, and the lens is acrylic
-but well finished and looks beautiful.  The printed dial seems to be made out
-of metal too - maybe aluminium with a gold-coloured foil on both sides.
-As an extra-happy bonus, the needle fits the shaft of the X25s so it
-can be used with no modification.</p>
+Motivation
+&#8212;&#8212;&#8212;-
+
+After playing with the
+[motor shield party pack](http://www.adafruit.com/products/171) from Adafruit,
+I started thinking it would be fun to have a couple of analog gauges
+mounted on the wall somewhere to show system health indication; maybe network bandwidth or
+web traffic? 
+<img alt="TorrentMeter by Skytee" title="TorrentMeter" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" align="right">
+Of course I&#8217;ve seen the very beautiful 
+[TorrentMeter by Skytee](http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/)
+which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply 
+around here.
+
+The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges.  The little stepper they 
+include runs really hot.  The servo seemed
+like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield.
+But it is quite bulky and noisy, so I started looking for something better.
+
+The Switec X25 Stepper Motor
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+
+<img alt="Switec X26.168 Stepper Motor" src="/gaugette/resources/Switec_X25_168.jpg" align="right">
+I noticed a lot of sellers on ebay selling tiny Switec X25
+motors as replacements for GM auto instrument clusters.  They were developed 
+by the technology arm of Swatch, so I figured they should be low power and
+pretty quiet.  Certainly they are cheap; under $5 each!  
+
+The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a
+resolution of 1/3 degree.
+The [data sheet](/resources/switec/X25_xxx_01_SP_E-1.pdf)
+indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V
+Arduno data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I 
+understand the risks associated with wiring inductive loads directly to the microcontroller.  Arduinos are
+cheap, why not try it?
+
+On the net I found an excellent 
+[overview of the Switech X25 by Mike Powell](http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge).
+Mike expresses concerns about driving inductive loads directly from the microcontroller and uses
+an external L293D driver.  There is an intruiging 
+[thread by Toby Catlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
+which approaches the issue of driving these without a controller, but the thread ends abruptly at the point
+where he sees the first signs of success.  What happens next?  Blue smoke?
+
+At the price I figured it was worth a shot driving these directly, 
+so I ordered 6 from  [one of many](http://stores.ebay.com.au/partsangel)
+ebay stores selling them.  Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity.
+In all it cost about $25 including postage from the US to Australia.
+At the time of writing they carry both the X25.168
+with rear contacts, and the X25.589 with front contacts and a longer indicator shaft.
+Both have internal stops.  See the [buyers guide](/resources/switec/ISM_Buyers_Guide.pdf) for details
+on the different models.
+
+
+
+
+
+
 </div>
 
 
@@ -154,15 +194,21 @@ can be used with no modification.</p>
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-05T13:11:00+10:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/gaugette/blog/categories/arduino/'>arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown/" >Tweet</a>
   
   
   
@@ -171,10 +217,10 @@ can be used with no modification.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones.markdown/" title="Previous Post: Attack of the Switec Clones?">&laquo; Attack of the Switec Clones?</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/05/what-is-gaugette/" title="Previous Post: What is Gaugette?">&laquo; What is Gaugette?</a>
       
       
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/26/well-aint-that-shiny.markdown/" title="next Post: Well Aint That Shiny!">Well Aint That Shiny! &raquo;</a>
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/09/initial-results/" title="next Post: Initial Results">Initial Results &raquo;</a>
       
     </p>
   </footer>

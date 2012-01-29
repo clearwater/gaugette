@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Well Ain't That Shiny! - Gaugette</title>
+  <title>Initial Results - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across &hellip;">
+  <meta name="description" content="Wiring It Up
+&#8212;&#8212;&#8212;&#8212; Given the comments by [Toby Catlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
+about &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ across &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +83,7 @@ across &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Well Ain't That Shiny!</h1>
+      <h1 class="entry-title">Initial Results</h1>
     
     
       <p class="meta">
@@ -100,38 +99,37 @@ across &hellip;">
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-09T14:16:00+10:00" pubdate data-updated="true">Jan 9<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/shiny_things.jpg" alt="Shiny Things" align="right"/>
-I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-here in Australia who carry clock and weather station
-parts at very reasonable prices.
-It&#8217;s always hard to gauge build quality from pictures, so I laid
-down some cash and bought a grab bag of stuff.</p>
+<div class="entry-content">Wiring It Up
+&#8212;&#8212;&#8212;&#8212;
 
-<p>The order arrived and it all looks great.
-It was no surprise to find the rectangular gauges are made from
-plastic and look a bit cheap, but I really love the retro shape
-and they actually don&#8217;t look too bad.  I haven&#8217;t cut one open yet,
-but from the outside everything looks great for my purposes.</p>
+Given the comments by [Toby Catlin](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
+about cooking the motors while soldering, I opted to make up a harness with a connector rather than
+soldering directly to the motor.
+The pins on each winding exactly match the spacing of the first and fourth pins
+of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
+too short and too narrow to engage with the connectors.  For my first harness I cut up
+a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
+pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
+very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.
 
-<p>The large lens is glass, with a metal rim, mounted over
-a plastic frame.  I&#8217;m very pleased with it too.</p>
+I wrote some code for the Arduino to step the motor using the IO pattern established
+in [this post](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962)
+and a quick ruby script to query my pfSense firewall to get some live data to test with.
 
-<p>The circular thermometers turned out to be the real gem in
-this collection.  The outer ring is metal, and the lens is acrylic
-but well finished and looks beautiful.  The printed dial seems to be made out
-of metal too - maybe aluminium with a gold-coloured foil on both sides.
-As an extra-happy bonus, the needle fits the shaft of the X25s so it
-can be used with no modification.</p>
+Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
+
+
+
+
 </div>
 
 
@@ -154,15 +152,21 @@ can be used with no modification.</p>
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-09T14:16:00+10:00" pubdate data-updated="true">Jan 9<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/gaugette/blog/categories/arduino/'>arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown/" >Tweet</a>
   
   
   
@@ -171,10 +175,10 @@ can be used with no modification.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones.markdown/" title="Previous Post: Attack of the Switec Clones?">&laquo; Attack of the Switec Clones?</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/09/initial-results/" title="Previous Post: Initial Results">&laquo; Initial Results</a>
       
       
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/26/well-aint-that-shiny.markdown/" title="next Post: Well Aint That Shiny!">Well Aint That Shiny! &raquo;</a>
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/15/needle-acceleration/" title="next Post: Motor Acceleration and Deceleration">Motor Acceleration and Deceleration &raquo;</a>
       
     </p>
   </footer>

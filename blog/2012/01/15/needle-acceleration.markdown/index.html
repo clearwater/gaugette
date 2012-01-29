@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Well Ain't That Shiny! - Gaugette</title>
+  <title>Motor Acceleration and Deceleration - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across &hellip;">
+  <meta name="description" content="My first cut at the [SwitecX25 library](https://github.com/clearwater/gaugette)
+stepped the needle at a constant speed. You can see the constant &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ across &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration.markdown">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +82,7 @@ across &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Well Ain't That Shiny!</h1>
+      <h1 class="entry-title">Motor Acceleration and Deceleration</h1>
     
     
       <p class="meta">
@@ -100,38 +98,40 @@ across &hellip;">
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/shiny_things.jpg" alt="Shiny Things" align="right"/>
-I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-here in Australia who carry clock and weather station
-parts at very reasonable prices.
-It&#8217;s always hard to gauge build quality from pictures, so I laid
-down some cash and bought a grab bag of stuff.</p>
+<div class="entry-content"><iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
 
-<p>The order arrived and it all looks great.
-It was no surprise to find the rectangular gauges are made from
-plastic and look a bit cheap, but I really love the retro shape
-and they actually don&#8217;t look too bad.  I haven&#8217;t cut one open yet,
-but from the outside everything looks great for my purposes.</p>
+My first cut at the [SwitecX25 library](https://github.com/clearwater/gaugette)
+stepped the needle at a constant speed.  You can see the constant speed
+motion in the [original video](http://www.youtube.com/watch?v=vwAxRk_5oXA).
 
-<p>The large lens is glass, with a metal rim, mounted over
-a plastic frame.  I&#8217;m very pleased with it too.</p>
+I&#8217;ve updated the library to support acceleration and deceleration, partly because
+it seems more aesthetically pleasing, and partly because I have a notion that
+I should be able to reach faster peak speeds by ramping the speed up.  Motion is
+now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.
 
-<p>The circular thermometers turned out to be the real gem in
-this collection.  The outer ring is metal, and the lens is acrylic
-but well finished and looks beautiful.  The printed dial seems to be made out
-of metal too - maybe aluminium with a gold-coloured foil on both sides.
-As an extra-happy bonus, the needle fits the shaft of the X25s so it
-can be used with no modification.</p>
+For now I&#8217;ve used floating point calculations to compute each step period
+standard newtonian velocity/distance/time
+calculations.  This works okay, but is unnecessarily compute-intensive.
+
+The SwitecX25 library supports multiple motors
+and no doubt this compuation will become a factor when I try to drive more than
+one motor, so I&#8217;ll have to address that at some point. 
+
+One interesting aspect of the control logic is that the calculations are done at the start
+of each step, in distance-domain rather than in time domain like most simulations.
+This means the calculations must be done more frequently at higher needle
+speeds.  This is going to set an upper bound on maximum step rate.
+
+When it does become an issue, 
+I think I could replace the entire floating point calculation with a small table of pre-computed
+(step-count, step-period) pairs with little perceptible difference.
 </div>
 
 
@@ -154,7 +154,7 @@ can be used with no modification.</p>
   
 
 
-<time datetime="2012-01-26T11:03:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 
@@ -162,7 +162,7 @@ can be used with no modification.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration.markdown/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration.markdown/" >Tweet</a>
   
   
   
@@ -171,10 +171,10 @@ can be used with no modification.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones.markdown/" title="Previous Post: Attack of the Switec Clones?">&laquo; Attack of the Switec Clones?</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/15/needle-acceleration/" title="Previous Post: Motor Acceleration and Deceleration">&laquo; Motor Acceleration and Deceleration</a>
       
       
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/26/well-aint-that-shiny.markdown/" title="next Post: Well Aint That Shiny!">Well Aint That Shiny! &raquo;</a>
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/" title="next Post: X12 Quad Driver Chip">X12 Quad Driver Chip &raquo;</a>
       
     </p>
   </footer>

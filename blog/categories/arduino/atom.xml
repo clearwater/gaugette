@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arduino | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-29T18:09:48+10:00</updated>
+  <updated>2012-01-30T09:33:41+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Initial Results]]></title>
-    <link href="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results/"/>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown/"/>
     <updated>2012-01-09T14:16:00+10:00</updated>
-    <id>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results</id>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown</id>
     <content type="html"><![CDATA[<h2>Wiring It Up</h2>
 
 <p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
@@ -45,9 +45,9 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
   
   <entry>
     <title type="html"><![CDATA[What is Gaugette?]]></title>
-    <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/"/>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown/"/>
     <updated>2012-01-05T13:11:00+10:00</updated>
-    <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
+    <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown</id>
     <content type="html"><![CDATA[<p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
 directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
 and a single arduino can drive multiple motors.</p>
