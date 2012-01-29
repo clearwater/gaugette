@@ -2,31 +2,15 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/</loc>
-        <lastmod>2012-01-30T09:30:03+10:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette.markdown/
-        </loc>
-        <lastmod>2012-01-24T15:31:06+10:00</lastmod>
+        <lastmod>2012-01-30T09:39:18+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results/</loc>
         <lastmod>2012-01-30T09:27:33+10:00</lastmod>
     </url>
     <url>
-        <loc>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results.markdown/</loc>
-        <lastmod>2012-01-23T14:38:02+10:00</lastmod>
-    </url>
-    <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/</loc>
-        <lastmod>2012-01-30T09:28:26+10:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration.markdown/
-        </loc>
-        <lastmod>2012-01-23T20:20:53+10:00</lastmod>
+        <lastmod>2012-01-30T09:38:05+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/</loc>
@@ -38,49 +22,25 @@
     </url>
     <url>
         <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors.markdown/
-        </loc>
-        <lastmod>2012-01-23T15:13:44+10:00</lastmod>
-    </url>
-    <url>
-        <loc>
             http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/
         </loc>
         <lastmod>2012-01-30T09:31:16+10:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones.markdown/
-        </loc>
-        <lastmod>2012-01-29T18:09:30+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/</loc>
         <lastmod>2012-01-30T09:31:40+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny.markdown/
-        </loc>
-        <lastmod>2012-01-26T12:34:56+10:00</lastmod>
-    </url>
-    <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/</loc>
         <lastmod>2012-01-30T09:26:20+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one.markdown/
-        </loc>
-        <lastmod>2012-01-28T21:14:26+10:00</lastmod>
-    </url>
-    <url>
         <loc>http://clearwater.github.com/gaugette/blog/archives/</loc>
-        <lastmod>2012-01-30T09:31:40+10:00</lastmod>
+        <lastmod>2012-01-30T09:39:18+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/</loc>
-        <lastmod>2012-01-30T09:31:40+10:00</lastmod>
+        <lastmod>2012-01-30T09:39:18+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/resources/</loc>
