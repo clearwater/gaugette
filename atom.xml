@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-28T21:14:42+10:00</updated>
+  <updated>2012-01-29T18:09:48+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -137,9 +137,8 @@ I turned up what appears to be a third manufacturer, <a href="http://www.mcrmoto
 call this motor the MR1108.  The MCR <a href="http://clearwater.github.com/gaugette/resources/mcr/2010410104720473.pdf">data sheet</a>
 lists the Switec and VID motors as alternatives.</p>
 
-<p>The ebay seller had these marked unabiguously as Switec motors in their auction.  Maybe VID
-and MCR have licensed the technology from Switec Juken, or maybe VID and MCR are
-just ripping off the designs?</p>
+<p>The ebay seller had these marked unambiguously as X25.168 motors in their auction, but didn&#8217;t
+specifically say they were from Switec.  I wonder if any of the ebay offers are actual Switec motors?</p>
 ]]></content>
   </entry>
   
