@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-01-30T10:45:03+10:00</updated>
+  <updated>2012-01-30T11:35:51+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -119,13 +119,13 @@ can be used with no modification.</p>
     <updated>2012-01-26T09:42:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model</id>
     <content type="html"><![CDATA[<p>The logic in the <code>advance()</code> function of the
-<a href="(https://github.com/clearwater/gaugette">Switec X25 library</a>
+<a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
 steps the motor forward or backward one step, then computes the delay in
 microseconds until the next step is due.  This logic determines the acceleration curve and
 maximum speed of the needle.  My first cut at this
 code used floating point arithmetic to model this as time/accel/velocity problem.  The
 motion was nice and smooth, but it was overkill, and consumes too many precious Arduino
-compute cycles.  When driving multiple motors, I expect this to create an artificial ceiling on the
+compute cycles.  When driving multiple motors, this will create an artificial ceiling on the
 maximum motor speed.</p>
 
 <p>I&#8217;ve rewritten that logic to use a simple lookup table instead.
@@ -146,28 +146,39 @@ and the <a href="http://clearwater.github.com/gaugette/resources/mcr/20104101049
 </code></pre>
 
 
-<p>The values in the first column are the number of steps
-traveled under acceleration which is essentially a surrogate for velocity.
-We maintain a variable <code>vel</code> that increments
-each step under acceleration, and decreases each step under deceleration.
+<p>We maintain a variable <code>vel</code> (which isn&#8217;t actually velocity,
+but is a surrogate for velocity) that increments
+each step under acceleration, and decrements each step under deceleration.
+When stationary, <code>vel</code> is zero.  After 1 step of acceleration it is 1.
 For simplicity I&#8217;ve made the acceleration and deceleration curves identical
 so they can share the same lookup table.</p>
 
-<p>Now to determine the step delay at any given value of <code>vel</code>, we find
+<p>To determine the inter-step delay at any given value of <code>vel</code>, we find
 the first table entry such that <code>accelTable[i][0] &lt; vel</code>.  In practice this means that the
-motor will step at 5000&micro;S intervals for 10 steps, then 1500&micro;S
-steps for the next 20 steps, 1000&micro;S for the next 70 steps, and so on.
-The peak speed with a delay of 600&micro;S correlates to 1666Hz step rate
+motor will step at 5000 &micro;S intervals for 9 steps, then 1500 &micro;S
+steps for the next 20 steps, 1000 &micro;S for the next 70 steps, and so on.
+The peak speed with a delay of 600 &micro;S equates to 1666 Hz step rate
 or about 500 degrees per second.</p>
 
-<p>The acceleration table values are constrained by the
-the inertia of the needle attached to the motor.  The VID 29 data sheet
+<p>The motion control logic first determines if the motor is subject to acceleration,
+at full speed, or deceleration and adjusts <code>vel</code> accordingly.  Using
+steps as the unit for <code>vel</code> makes it very
+easy to determine when to declerate: when <code>vel</code> is greater than or equal to the number of steps
+to reach our destination, we need to start decelerating.</p>
+
+<p>The new logic also ensures that if the motor is moving at
+speed in one direction and is directed to a new position in the opposite direction it will
+decelerate to a stop before accelerating in the opposite direction.</p>
+
+<p>The constants that make up the acceleration table are constrained by the
+the inertia of the needle attached to the motor.  The
+<a href="http://clearwater.github.com/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf">VID 29 documentation</a>
 gives some recommendations for calculating these values, but I actually
-didn&#8217;t use them for the values I&#8217;m using - I experimented until I found
-found values that work and look nice to me.</p>
+didn&#8217;t use that.  I experimented until I
+found values that were within operational limits and look nice to me.</p>
 
 <p>I tested this code driving 3 motors simultaneously with an Arduino Uno.
-It looks good.  New code is in the <a href="https://github.com/clearwater/gaugette">library on Github</a>.</p>
+All good.  New code is in the <a href="https://github.com/clearwater/gaugette">library on Github</a>.</p>
 ]]></content>
   </entry>
   
