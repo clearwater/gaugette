@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gauge Build Number One - Gaugette</title>
+  <title>A Simplified Acceleration Model - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
-from Lets Make Time
-and replaced the thermometer mechanism with the &hellip;">
+  <meta name="description" content="The logic in the advance() function of the Switec X25 library
+steps the motor one step up or down, and computes the delay in
+microseconds until the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@ and replaced the thermometer mechanism with the &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -83,7 +83,7 @@ and replaced the thermometer mechanism with the &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Gauge Build Number One</h1>
+      <h1 class="entry-title">A Simplified Acceleration Model</h1>
     
     
       <p class="meta">
@@ -99,72 +99,62 @@ and replaced the thermometer mechanism with the &hellip;">
   
 
 
-<time datetime="2012-01-28T15:56:00+10:00" pubdate data-updated="true">Jan 28<span>th</span>, 2012</time>
+<time datetime="2012-01-26T09:42:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/thermo_original.jpg" align="left" alt="$5 Hygrometer"/>
-This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
-from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-and replaced the thermometer mechanism with the
-Arduino-controlled Switec X25.168 stepper.</p>
+<div class="entry-content"><p>The logic in the advance() function of the Switec X25 library
+steps the motor one step up or down, and computes the delay in
+microseconds until the next step.  This logic determines the acceleration,
+deceleration and maximum speed of the needle.  My first cut at this
+code used floating point arithmetic to simulate Newtonian physics.  It&#8217;s
+overkill, and consumes too many precious Arduino compute cycles.  When
+driving multiple motors, this could create an artificial ceiling on the
+maximum motor speed.</p>
 
-<p><img src="/gaugette/resources/thermo_back.jpg" align="right" alt="back removed"/>
-The thermometer and hydrometer are installed
-in identical one-part plastic housings with no screws
-or seams, so it wasn&#8217;t clear how to crack them open.
-I used a Dremel to cut away the back panel giving access to the
-thermometer mechanism, but to my surprise the dial face was still firmly
-locked in place.  After a bit
-of poking around I discovered that I could push the whole assembly out
-forward - in fact the plastic lens is only held in by friction, and
-the dial and mechanism are held in by the lens.  No cutting was
-required.  #LFMF</p>
+<p>I&#8217;ve rewritten that logic to use a simple lookup table instead.
+This is a fairly obvious approach, but it was
+reassuring to see similar approaches recommended in both the
+<a href="/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf">VID 29 documentation</a>
+and the <a href="/gaugette/resources/mcr/2010410104915847.pdf">MCR MR1107 data sheet</a>.</p>
 
-<p><img src="/gaugette/resources/thermo_disassembly.jpg" align="left" alt="thermometer disassembly"/>
-This turned out to be important because after careful measurement I realized
-that the motor would have to be mounted snugly against the the back of the housing to
-leave the drive shaft protruding enough to attach a needle.  The plastic panel I cut away
-would have been ideal to screw the motor to.
-Starting again with an undamaged housing, I gently pried out the plastic lens, removed the face and mechanism.
-This time I only cut away enough plastic on the back to allow the drive shaft to pass through.</p>
+<p>The acceleration curve is defined as pairs of vel,delay values:</p>
 
-<p><img src="/gaugette/resources/thermo_mount.jpg" align="right" alt="mechanism removal"/>
-The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil
-is a crafty two-piece deal that mounts through the centre of the dial.  It appeared to be
-assembled a bit like a rivet, and a couple of solid blows from the back with a punch
-released it cleanly from the dial face.</p>
+<pre><code>unsigned short accelTable[][2] = {
+  {   10, 5000},
+  {   30, 1500},
+  {  100, 1000},
+  {  150,  800},
+  {  300,  600}
+};
+</code></pre>
 
-<p><img src="/gaugette/resources/thermo_glued.jpg" align="left" alt="hot glue"/>
-I originally intended to use screws to secure the stepper to the back of the housing, but
-there isn&#8217;t much tolerance for positional
-error, which made me nervous.  Instead I used the conical rivet-thingy to precisely align the motor drive shaft in hole in the dial and held it all in place while I hot-glued it to the back of the case.  Alignment was spot-on the the motor seems to be solidly secured.  So far so good.</p>
 
-<p>Next I wired up the Arduino and zeroed the motor against the low stop and put the needle on.
-There were some unexpected complications at this point.
-The motor has a sweep of 315 degrees, but this dial only
-allows about 230 degrees of needle movement.  I modified the library to support a
-soft range limit to avoid exceeding 230 degrees, while still running through a full 315
-degrees during reset.</p>
+<p>The values in the first column are the number of steps
+traveled under acceleration which is essentially a surrogate for velocity.
+We maintain a variable <code>vel</code> that increments
+each step under acceleration, and decreases each step under deceleration.
+For simplicity I&#8217;ve made the acceleration and deceleration curves identical
+so they can share the same lookup table.</p>
 
-<p>While trying to calibrate the dial I found the needle slipping at times, especially under
-vibration caused by the power-on reset or slow stepping.  With the needle slipping calibration
-was impossible. I tried applying the smallest drop of hot glue I could manage to the back of the needle.  That really didn&#8217;t work - the tiny irregular mass between the needle and the dial face would sometimes
-bind against the dial face, causing more problems.</p>
+<p>Now to determine the step delay at any given value of <code>vel</code>, we find
+the first table entry such that <code>accelTable[i][0] &lt; vel</code>.  In practice this means that the
+motor will step at 5000&micro;S intervals for 10 steps, then 1500&micro;S
+steps for the next 20 steps, 1000&micro;S for the next 70 steps, and so on.
+The peak speed with a delay of 600&micro;S correlates to 1666Hz step rate
+or about 500 degrees per second.</p>
 
-<p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away,
-and smacked it with a hammer to flatten out the dish and close up the hole.  That worked
-a little too well and I had to ream the hole out a bit with a thumb tack.  Now the needle
-is nice and snug, no slippage.</p>
+<p>The acceleration table values are constrained by the
+the inertia of the needle attached to the motor.  The VID 29 data sheet
+gives some recommendations for calculating these values, but I actually
+didn&#8217;t use them for the values I&#8217;m using - I experimented until I found
+found values that work and look nice to me.</p>
 
-<p>So here&#8217;s how it looks assembled.  Calibration is slightly out, but I&#8217;m going to make
-a new dial face anyway, so no need to sweat about that.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/UJKaaRR9W6g" frameborder="0" allowfullscreen></iframe>
-
+<p>The <a href="https://github.com/clearwater/gaugette">library on Github</a> now contains
+the updated logic.</p>
 </div>
 
 
@@ -187,7 +177,7 @@ a new dial face anyway, so no need to sweat about that.</p>
   
 
 
-<time datetime="2012-01-28T15:56:00+10:00" pubdate data-updated="true">Jan 28<span>th</span>, 2012</time>
+<time datetime="2012-01-26T09:42:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
       
 
 
@@ -195,7 +185,7 @@ a new dial face anyway, so no need to sweat about that.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model/" >Tweet</a>
   
   
   
@@ -204,8 +194,10 @@ a new dial face anyway, so no need to sweat about that.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/26/well-aint-that-shiny/" title="Previous Post: Well Ain't That Shiny!">&laquo; Well Ain't That Shiny!</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" title="Previous Post: Attack of the Switec Clones?">&laquo; Attack of the Switec Clones?</a>
       
+      
+        <a class="basic-alignment right" href="/gaugette/blog/2012/01/26/simplified-acceleration-model.markdown/" title="next Post: A Simplified Acceleration Model">A Simplified Acceleration Model &raquo;</a>
       
     </p>
   </footer>
