@@ -7,7 +7,7 @@
 // 1st value in each row must be > 1st value in subsequent row
 // 1st value in last row should be == maxVel, must be <= maxVel
 unsigned short accelTable[][2] = {
-  {   10, 5000},
+  {   10, 2000},
   {   30, 1500},
   {  100, 1000},
   {  150,  800},
@@ -21,6 +21,8 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
 {
   this->currentState = 0;
   this->steps = steps;
+  this->minStep = 0;
+  this->maxStep = steps-1; // inclusive range
   this->pins[0] = pin1;
   this->pins[1] = pin2;
   this->pins[2] = pin3;
@@ -34,7 +36,7 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
   stopped = true;
   currentStep = 0;
   targetStep = 0;
-  maxVel = 300;
+  maxVel = 150;
 }
 
 void SwitecX25::writeIO()
@@ -57,7 +59,7 @@ void SwitecX25::writeIO()
 
 void SwitecX25::stepUp()
 {
-  if (currentStep < steps-1) {
+  if (currentStep < steps) {
     currentStep++;
     currentState = (currentState + 1) % stateCount;
     writeIO();
@@ -65,7 +67,7 @@ void SwitecX25::stepUp()
 }
 
 void SwitecX25::stepDown()
-{
+{ 
   if (currentStep > 0) {
     currentStep--;
     currentState = (currentState + 5) % stateCount;
@@ -75,13 +77,10 @@ void SwitecX25::stepDown()
 
 void SwitecX25::zero()
 {
-  for (unsigned int i=0;i<steps;i++) {
-    stepUp();
-    delayMicroseconds(800);
-  }
+  currentStep = steps - 1;
   for (unsigned int i=0;i<steps;i++) {
     stepDown();
-    delayMicroseconds(800);    
+    delayMicroseconds(800);
   }
   currentStep = 0;
   targetStep = 0;
@@ -159,7 +158,8 @@ void SwitecX25::advance()
 
 void SwitecX25::setPosition(unsigned int pos)
 {
-  if (pos > steps-1) pos = steps-1;
+  if (pos > maxStep) pos = maxStep;
+  if (pos < minStep) pos = minStep;
   targetStep = pos;
   if (stopped) {
     // reset the timer to avoid possible time overflow giving spurious deltas
@@ -169,6 +169,13 @@ void SwitecX25::setPosition(unsigned int pos)
   }
 }
 
+void SwitecX25::setRange(unsigned int low, unsigned int high)
+{
+  minStep = low;
+  maxStep = high;
+  if (targetStep<low) setPosition(low);
+  if (targetStep>high) setPosition(high);
+}
 
 void SwitecX25::update()
 {

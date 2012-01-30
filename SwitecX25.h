@@ -11,6 +11,8 @@ class SwitecX25
    unsigned int currentStep;
    unsigned int targetStep;
    unsigned int steps;
+   unsigned int minStep;
+   unsigned int maxStep; // highest value we will step to
    unsigned long time0;  // time when we entered this state
    unsigned int microDelay;
    unsigned int maxVel;
@@ -23,9 +25,9 @@ class SwitecX25
    void stepUp();
    void stepDown();
    void zero();
-   void setPosition(unsigned int pos);
    void update();
-  
+   void setPosition(unsigned int pos);
+   void setRange(unsigned int low, unsigned int high);  
   
  private:
    void advance();

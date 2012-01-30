@@ -1,3 +1,17 @@
+Calibration of relief themometer:
+
+-15C is step 0
+ 50C is step 700
+ 55C is FSD
+
+65C is 700 steps
+70C is 700 x 70/65 = 753 steps
+
+
+
+----------------------------------------------------------------------
+
+
 Pin 8   Brown  1  TR viewed from back
 Pin 9	Orange 2  BR
 Pin 10	Blue   3  BL

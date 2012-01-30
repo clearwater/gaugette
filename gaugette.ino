@@ -10,10 +10,9 @@ Command cmd;
 // 1/3 degree per step of needle
 // 315 degrees full-scale-deflection of needle
 
-SwitecX25 motor3(315 * 3, 2, 3, 12, 13);
-SwitecX25 motor1(315 * 3, 8, 9, 10, 11);
-SwitecX25 motor2(315 * 3, 4, 5, 6, 7);
-SwitecX25 *motors[] = {&motor1,&motor2,&motor3};
+SwitecX25 motor1(233 * 3, 8, 9, 10, 11);
+SwitecX25 motor2(233 * 3, 4, 5, 6, 7);
+SwitecX25 *motors[] = {&motor1,&motor2};
 const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 
 void zero()
@@ -51,7 +50,6 @@ void setup(void) {
 void loop(void) {
   motor1.update();
   motor2.update();
-  motor3.update();
   if (cmd.parseInput()) {
     //cmd.dump();
     if (cmd.address[1]<motorCount) {
@@ -62,6 +60,9 @@ void loop(void) {
           break;
         case 's':
           motor->setPosition(cmd.value[1]);
+          break;
+        case 'r':
+          motor->setRange(cmd.value[1],cmd.value[2]);
           break;
       }
     }
