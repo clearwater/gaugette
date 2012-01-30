@@ -240,90 +240,6 @@ can be used with no modification.</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/26/simplified-acceleration-model.markdown/">A Simplified Acceleration Model</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-26T09:42:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">The logic in the advance() function of the Switech X25 library
-steps the motor one step up or down, and computes the delay in 
-microseconds until the next step.  This logic determines the acceleration,
-deceleration and maximum speed of the needle.  My first cut at this
-code used floating point arithmetic to simulate Newtonian physics.  It&#8217;s
-overkill, and consumes too many precious Arduino compute cycles.  When
-driving multiple motors, this could create an artificial ceiling on the
-maximum motor speed.
-
-I&#8217;ve rewritten that logic to use a simple lookup table instead.
-This is a fairly obvious approach, but it was
-reassuring to see similar approaches recommended in both the
-[VID 29 documentation](/resources/vid/2009111395111_Acceleration_&_reset_calculation_example.pdf)
-and the [MCR MR1107 data sheet](/resources/mcr/2010410104915847.pdf).
-
-The acceleration curve is defined as pairs of vel,delay values:
-
-<pre><code>unsigned short accelTable[][2] = {
-  {   10, 5000},
-  {   30, 1500},
-  {  100, 1000},
-  {  150,  800},
-  {  300,  600}
-};
-</code></pre>
-
-The values in the first column are the number of steps
-travelled under acceleration which is essentially a surrogate for velocity.
-We maintain a variable &#8220;`vel&#8220;` that increments 
-each step under acceleration, and decreases each step under decleration.
-For simplicity I&#8217;ve made the acceleration and deceleration curves identical
-so they can share the same lookup table.
-
-Now to determine the step delay at any given value of &#8220;`vel&#8220;`, we find 
-the first table entry such that &#8220;`accelTable[i][0] < vel&#8220;`.  In practice this means that the
-motor will step at 5000&micro;S intervals for 10 steps, then 1500&micro;S 
-steps for the next 20 steps, 1000&micro;S for the next 70 steps, and so on.
-The peak speed with a delay of 600&micro;S correlates to 1666Hz step rate
-or about 500 degrees per second.
-
-The acceleration table values are constrained by the 
-the inertia of the needle attached to the motor.  The VID 29 data sheet
-gives some recommendations for calculating these values, but I actually
-didn&#8217;t use them for the values I&#8217;m using - I experimented until I found
-found values that work and look nice to me.
-
-The [library on Github](https://github.com/clearwater/gaugette) now contains
-the updated logic.
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/gaugette/blog/2012/01/26/simplified-acceleration-model/">A Simplified Acceleration Model</a></h1>
     
     
@@ -789,10 +705,6 @@ on the different models.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/26/well-aint-that-shiny/">Well Ain&#8217;t That Shiny!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/26/simplified-acceleration-model.markdown/">A Simplified Acceleration Model</a>
       </li>
     
       <li class="post">
