@@ -7,8 +7,8 @@
 // 1st value in each row must be > 1st value in subsequent row
 // 1st value in last row should be == maxVel, must be <= maxVel
 unsigned short accelTable[][2] = {
-  {   10, 2000},
-  {   30, 1500},
+  {   20, 3000},
+  {   50, 1500},
   {  100, 1000},
   {  150,  800},
   {  300,  600}
