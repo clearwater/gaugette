@@ -1,6 +1,7 @@
 #import "Command.h"
 #import "SwitecX25.h"
 #import "RotaryEncoder.h"
+#import "IntRotaryEncoder.h"
 
 Command cmd;
 
@@ -14,7 +15,9 @@ SwitecX25 motor2(233 * 3, 4, 5, 6, 7);
 SwitecX25 *motors[] = {&motor1,&motor2};
 const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 
-RotaryEncoder encoder(14,15);
+//RotaryEncoder encoder(2,3);
+IntRotaryEncoder encoder;
+
 
 void zero()
 {
@@ -50,7 +53,14 @@ void setup(void) {
 
 void loop(void) {
   {
-    char delta = encoder.read();
+    static int n = 0;
+    int delta = encoder.read();
+    if (delta!=0) {
+      n += delta;
+      Serial.print(delta);
+      Serial.print(" ");
+      Serial.println(n);
+    }
     int pos = motor2.targetStep + delta;
     if (pos<0) pos=motor2.steps-1;
     if (pos>=motor2.steps) pos=0;

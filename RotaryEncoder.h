@@ -38,7 +38,7 @@ class RotaryEncoder
     unsigned char pin2;
   
     RotaryEncoder(unsigned char pin1, unsigned char pin2);
-    char read();
+    int read();
 };
 
 #endif
