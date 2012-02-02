@@ -25,9 +25,9 @@ static void intRotaryEncoderISR()
   lastData = data;
   
   if (trigger == 0x1) { // pin0 changed
-    _pos1 += ((data & 1) ^ data>>1) ? -1 : 1;
+    _pos1 += ((data & 1) ^ data>>1) ? 1 : -1;
   } else if (trigger == 0x2) { // pin1 changed
-    _pos2 += ((data & 1) ^ data>>1) ? 1 : -1;  
+    _pos2 += ((data & 1) ^ data>>1) ? -1 : 1;  
   }
 }
   
