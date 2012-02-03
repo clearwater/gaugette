@@ -2,27 +2,40 @@
 
 #include "SwitecX25.h"
 
+// During zeroing we will step the motor CCW 
+// with a fixed step period defined by RESET_STEP_MICROSEC
+#define RESET_STEP_MICROSEC 800
+
 // This table defines the acceleration curve.
 // 1st value is the speed step, 2nd value is delay in microseconds
 // 1st value in each row must be > 1st value in subsequent row
 // 1st value in last row should be == maxVel, must be <= maxVel
-unsigned short accelTable[][2] = {
+static unsigned short defaultAccelTable[][2] = {
   {   20, 3000},
   {   50, 1500},
   {  100, 1000},
   {  150,  800},
   {  300,  600}
-  // experimentation suggests that 400uS is about the step limit 
-  // with my hand-made needles made by cutting up aluminium from
-  // floppy disk sliders.  A lighter needle will go faster.
 };
+#define DEFAULT_ACCEL_TABLE_SIZE (sizeof(defaultAccelTable)/sizeof(*defaultAccelTable))
+
+// experimentation suggests that 400uS is about the step limit 
+// with my hand-made needles made by cutting up aluminium from
+// floppy disk sliders.  A lighter needle will go faster.
+  
+// State  3 2 1 0   Value
+// 0      1 0 0 1   0x9
+// 1      0 0 0 1   0x1
+// 2      0 1 1 1   0x7
+// 3      0 1 1 0   0x6
+// 4      1 1 1 0   0xE
+// 5      1 0 0 0   0x8
+static byte stateMap[] = {0x9, 0x1, 0x7, 0x6, 0xE, 0x8};
 
 SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2, unsigned char pin3, unsigned char pin4)
 {
   this->currentState = 0;
   this->steps = steps;
-  this->minStep = 0;
-  this->maxStep = steps-1; // inclusive range
   this->pins[0] = pin1;
   this->pins[1] = pin2;
   this->pins[2] = pin3;
@@ -36,19 +49,14 @@ SwitecX25::SwitecX25(unsigned int steps, unsigned char pin1, unsigned char pin2,
   stopped = true;
   currentStep = 0;
   targetStep = 0;
-  maxVel = 150;
+
+  accelTable = defaultAccelTable;
+  maxVel = defaultAccelTable[DEFAULT_ACCEL_TABLE_SIZE-1][0]; // last value in table.
+  Serial.println(DEFAULT_ACCEL_TABLE_SIZE);
 }
 
 void SwitecX25::writeIO()
 {
-  // State  3 2 1 0   Value
-  // 0      1 0 0 1   0x9
-  // 1      0 0 0 1   0x1
-  // 2      0 1 1 1   0x7
-  // 3      0 1 1 0   0x6
-  // 4      1 1 1 0   0xE
-  // 5      1 0 0 0   0x8
-  static byte stateMap[] = {0x9, 0x1, 0x7, 0x6, 0xE, 0x8};
 
   byte mask = stateMap[currentState];  
   for (int i=0;i<pinCount;i++) {
@@ -80,7 +88,7 @@ void SwitecX25::zero()
   currentStep = steps - 1;
   for (unsigned int i=0;i<steps;i++) {
     stepDown();
-    delayMicroseconds(800);
+    delayMicroseconds(RESET_STEP_MICROSEC);
   }
   currentStep = 0;
   targetStep = 0;
@@ -158,8 +166,8 @@ void SwitecX25::advance()
 
 void SwitecX25::setPosition(unsigned int pos)
 {
-  if (pos > maxStep) pos = maxStep;
-  if (pos < minStep) pos = minStep;
+  // pos is unsigned so don't need to check for <0
+  if (pos >= steps) pos = steps-1;
   targetStep = pos;
   if (stopped) {
     // reset the timer to avoid possible time overflow giving spurious deltas
@@ -167,14 +175,6 @@ void SwitecX25::setPosition(unsigned int pos)
     time0 = micros();
     microDelay = 0;
   }
-}
-
-void SwitecX25::setRange(unsigned int low, unsigned int high)
-{
-  minStep = low;
-  maxStep = high;
-  if (targetStep<low) setPosition(low);
-  if (targetStep>high) setPosition(high);
 }
 
 void SwitecX25::update()

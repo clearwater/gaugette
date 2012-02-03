@@ -18,37 +18,28 @@ const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 //RotaryEncoder encoder(2,3);
 IntRotaryEncoder encoder;
 
-
 void zero()
 {
   for (int i=0;i<motorCount;i++) {
-    SwitecX25 *motor = motors[i];
-    motor->currentStep = motor->steps-1;
-    motor->targetStep = 0;
-    motor->vel = 0;
-    motor->dir = 0;
-  }
-  
-  boolean done = false;
-  while (!done) {
-    done = true;
-    for (int i=0;i<motorCount;i++) {
-      SwitecX25 *motor = motors[i];
-      if (motor->currentStep>0) {
-        motor->stepDown();
-        done = false;
-      }
-    }
-    delayMicroseconds(600);        
+    motors[i]->zero();
   }
 }
 
 void setup(void) {
   Serial.begin(9600);
   Serial.print(motorCount);
-  Serial.print(" motors. ");
+  Serial.print(" motors. ");    
   Serial.println("Go!");
   zero();
+  
+  // excercise the code to override the acceleration table.
+  static unsigned short accelTable[][2] = {
+    {   20, 3000},
+    {  100, 1000},
+    {  300,  600}
+  };
+  motor2.accelTable = accelTable;
+  motor2.maxVel = accelTable[3-1][0];
 }
 
 void loop(void) {
@@ -78,9 +69,6 @@ void loop(void) {
           break;
         case 's':
           motor->setPosition(cmd.value[1]);
-          break;
-        case 'r':
-          motor->setRange(cmd.value[1],cmd.value[2]);
           break;
       }
     }
