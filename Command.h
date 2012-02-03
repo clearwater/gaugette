@@ -1,8 +1,7 @@
-
 #ifndef Command_h
 #define Command_h
-
 #include <Arduino.h>
+
 #define COMMAND_TUPLE_LEN 3
 typedef unsigned int value_t;
 
