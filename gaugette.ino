@@ -1,7 +1,8 @@
-#import "Command.h"
-#import "SwitecX25.h"
-#import "RotaryEncoder.h"
-#import "IntRotaryEncoder.h"
+#include <SwitecX25.h>
+
+#include "Command.h"
+#include "RotaryEncoder.h"
+#include "IntRotaryEncoder.h"
 
 Command cmd;
 
