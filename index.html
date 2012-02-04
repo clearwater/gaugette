@@ -9,9 +9,9 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
-from Lets Make Time
-and replaced the thermometer mechanism with the &hellip;">
+  <meta name="description" content="I&#8217;ve moved the Switec X25 motor driver code into a separate
+library repository on GitHub. This should make it easier to use
+the driver &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +80,55 @@ and replaced the thermometer mechanism with the &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/02/04/source-code-cleanup/">Source Code Cleanup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-04T11:38:00+10:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve moved the Switec X25 motor driver code into a separate
+library repository on GitHub.  This should make it easier to use
+the driver libraries in other applications.</p>
+
+<h2><a href="https://github.com/clearwater/SwitecX25">SwitecX25 Library</a></h2>
+
+<p>This contains only the Switec X25 driver and I will add some simple example code there.</p>
+
+<h2><a href="https://github.com/clearwater/gaugette">Gaugette</a> </h2>
+
+<p>This is an arduino application that controls analog
+gauges by interpreting commands received over the serial interface.
+To compile Gaugette you will now need to add the SwitecX25 library
+to your Arduino libraries folder.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -710,6 +759,10 @@ on the different models.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/04/source-code-cleanup/">Source Code Cleanup</a>
+      </li>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/28/build-number-one/">Gauge Build Number One</a>

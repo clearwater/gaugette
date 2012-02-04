@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-03T11:45:58+10:00</updated>
+  <updated>2012-02-04T12:11:59+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Source Code Cleanup]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/"/>
+    <updated>2012-02-04T11:38:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve moved the Switec X25 motor driver code into a separate
+library repository on GitHub.  This should make it easier to use
+the driver libraries in other applications.</p>
+
+<h2><a href="https://github.com/clearwater/SwitecX25">SwitecX25 Library</a></h2>
+
+<p>This contains only the Switec X25 driver and I will add some simple example code there.</p>
+
+<h2><a href="https://github.com/clearwater/gaugette">Gaugette</a> </h2>
+
+<p>This is an arduino application that controls analog
+gauges by interpreting commands received over the serial interface.
+To compile Gaugette you will now need to add the SwitecX25 library
+to your Arduino libraries folder.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gauge Build Number One]]></title>

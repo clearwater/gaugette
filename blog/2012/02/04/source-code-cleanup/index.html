@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>resources - Gaugette</title>
+  <title>Source Code Cleanup - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Resources Jan 23rd, 2012 Source Code SwitecX25 Driver Library for Arduino
-Gaugette Source for Arduino Switec X25 Series Stepper Motors Switec X25 &hellip;">
+  <meta name="description" content="I&#8217;ve moved the Switec X25 motor driver code into a separate
+library repository on GitHub. This should make it easier to use
+the driver &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ Gaugette Source for Arduino Switec X25 Series Stepper Motors Switec X25 &hellip;
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/resources">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -78,68 +79,15 @@ Gaugette Source for Arduino Switec X25 Series Stepper Motors Switec X25 &hellip;
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Resources</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-23T14:17:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time></p>
-  </header>
-  
-  <h2>Source Code</h2>
-
-<ul>
-<li><a href="https://github.com/clearwater/SwitecX25">SwitecX25 Driver Library for Arduino</a></li>
-<li><a href="https://github.com/clearwater/gaugette">Gaugette Source for Arduino</a></li>
-</ul>
-
-
-<h2>Switec X25 Series Stepper Motors</h2>
-
-<ul>
-<li><a href="/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">Switec X25 Series Data Sheet</a></li>
-<li><a href="/gaugette/resources/switec/ISM_Buyers_Guide.pdf">Switec X25 Series Buyers Guide</a></li>
-</ul>
-
-
-<h2>VID29 Series Motors</h2>
-
-<ul>
-<li><a href="/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf">VID29 Series Data Sheet</a></li>
-<li><a href="/gaugette/resources/vid/20090905105401VID29.pdf">VID29 Mechanical Drawings</a></li>
-<li><a href="/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf">VID29 Acceleration and Reset Calculation</a></li>
-<li><a href="/gaugette/resources/vid/2009111395409_VID29_Precaution_of_Pointer_Assembly.pdf">VID29 Pointer Assembly Precautions</a></li>
-<li><a href="/gaugette/resources/vid/2009111395504_VID29_reset_pulse_general_description.pdf">VID29 Power-On Reset Procedure</a></li>
-<li><a href="/gaugette/resources/vid/2009111395537_VID29Electrical_and_Mechanical_Characteristic1.pdf">VID29 Electrical and Mechanical Characteristics</a></li>
-</ul>
-
-
-<h2>MCR Motor MR1107/MR1108</h2>
-
-<ul>
-<li><a href="/gaugette/resources/mcr/2010410104720473.pdf">MCR Motor MR1107/MR1108 Data Sheet</a></li>
-<li><a href="/gaugette/resources/mcr/2009212115216347.pdf">MCR Motor Mechanical Drawings</a></li>
-<li><a href="/gaugette/resources/mcr/201041010510949.pdf">MCR PWM Driving Mode</a></li>
-<li><a href="/gaugette/resources/mcr/2010410104915847.pdf">MCR Acceleration Curve</a></li>
-</ul>
-
-
-  
-    <footer>
+    
+      <h1 class="entry-title">Source Code Cleanup</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -151,21 +99,71 @@ Gaugette Source for Arduino Switec X25 Series Stepper Motors Switec X25 &hellip;
   
 
 
-<time datetime="2012-01-23T14:17:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
+<time datetime="2012-02-04T11:38:00+10:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve moved the Switec X25 motor driver code into a separate
+library repository on GitHub.  This should make it easier to use
+the driver libraries in other applications.</p>
+
+<h2><a href="https://github.com/clearwater/SwitecX25">SwitecX25 Library</a></h2>
+
+<p>This contains only the Switec X25 driver and I will add some simple example code there.</p>
+
+<h2><a href="https://github.com/clearwater/gaugette">Gaugette</a> </h2>
+
+<p>This is an arduino application that controls analog
+gauges by interpreting commands received over the serial interface.
+To compile Gaugette you will now need to add the SwitecX25 library
+to your Arduino libraries folder.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/resources/index.html" data-via="" data-counturl="http://clearwater.github.com/gaugette/resources/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Guy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-04T11:38:00+10:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/" >Tweet</a>
   
   
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/gaugette/blog/2012/01/28/build-number-one/" title="Previous Post: Gauge Build Number One">&laquo; Gauge Build Number One</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -249,8 +247,8 @@ Gaugette Source for Arduino Switec X25 Series Stepper Motors Switec X25 &hellip;
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://clearwater.github.com/gaugette/resources/index.html';
-        var disqus_url = 'http://clearwater.github.com/gaugette/resources/index.html';
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/';
         var disqus_script = 'embed.js';
       
     (function () {
