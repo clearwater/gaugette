@@ -11,8 +11,8 @@ Command cmd;
 // 1/3 degree per step of needle
 // 315 degrees full-scale-deflection of needle
 
-SwitecX25 motor1(233 * 3, 8, 9, 10, 11);
-SwitecX25 motor2(233 * 3, 4, 5, 6, 7);
+SwitecX25 motor1(230 * 3, 8, 9, 10, 11);
+SwitecX25 motor2(230 * 3, 4, 5, 6, 7);
 SwitecX25 *motors[] = {&motor1,&motor2};
 const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 
