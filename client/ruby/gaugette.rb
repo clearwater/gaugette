@@ -1,3 +1,4 @@
+# This is the library class used by clients to talk to the arduino.
 class Gaugette
 
   def initialize(device)
@@ -7,12 +8,6 @@ class Gaugette
 
   def zero(address)
     @port.write("z %s 0\n" % [address])
-  end
-
-  def range(address, low, high)
-    low=0 if low<0
-    puts("r %s %d,%d\n" % [address, low, high])
-    @port.write("r %s %d,%d\n" % [address, low, high])
   end
 
   def set(address, step)
