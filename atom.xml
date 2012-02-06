@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-06T18:33:32+10:00</updated>
+  <updated>2012-02-06T18:35:18+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -24,7 +24,8 @@
 in <a href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
 ready to install these guys.</p>
 
-<p>I wrote a ruby script to generate the line-work for the dial face.
+<p>I wrote a ruby script to generate the line-work for the dial face
+so I could position the lines precisely.
 I started with the gd2 bindings, but gd2 doesn&#8217;t
 seem to support anti-aliasing or linecaps and the linework
 was pretty ugly.  I switched to Cairo which did a much nicer
