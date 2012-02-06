@@ -3,6 +3,11 @@ require 'rubygems'
 require 'pp'
 require 'cairo'
 
+# Uses cairo ruby gem for graphics.
+# I tried gd2, but it didn't seem to offer
+# tools for antialiasing, line caps, etc
+# and the results looked pretty crude.
+
 # coordinate system:
 # 0,0 is top left
 # postive is right,down
@@ -45,85 +50,6 @@ def create_context
   context.set_source_rgba(WHITE)
   context.paint
   return context
-end
-
-
-# what angle from the centre is the given point
-def find_angle(x,y)
-  x = x - CENTER_X
-  y = CENTER_Y - y
-
-  case 
-  when y==0 && x>=0
-    90.0
-  when y==0 && x<0
-    -90.0
-  when y<0 && x<0
-    -180 + Math.atan(x/y).degrees
-  when y<0 && x>0
-    180 + Math.atan(x/y).degrees
-  else
-    Math.atan(x/y).degrees
-  end
-end
-
-
-def draw_grid(context)
-  rad_0 = 150  * SCALE
-  rad_1 = 100 * SCALE
-  tick_width = 2 * SCALE
-
-  sw_angle = find_angle(0,IMAGE_DY)
-  nw_angle = find_angle(0,0)
-  ne_angle = find_angle(IMAGE_DX, 0)
-  se_angle = find_angle(IMAGE_DX, IMAGE_DY)
-  PP.pp [sw_angle, nw_angle, ne_angle, se_angle]
-
-  context.set_line_cap(Cairo::LINE_CAP_ROUND)
-  context.set_source_rgba(BLACK)
-  context.set_line_width(tick_width)
-
-  lo = -230/2
-  hi = 230/2
-  steps = 10
-  angle = lo
-  while angle <= hi
-
-    puts angle
-    dx = Math.sin(angle.radians)
-    dy = -Math.cos(angle.radians)
-
-    case
-    when angle < sw_angle || angle >= se_angle
-      # bottom
-      x = CENTER_X + dx * (CENTER_Y-IMAGE_DY)/dy
-      y = IMAGE_DY
-    when angle < nw_angle
-      # left
-      y = CENTER_Y + dy * -CENTER_X/dx
-      x = 0
-    when angle < ne_angle
-      # top 
-      PP.pp [angle, dx, dy]
-      x = CENTER_X + dx * -CENTER_Y/dy
-      y = 0
-    when angle < se_angle
-      # right
-      x = IMAGE_DX
-      y = CENTER_Y + dy * (IMAGE_DX-CENTER_X)/dx
-    else
-      raise 'unhandled angle'
-    end
-
-    r = Math.sqrt((x-CENTER_X)*(x-CENTER_X)+(y-CENTER_Y)*(y-CENTER_Y))
-    r0 = r - 100
-    x0,y0 = arc_coord(CENTER_X,CENTER_Y,angle,r0)
-    context.move_to(x0,y0)
-    context.line_to(x,y)
-    context.stroke
-    #PP.pp [[x0,y0],[x1,y1]]
-    angle += (hi-lo)/steps
-  end
 end
 
 def clip_outside(context, x0,y0,x1,y1)
