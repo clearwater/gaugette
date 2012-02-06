@@ -11,7 +11,7 @@
   
   <meta name="description" content="I made dial faces for a couple of the square gauges built
 in Build Number One. Nearly
-ready to install these guys. I wrote a ruby script to generate &hellip;">
+ready to install these guys. Laying out the linework on the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,18 +115,26 @@ ready to install these guys. I wrote a ruby script to generate &hellip;">
 in <a href="/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
 ready to install these guys.</p>
 
-<p>I wrote a ruby script to generate the line-work for the dial face
-so I could position the lines precisely.
-I started with the gd2 ruby bindings, but gd2 doesn&#8217;t
-seem to support anti-aliasing or linecaps and the linework
-was pretty ugly.  I switched to Cairo which did a much nicer
-job.  I used OpenOffice to position the text labels.</p>
+<p>Laying out the linework on the square faces presents
+an interesting challenge.  I decided to generate the linework
+programmatically with a ruby script, and add the labels with
+a graphics tool.</p>
 
-<p>I found some paper with a slightly metallic / opalesque finish at the
-OfficeWorks in Cairns which I thought would make a nice finish.
-It is 120 gsm which is heavier than standard typing paper, but
-really not really stiff enough to support itself in the gauge
-so I&#8217;ve just laid it over the original dial plate.</p>
+<p>My first attempt at the script used the GD2 library, but GD2
+doesn&#8217;t seem to support anti-aliasing or linecaps and the linework
+was pretty ugly.  I switched to Cairo which makes pretty, pretty lines.
+The revelation was that I could use Cairo&#8217;s clipping to trim the
+graticule lines instead of doing lots of trig.  Finally I imported
+the generated image into OpenOffice to add the text labels.</p>
+
+<p>So what to print on?  On a recent trip to Cairns I looked in OfficeWorks
+for something suitable.  I didn&#8217;t find any suitable card stock, but
+I did pick up some 120gsm paper with a slick metallic / opalesque finish.
+120 gsm is heavier than standard typing paper, but really not really stiff
+enough to support itself in the gauge - especially here in the tropics
+where humidty makes paper curl and slump.  Fortunately there is just enough
+drive shaft length to place the paper over the origial dial plate
+and the needle just clears the face.</p>
 
 <p><img src="/gaugette/resources/fiskars_hole_punch.png" alt="Fiskars Hole Punch" align="left"/>
 One thing that had me stuffed is how to punch a neat hole in the paper for
