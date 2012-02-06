@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-06T18:35:18+10:00</updated>
+  <updated>2012-02-07T07:23:04+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -26,7 +26,7 @@ ready to install these guys.</p>
 
 <p>I wrote a ruby script to generate the line-work for the dial face
 so I could position the lines precisely.
-I started with the gd2 bindings, but gd2 doesn&#8217;t
+I started with the gd2 ruby bindings, but gd2 doesn&#8217;t
 seem to support anti-aliasing or linecaps and the linework
 was pretty ugly.  I switched to Cairo which did a much nicer
 job.  I used OpenOffice to position the text labels.</p>
@@ -82,13 +82,13 @@ to your Arduino libraries folder.</p>
     <updated>2012-01-28T15:56:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one</id>
     <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/thermo_original.jpg" align="left" alt="$5 Hygrometer"/>
-This weekend I opened up one of the cheap-but-funky thermometers/hydrometers
+This weekend I opened up one of the cheap-but-funky thermometers/hygrometers
 from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
 and replaced the thermometer mechanism with the
 Arduino-controlled Switec X25.168 stepper.</p>
 
 <p><img src="http://clearwater.github.com/gaugette/resources/thermo_back.jpg" align="right" alt="back removed"/>
-The thermometer and hydrometer are installed
+The thermometer and hygrometer are installed
 in identical one-part plastic housings with no screws
 or seams, so it wasn&#8217;t clear how to crack them open.
 I used a Dremel to cut away the back panel giving access to the
