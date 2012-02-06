@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Arduino - Gaugette</title>
+  <title>Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Category: Arduino">
+  <meta name="description" content="Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+directly from the Arduino data IO lines. Each motor requires 4 digital &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugetteblog/categories/arduino">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/page/2">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -76,54 +77,112 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
-    <h1 class="entry-title">Category: Arduino</h1>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/05/what-is-gaugette/">What Is Gaugette?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-05T13:11:00+10:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+  <div class="entry-content"><p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
+directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
+and a single Arduino can drive multiple motors.</p>
 
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a></h1>
-<time datetime="2012-01-09T14:16:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>Switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
 
-</article>
+<p>The source code for the library, and some sample client code is available from the
+<a href="https://github.com/clearwater/gaugette">GitHub repository</a>.</p>
 
+<h2>Motivation</h2>
 
+<p>After playing with the
+<a href="http://www.adafruit.com/products/171">motor shield party pack</a> from Adafruit,
+I started thinking it would be fun to have a couple of analog gauges
+mounted on the wall somewhere to show system health indication; maybe network bandwidth or
+web traffic?
+<img alt="TorrentMeter by Skytee" title="TorrentMeter" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" align="right">
+Of course I&#8217;ve seen the very beautiful
+<a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
+which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply
+around here.</p>
 
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/05/what-is-gaugette/">What is Gaugette?</a></h1>
-<time datetime="2012-01-05T13:11:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>05</span> <span class='year'>2012</span></time>
+<p>The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges.  The little stepper they
+include runs really hot.  The servo seemed
+like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield.
+But it is quite bulky and noisy, so I started looking for something better.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>Switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
+<h2>The Switec X25 Stepper Motor</h2>
 
+<p><img alt="Switec X26.168 Stepper Motor" src="/gaugette/resources/Switec_X25_168.jpg" align="right">
+I noticed a lot of sellers on eBay selling tiny Switec X25
+motors as replacements for GM auto instrument clusters.  They were developed
+by the technology arm of Swatch, so I figured they should be low power and
+pretty quiet.  Certainly they are cheap; under $5 each!</p>
 
-</article>
+<p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a
+resolution of 1/3 degree.
+The <a href="/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">data sheet</a>
+indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V
+Arduino data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I
+understand the risks associated with wiring inductive loads directly to the microcontroller.  Arduinos are
+cheap, why not try it?</p>
 
+<p>On the net I found an excellent
+<a href="http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge">overview of the Switec X25 by Mike Powell</a>.
+Mike expresses concerns about driving inductive loads directly from the microcontroller and uses
+an external L293D driver.  There is an intriguing
+<a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">thread by Toby Catlin</a>
+which approaches the issue of driving these without a controller, but the thread ends abruptly at the point
+where he sees the first signs of success.  What happens next?  Blue smoke?</p>
+
+<p>At the price I figured it was worth a shot driving these directly,
+so I ordered 6 from  <a href="http://stores.ebay.com.au/partsangel">one of many</a>
+eBay stores selling them.  Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity.
+In all it cost about $25 including postage from the US to Australia.
+At the time of writing they carry both the X25.168
+with rear contacts, and the X25.589 with front contacts and a longer indicator shaft.
+Both have internal stops.  See the <a href="/gaugette/resources/switec/ISM_Buyers_Guide.pdf">buyers guide</a> for details
+on the different models.</p>
 </div>
-
   
-</article>
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/gaugette/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/gaugette/">Newer &rarr;</a>
+    
+  </div>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -143,7 +202,7 @@
       </li>
     
       <li class="post">
-        <a href="/gaugette/blog/2012/01/26/well-aint-that-shiny/">Well Ain't That Shiny!</a>
+        <a href="/gaugette/blog/2012/01/26/well-aint-that-shiny/">Well Ain&#8217;t That Shiny!</a>
       </li>
     
       <li class="post">
@@ -180,7 +239,6 @@
 
   
 </aside>
-
 
     </div>
   </div>

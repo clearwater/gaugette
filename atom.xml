@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-05T10:47:20+10:00</updated>
+  <updated>2012-02-06T18:33:32+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Just a Pretty Face]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/"/>
+    <updated>2012-02-06T17:33:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face</id>
+    <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/finished_square_face.png" alt="Custom Dial Face" align="right"/></p>
+
+<p>I made dial faces for a couple of the square gauges built
+in <a href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
+ready to install these guys.</p>
+
+<p>I wrote a ruby script to generate the line-work for the dial face.
+I started with the gd2 bindings, but gd2 doesn&#8217;t
+seem to support anti-aliasing or linecaps and the linework
+was pretty ugly.  I switched to Cairo which did a much nicer
+job.  I used OpenOffice to position the text labels.</p>
+
+<p>I found some paper with a slightly metallic / opalesque finish at the
+OfficeWorks in Cairns which I thought would make a nice finish.
+It is 120 gsm which is heavier than standard typing paper, but
+really not really stiff enough to support itself in the gauge
+so I&#8217;ve just laid it over the original dial plate.</p>
+
+<p><img src="http://clearwater.github.com/gaugette/resources/fiskars_hole_punch.png" alt="Fiskars Hole Punch" align="left"/>
+One thing that had me stuffed is how to punch a neat hole in the paper for
+the drive shaft.  A standard hole-punch is too big and can&#8217;t reach
+far from the edge of the paper.  Drilling would leave messy edges.  Scouring
+the aisles at OfficeWorks I found a
+<a href="http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack">set of three eyelette setters by Fiskar</a>, apparently for scrap-booking.  The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page.  I was looking to punch a 3mm hole, and the middle
+size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now I have some crafty hole punches.</p>
+
+<p>I tried printing the dials with an inkjet.  That
+looked okay until I mounted it in the guage and I found
+that at certain angles the metallic finish
+on the paper made the linework look really washed out.  Redoing
+the printing with a laser printer gave much better results.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Source Code Cleanup]]></title>
