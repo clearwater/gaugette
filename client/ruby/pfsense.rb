@@ -3,6 +3,9 @@
 # GET /ifstats.php?if=vr0
 # from pfsense without authentication
 
+# add this file's directory to load path
+$:.unshift File.dirname(__FILE__)
+
 require 'rubygems'
 require 'curb'
 require 'serialport'
@@ -18,7 +21,7 @@ URL = "http://pfsense.clearwater.com.au/ifstats.php?if=vr0"
 @gaugette = Gaugette.new("/dev/tty.usbmodem411")
 [0,1].each do |i|
   @gaugette.zero(i)
-  @gaugette.set(i, 350)  # centre
+  @gaugette.set(i, 345)  # centre
 end
 sleep 0.5
 
@@ -36,8 +39,8 @@ while true
     bps_in = (bytes_in-last_bytes_in)/delta_time
     bps_out = (bytes_out-last_bytes_out)/delta_time
     #PP.pp [delta_time, bps_in, bps_out]
-    @gaugette.set(0, bps_in * 700 / 100000.0)
-    @gaugette.set(1, bps_out * 700 / 100000.0)
+    @gaugette.set(0, bps_in * 690 / 100000.0)
+    @gaugette.set(1, bps_out * 690 / 100000.0)
   end
   last_time = time
   last_bytes_in = bytes_in

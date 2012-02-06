@@ -12,7 +12,7 @@ class Gaugette
 
   def set(address, step)
     step = 0 if step<0
-    puts "s %s %d\n" % [address, step]
+    #puts "s %s %d\n" % [address, step]
     @port.write "s %s %d\n" % [address, step]
   end
 
