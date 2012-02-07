@@ -11,27 +11,22 @@ Command cmd;
 // 1/3 degree per step of needle
 // 315 degrees full-scale-deflection of needle
 
-SwitecX25 motor1(230 * 3, 8, 9, 10, 11);
-SwitecX25 motor2(230 * 3, 4, 5, 6, 7);
+// limit to 232 degrees sweep for square thermo dials
+// at 3 steps per degree is 696 steps
+#define MOTOR_STEPS (696)
+SwitecX25 motor1(MOTOR_STEPS, 8, 9, 10, 11);
+SwitecX25 motor2(MOTOR_STEPS, 4, 5, 6, 7);
 SwitecX25 *motors[] = {&motor1,&motor2};
 const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 
 //RotaryEncoder encoder(2,3);
 IntRotaryEncoder encoder;
 
-void zero()
-{
-  for (int i=0;i<motorCount;i++) {
-    motors[i]->zero();
-  }
-}
-
 void setup(void) {
   Serial.begin(9600);
   Serial.print(motorCount);
   Serial.print(" motors. ");    
   Serial.println("Go!");
-  zero();
   
   // excercise the code to override the acceleration table.
   static unsigned short accelTable[][2] = {
@@ -70,6 +65,10 @@ void loop(void) {
           break;
         case 's':
           motor->setPosition(cmd.value[1]);
+          break;
+        case 'r':
+          // r <n> <steps> set motor range
+          motor->steps = cmd.value[1];
           break;
       }
     }
