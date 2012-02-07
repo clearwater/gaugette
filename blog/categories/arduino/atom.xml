@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arduino | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-07T10:33:59+10:00</updated>
+  <updated>2012-02-07T10:52:01+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -65,7 +65,7 @@ and a single Arduino can drive multiple motors.</p>
 I started thinking it would be fun to have a couple of analog gauges
 mounted on the wall somewhere to show system health indication; maybe network bandwidth or
 web traffic?
-<img alt="TorrentMeter by Skytee" title="TorrentMeter" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" align="right">
+<img class="right" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" title="TorrentMeter by Skytee" >
 Of course I've seen the very beautiful
 <a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
 which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply
@@ -78,7 +78,7 @@ But it is quite bulky and noisy, so I started looking for something better.</p>
 
 <h2>The Switec X25 Stepper Motor</h2>
 
-<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg" align="right">
+<p><img class="right" src="/resources/Switec_X25_168.jpg" title="Switec X26.168 Stepper Motor" >
 I noticed a lot of sellers on eBay selling tiny Switec X25
 motors as replacements for GM auto instrument clusters.  They were developed
 by the technology arm of Swatch, so I figured they should be low power and

@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-07T10:33:59+10:00</updated>
+  <updated>2012-02-07T10:52:01+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -18,7 +18,7 @@
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/"/>
     <updated>2012-02-06T17:33:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face</id>
-    <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/100k_square_dial.png" alt="Dial Face Artwork" align="right"/>
+    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/100k_square_dial.png" title="Dial Face Artwork" >
 I made dial faces for a couple of the square gauges built
 in <a href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
 ready to install these guys.</p>
@@ -46,7 +46,7 @@ drive shaft length to place the paper over the original dial plate
 so that the needle just clears the face.  I might have to glue the paper down to
 keep to completely flat.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/fiskars_hole_punch.png" alt="Fiskars Hole Punch" align="left"/>
+<p><img class="left" src="http://clearwater.github.com/gaugette/resources/fiskars_hole_punch.png" title="Fiskars Hole Punch" >
 One thing that had me stuffed is how to punch a neat hole in the paper for
 the drive shaft.  A standard hole-punch is too big and can&#8217;t reach
 far enough from the edge of the paper.  Drilling would leave messy edges.  Scouring
@@ -55,7 +55,7 @@ the aisles at OfficeWorks I found a
 size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now
 I have some crafty hole punches.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/finished_square_face.png" alt="Custom Dial Face" align="right"/>
+<p><img class="right" src="http://clearwater.github.com/gaugette/resources/finished_square_face.png" title="Custom Dial Face" >
 I tried printing the dials with an ink-jet.  That
 seemed okay until I mounted it in the gauge and I found
 that at certain angles the metallic finish
@@ -73,11 +73,11 @@ to full-scale deflection.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Source Code Cleanup]]></title>
+    <title type="html"><![CDATA[Separation Anxiety]]></title>
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/"/>
     <updated>2012-02-04T11:38:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup</id>
-    <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/dial_parts.png" align="right" alt="Separation"/>
+    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/dial_parts.png" title="Separation Anxiety" >
 I&#8217;ve separated the Switec X25 motor driver code into a separate
 library repository on GitHub.  This will make it easier to use
 the driver library in other applications.</p>
@@ -100,16 +100,16 @@ to your Arduino libraries folder.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/"/>
     <updated>2012-01-28T15:56:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one</id>
-    <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/thermo_original.jpg" align="left" alt="$5 Hygrometer"/>
+    <content type="html"><![CDATA[<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_original.jpg" title="$5 Hygrometer" >
 This weekend I opened up one of the cheap-but-funky thermometers/hygrometers
 from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
 and replaced the thermometer mechanism with the
 Arduino-controlled Switec X25.168 stepper.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/thermo_back.jpg" align="right" alt="back removed"/>
-The thermometer and hygrometer are installed
+<p>The thermometer and hygrometer are installed
 in identical one-part plastic housings with no screws
 or seams, so it wasn&#8217;t clear how to crack them open.
+<img class="right" src="http://clearwater.github.com/gaugette/resources/thermo_back.jpg" title="back removed" >
 I used a Dremel to cut away the back panel giving access to the
 thermometer mechanism, but to my surprise the dial face was still firmly
 locked in place.  After a bit
@@ -118,7 +118,7 @@ forward - in fact the plastic lens is only held in by friction, and
 the dial and mechanism are held in by the lens.  No cutting was
 required.  #LFMF</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/thermo_disassembly.jpg" align="left" alt="thermometer disassembly"/>
+<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_disassembly.jpg"" title="thermometer disassembly" >
 This turned out to be important because after careful measurement I realized
 that the motor would have to be mounted snugly against the the back of the housing to
 leave the drive shaft protruding enough to attach a needle.  The plastic panel I cut away
@@ -126,13 +126,13 @@ would have been ideal to screw the motor to.
 Starting again with an undamaged housing, I gently pried out the plastic lens, removed the face and mechanism.
 This time I only cut away enough plastic on the back to allow the drive shaft to pass through.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/thermo_mount.jpg" align="right" alt="mechanism removal"/>
+<p><img class="right" src="http://clearwater.github.com/gaugette/resources/thermo_mount.jpg" title="mechanism removal" >
 The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil
 is a crafty two-piece deal that mounts through the centre of the dial.  It appeared to be
 assembled a bit like a rivet, and a couple of solid blows from the back with a punch
 released it cleanly from the dial face.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/thermo_glued.jpg" align="left" alt="hot glue"/>
+<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_glued.jpg" title="hot glue to the rescue" >
 I originally intended to use screws to secure the stepper to the back of the housing, but
 there isn&#8217;t much tolerance for positional
 error, which made me nervous.  Instead I used the conical rivet-thingy to precisely align the motor drive shaft in hole in the dial and held it all in place while I hot-glued it to the back of the case.  Alignment was spot-on the the motor seems to be solidly secured.  So far so good.</p>
@@ -167,7 +167,7 @@ a new dial face anyway, so no need to sweat about that.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/"/>
     <updated>2012-01-26T11:03:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny</id>
-    <content type="html"><![CDATA[<p><img src="http://clearwater.github.com/gaugette/resources/shiny_things.jpg" alt="Shiny Things" align="right"/>
+    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/shiny_things.jpg" title="Pretty Shiny Things" >
 I&#8217;ve been looking around on-line and in stores for some parts to
 make some classy steam-punk gauges.
 After a lot of searching I came
@@ -269,14 +269,14 @@ All good.  New code is in the <a href="https://github.com/clearwater/gaugette">l
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/"/>
     <updated>2012-01-24T09:29:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones</id>
-    <content type="html"><![CDATA[<p><img alt="Switec Clones" src="http://clearwater.github.com/gaugette/resources/X25_clone.png" align="right">
+    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/X25_clone.png" title="Switec Clones" >
 When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
 the white motors with the &#8220;Switec&#8221; branding that I see in all of the pictures
 online.  I finally got around to tracking down what exactly they are.
 They have two identification numbers printed black on black:
 <code>vid29-02p</code> and <code>d11455db</code>.</p>
 
-<p><img alt="Motor Diagram" src="http://clearwater.github.com/gaugette/resources/VID29_diagram.png" align="right">
+<p><img class="right" src="http://clearwater.github.com/gaugette/resources/VID29_diagram.png" title="Motor Diagram" >
 It turns out that the first number is the model, and these are in reality VID29 series stepper motors
 from <a href="http://www.vid.wellgain.com/product.aspx">Hong Kong VID</a>.  Interestingly their
 <a href="http://clearwater.github.com/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf">data sheet</a>
@@ -319,7 +319,7 @@ code.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/"/>
     <updated>2012-01-19T17:10:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip</id>
-    <content type="html"><![CDATA[<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/resources/X12_Quad_Driver.png" align="right">
+    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/X12_Quad_Driver.png" title="Switec X12.017 Quad Driver" >
 The <a href="http://clearwater.github.com/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
 describes the X12 family of driver chips which allow
 up to 4 Switec motors to be controlled over a 3-wire serial interface.
@@ -424,7 +424,7 @@ and a single Arduino can drive multiple motors.</p>
 I started thinking it would be fun to have a couple of analog gauges
 mounted on the wall somewhere to show system health indication; maybe network bandwidth or
 web traffic?
-<img alt="TorrentMeter by Skytee" title="TorrentMeter" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" align="right">
+<img class="right" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" title="TorrentMeter by Skytee" >
 Of course I&#8217;ve seen the very beautiful
 <a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
 which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply
@@ -437,7 +437,7 @@ But it is quite bulky and noisy, so I started looking for something better.</p>
 
 <h2>The Switec X25 Stepper Motor</h2>
 
-<p><img alt="Switec X26.168 Stepper Motor" src="http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg" align="right">
+<p><img class="right" src="http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg" title="Switec X26.168 Stepper Motor" >
 I noticed a lot of sellers on eBay selling tiny Switec X25
 motors as replacements for GM auto instrument clusters.  They were developed
 by the technology arm of Swatch, so I figured they should be low power and
