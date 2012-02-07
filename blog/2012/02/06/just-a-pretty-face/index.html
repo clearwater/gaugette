@@ -11,7 +11,7 @@
   
   <meta name="description" content="I made dial faces for a couple of the square gauges built
 in Build Number One. Nearly
-ready to install these guys. Laying out the linework on the &hellip;">
+ready to install these guys. Laying out the line-work on the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -106,46 +106,57 @@ ready to install these guys. Laying out the linework on the &hellip;">
   </header>
 
 
-<div class="entry-content"><p><img src="/gaugette/resources/finished_square_face.png" alt="Custom Dial Face" align="right"/></p>
-
-<p>I made dial faces for a couple of the square gauges built
+<div class="entry-content"><p><img src="/gaugette/resources/100k_square_dial.png" alt="Dial Face Artwork" align="right"/>
+I made dial faces for a couple of the square gauges built
 in <a href="/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
 ready to install these guys.</p>
 
-<p>Laying out the linework on the square faces presents
-an interesting challenge.  I decided to generate the linework
-programmatically with a ruby script, and add the labels with
+<p>Laying out the line-work on the square faces presents
+an interesting challenge.  I decided to generate the
+<a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.png">bare line-work</a>
+programmatically with a <a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.rb">ruby script</a>, and add the labels later with
 a graphics tool.</p>
 
-<p>My first attempt at the script used the GD2 library, but GD2
-doesn&#8217;t seem to support anti-aliasing or linecaps and the linework
-was pretty ugly.  I switched to Cairo which makes pretty, pretty lines.
-The revelation was that I could use Cairo&#8217;s clipping to trim the
-graticule lines instead of doing lots of trig.  Finally I imported
-the generated image into OpenOffice to add the text labels.</p>
+<p>My first attempt at the script used the GD2 library, but <a href="http://gd2.rubyforge.org/rdoc/">GD2</a>
+doesn&#8217;t seem to support anti-aliasing or line-caps and the resulting line-work
+was just too ugly.  I switched to <a href="http://rubyforge.org/projects/cairo/">Cairo</a> which makes pretty, pretty lines.
+A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines instead of doing lots of trig to figure out line
+intersections and stroke lengths.  Finally I imported the generated image into
+OpenOffice to add the text labels.</p>
 
 <p>So what to print on?  On a recent trip to Cairns I looked in OfficeWorks
-for something suitable.  I didn&#8217;t find any suitable card stock, but
-I did pick up some 120gsm paper with a slick metallic / opalesque finish.
+for something suitable.  I didn&#8217;t find any card stock I liked, but
+I did find some 120 gsm paper (Quill brand &#8220;Metallique&#8221; in Mother of Pearl) with a cool metallic / opalesque finish.
 120 gsm is heavier than standard typing paper, but really not really stiff
 enough to support itself in the gauge - especially here in the tropics
-where humidty makes paper curl and slump.  Fortunately there is just enough
-drive shaft length to place the paper over the origial dial plate
-and the needle just clears the face.</p>
+where humidity makes paper curl and slump.  There is just enough
+drive shaft length to place the paper over the original dial plate
+so that the needle just clears the face.  I might have to glue the paper down to
+keep to completely flat.</p>
 
 <p><img src="/gaugette/resources/fiskars_hole_punch.png" alt="Fiskars Hole Punch" align="left"/>
 One thing that had me stuffed is how to punch a neat hole in the paper for
 the drive shaft.  A standard hole-punch is too big and can&#8217;t reach
-far from the edge of the paper.  Drilling would leave messy edges.  Scouring
+far enough from the edge of the paper.  Drilling would leave messy edges.  Scouring
 the aisles at OfficeWorks I found a
-<a href="http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack">set of three eyelette setters by Fiskar</a>, apparently for scrap-booking.  The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page.  I was looking to punch a 3mm hole, and the middle
-size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now I have some crafty hole punches.</p>
+<a href="http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack">set of three eyelet setters</a> from Fiskars in the scrap-booking section.  The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page, pull back the hammer, and smack, you have a hole.  I was reckon I want a 3mm hole, and the middle
+size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now
+I have some crafty hole punches.</p>
 
-<p>I tried printing the dials with an inkjet.  That
-looked okay until I mounted it in the guage and I found
+<p><img src="/gaugette/resources/finished_square_face.png" alt="Custom Dial Face" align="right"/>
+I tried printing the dials with an ink-jet.  That
+seemed okay until I mounted it in the gauge and I found
 that at certain angles the metallic finish
-on the paper made the linework look really washed out.  Redoing
+on the paper made the line-work look really washed out.  Redoing
 the printing with a laser printer gave much better results.</p>
+
+<p>After installing the new face I calibrated it carefully and found
+a discrepancy between the printed face and needle position that I can&#8217;t
+explain.  If I line up zero precisely, then at full-scale (230 degrees
+sweep) I find the needle is about 2 degrees short of the 100% mark on
+the dial.  I&#8217;m not sure what the source of error is (I have a few suspects), but it is easily
+solved by changing the stepper motor sweep from 690 steps to 696 steps
+to full-scale deflection.</p>
 </div>
 
 
