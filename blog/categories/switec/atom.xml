@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Switec | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/switec/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-08T14:04:28+10:00</updated>
+  <updated>2012-02-08T14:49:07+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -48,15 +48,17 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/"/>
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
-    <content type="html"><![CDATA[<p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
-directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
-and a single Arduino can drive multiple motors.</p>
+    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using
+an Arduino microcontroller and Switec X25.168 stepper motors.
+Each motor requires 4 digital I/O pins,
+and a single Arduino can drive three motors.  The limit
+is purely due to Aruidno limit of 14 digital I/O lines.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
 
-<p>The source code for the library, and some sample client code is available from the
-<a href="https://github.com/clearwater/gaugette">GitHub repository</a>.</p>
+<p>Source code for the project is available on
+<a href="https://github.com/clearwater/gaugette">GitHub</a>.</p>
 
 <h2>Motivation</h2>
 

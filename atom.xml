@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-08T14:04:28+10:00</updated>
+  <updated>2012-02-08T14:49:07+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -32,7 +32,7 @@ a graphics tool.</p>
 <p>My first attempt at the script used the GD2 library, but <a href="http://gd2.rubyforge.org/rdoc/">GD2</a>
 doesn&#8217;t seem to support anti-aliasing or line-caps and the resulting line-work
 was just too damned ugly.  I switched to <a href="http://rubyforge.org/projects/cairo/">Cairo</a> which makes pretty, pretty lines.
-A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines instead of doing lots of trig to figure out line
+A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines and remove the messy trig I was coding to figure out line
 intersections and stroke lengths.  Finally I imported the generated image into
 OpenOffice to add the text labels.</p>
 
@@ -42,7 +42,7 @@ I did find some 120 gsm paper (Quill brand &#8220;Metallique&#8221;
 in Mother of Pearl) with a cool metallic / opalesque finish.
 120 gsm is heavier than standard typing paper, and maybe barely stiff
 enough to support itself in the gauge.  Over time it might curl
-or slump in the varying humidity here in the tropics.<br/>
+or slump in the varying humidity here in the tropics.
 There is just enough drive shaft length to place the paper
 over the original dial plate so that the needle just clears
 the face, but if the paper will support itself I could
@@ -68,7 +68,7 @@ the printing with a laser printer gave much better results.</p>
 a discrepancy between the printed face and needle position that I can&#8217;t
 explain.  If I line up zero precisely, then at full-scale (230 degrees
 sweep) I find the needle is about 2 degrees short of the 100% mark on
-the dial.  I&#8217;m not sure what the source of error is (I have a few suspects), but it is easily
+the dial.  I&#8217;m not sure what the source of error is - presumably just measurement and positioning errors -  but it is easily
 solved by changing the stepper motor sweep from 690 steps to 696 steps
 to full-scale deflection.</p>
 ]]></content>
@@ -203,7 +203,7 @@ can be used with no modification.</p>
     <updated>2012-01-26T09:42:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model</id>
     <content type="html"><![CDATA[<p>The logic in the <code>advance()</code> function of the
-<a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
+<a href="https://github.com/clearwater/SwitecX25">Switec X25 library</a>
 steps the motor forward or backward one step, then computes the delay in
 microseconds until the next step is due.  This logic determines the acceleration curve and
 maximum speed of the needle.  My first cut at this
@@ -262,7 +262,7 @@ didn&#8217;t use that.  I experimented until I
 found values that were within operational limits and look nice to me.</p>
 
 <p>I tested this code driving 3 motors simultaneously with an Arduino Uno.
-All good.  New code is in the <a href="https://github.com/clearwater/gaugette">library on Github</a>.</p>
+All good.  New code is in the <a href="https://github.com/clearwater/SwitecX25">library on Github</a>.</p>
 ]]></content>
   </entry>
   
@@ -273,7 +273,7 @@ All good.  New code is in the <a href="https://github.com/clearwater/gaugette">l
     <id>http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones</id>
     <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/X25_clone.png" title="Switec Clones" >
 When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
-the white motors with the &#8220;Switec&#8221; branding that I see in all of the pictures
+the white motors with the &#8220;Switec&#8221; branding that I&#8217;ve been seeing
 online.  I finally got around to tracking down what exactly they are.
 They have two identification numbers printed black on black:
 <code>vid29-02p</code> and <code>d11455db</code>.</p>
@@ -409,15 +409,17 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/"/>
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
-    <content type="html"><![CDATA[<p>Gaugette is an Arduino library for controlling Switec X25.168 stepper motors
-directly from the Arduino data IO lines.  Each motor requires 4 digital IO pins,
-and a single Arduino can drive multiple motors.</p>
+    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using
+an Arduino microcontroller and Switec X25.168 stepper motors.
+Each motor requires 4 digital I/O pins,
+and a single Arduino can drive three motors.  The limit
+is purely due to Aruidno limit of 14 digital I/O lines.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
 
 
-<p>The source code for the library, and some sample client code is available from the
-<a href="https://github.com/clearwater/gaugette">GitHub repository</a>.</p>
+<p>Source code for the project is available on
+<a href="https://github.com/clearwater/gaugette">GitHub</a>.</p>
 
 <h2>Motivation</h2>
 
