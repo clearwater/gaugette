@@ -18,7 +18,7 @@ pfsense_interface = "wan"                  # interface on firewall
 
 # read the credentials from a file.  You could just code this as
 # pfsense_credentials = ['admin','pfsense'] instead.
-pfsense_credentials = File.read(File.join(File.dirname(__FILE__),"pfsense_credentials")).strip.split('/')
+pfsense_credentials = File.read(File.join(File.dirname(__FILE__),"pfsense.credentials")).strip.split('/')
 
 puts "Displaying bandwidth from #{pfsense_host}:#{pfsense_interface} on gaugette at #{gaugette_device}"
 
