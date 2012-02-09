@@ -27,8 +27,9 @@ puts "Displaying bandwidth from #{pfsense_host}:#{pfsense_interface} on gaugette
 @pfsense.login(*pfsense_credentials)
 
 # initialize gaugette connection
-@gaugette = Gaugette.new(gaugette_device)
+@gaugette = Gaugette.new(gaugette_device, gaugette_steps)
 [0,1].each do |i|
+  @gaugette.range(i, gaugette_steps) # unnecessary
   @gaugette.zero(i)
 end
 
@@ -39,12 +40,12 @@ while true
   bps_in, bps_out = @pfsense.read("wan")
   if bps_in
     kbps_in = bps_in / 1000.0
-    @gaugette.set(0, kbps_in * (STEPS-1) / 100.0)
+    @gaugette.set_scaled(0, kbps_in, 100.0)
     @gaugette.lcd(0, kbps_in * 255 / 100.0)
   end
   if bps_out
     kbps_out = bps_out / 1000.0
-    @gaugette.set(1, kbps_out * (STEPS-1) / 100.0)
+    @gaugette.set_scaled(1, kbps_out, 100.0)
     @gaugette.lcd(1, kbps_out * 255 / 100.0)
   end
   sleep interval
