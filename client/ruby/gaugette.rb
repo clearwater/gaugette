@@ -16,4 +16,10 @@ class Gaugette
     @port.write "s %s %d\n" % [address, step]
   end
 
+  def lcd(address, value)
+    value = 0 if value<0
+    value = 255 if value>255
+    @port.write "l %s %d\n" % [address, value] 
+  end
+
 end
