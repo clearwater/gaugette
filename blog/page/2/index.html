@@ -9,9 +9,8 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Gaugette is a project detailing the construction of custom analog gauges using
-an Arduino microcontroller and Switec X25.168 stepper motors.
-Each &hellip;">
+  <meta name="description" content="Wiring It Up Given the comments by Toby Catlin
+about cooking the motors while soldering, I opted to make up a harness with a connector rather than &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +80,63 @@ Each &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-09T14:16:00+10:00" pubdate data-updated="true">Jan 9<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Wiring It Up</h2>
+
+<p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
+about cooking the motors while soldering, I opted to make up a harness with a connector rather than
+soldering directly to the motor.
+The pins on each winding exactly match the spacing of the first and fourth pins
+of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
+too short and too narrow to engage with the connectors.  For my first harness I cut up
+a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
+pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
+very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
+
+<p>I wrote some code for the Arduino to step the motor using the IO pattern established
+in <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">this post</a>
+and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
+
+<p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -194,6 +250,10 @@ on the different models.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/gaugette/blog/2012/02/11/backlighting/">LED Gauge Backlighting</a>
+      </li>
+    
+      <li class="post">
         <a href="/gaugette/blog/2012/02/06/just-a-pretty-face/">Just a Pretty Face</a>
       </li>
     
@@ -227,10 +287,6 @@ on the different models.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/15/needle-acceleration/">Motor Acceleration and Deceleration</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a>
       </li>
     
   </ul>

@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Switec - Gaugette</title>
+  <title>LED Gauge Backlighting - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Category: Switec">
+  <meta name="description" content="Today I added an LED backlight to my square gauge. I used a white LED which was originally part
+of a solar-powered LED light string. These are side- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugetteblog/categories/switec">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -78,50 +79,101 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Switec</h1>
+    
+      <h1 class="entry-title">LED Gauge Backlighting</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-11T17:14:00+10:00" pubdate data-updated="true">Feb 11<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><img class="right" src="/gaugette/resources/thermo_backlit.png" title="LED Backlighting" ></p>
 
-  
-  <h2>2012</h2>
+<p>Today I added an LED backlight to my square gauge.</p>
 
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/09/initial-results/">Initial Results</a></h1>
-<time datetime="2012-01-09T14:16:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+<p>I used a white LED which was originally part
+of a solar-powered LED light string.  These are side-emitting
+LEDs; they have a conical well in the lens that refracts much
+of the light sideways, which is useful in this application.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>Switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
+<p>I mounted the LED and a current-limiting resistor inside the
+back of the case.  The cathode is driven by a PWM pin on the
+Arduino, so the brightness is under software control.</p>
 
+<p><img class="left" src="/gaugette/resources/thermo_led.png" title="with face removed" ></p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/gaugette/blog/2012/01/05/what-is-gaugette/">What is Gaugette?</a></h1>
-<time datetime="2012-01-05T13:11:00+10:00" pubdate><span class='month'>Jan</span> <span class='day'>05</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/gaugette/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/gaugette/blog/categories/switec/'>Switec</a>, <a class='category' href='/gaugette/blog/categories/x25/'>x25</a></span>
-</footer>
-
-
-</article>
-
+<p>The effect is quite pleasing.  I particularly like how light leaks from the
+grills at the top and bottom of gauge.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Guy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-11T17:14:00+10:00" pubdate data-updated="true">Feb 11<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/gaugette/blog/2012/02/06/just-a-pretty-face/" title="Previous Post: Just a Pretty Face">&laquo; Just a Pretty Face</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -197,7 +249,10 @@
       var disqus_shortname = 'gaugetteblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
