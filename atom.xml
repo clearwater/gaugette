@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-13T14:06:22+10:00</updated>
+  <updated>2012-02-16T18:18:46+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,149 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using the SwitecX25 Library]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switecx25-library/"/>
+    <updated>2012-02-16T18:04:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switecx25-library</id>
+    <content type="html"><![CDATA[<p>This post describes how to use the SwitecX25 library in a sketch.</p>
+
+<h2>Install the Library</h2>
+
+<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
+of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
+to ensure that they persist when you upgrade the IDE.</p>
+
+<p>So figure out where your project directory is (under OSX the menu is Arduino->Preferences), create a subdirectory called <code>libraries</code>.  The name is important, so use exactly that.  Within that directory checkout the SwitecX25 library.  You should end up
+with this structure:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>libraries
+</span><span class='line'>  |
+</span><span class='line'>  +-- SwitecX25
+</span><span class='line'>     |
+</span><span class='line'>     +-- SwitecX25.cpp
+</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Restart the IDE and you should see the library in your library menu.  It appears in a separate
+section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
+sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
+of its range.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;SwitecX25.h&gt;
+</span><span class='line'>
+</span><span class='line'>// standard X25.168 range
+</span><span class='line'>#define STEPS (315*3)
+</span><span class='line'>// replace 1,2,3,4 with the pins you are connecting to.
+</span><span class='line'>SwitecX25 motor1(STEPS,1,2,3,4);
+</span><span class='line'>
+</span><span class='line'>void setup(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.zero();
+</span><span class='line'>  motor1.setPosition(STEPS/2);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>void loop(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.update();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using the SwitecX25 Library]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switec25-library/"/>
+    <updated>2012-02-16T18:04:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switec25-library</id>
+    <content type="html"><![CDATA[<h2>Getting Started with the SwitecX25 Library</h2>
+
+<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
+of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
+to ensure that they persist when you upgrade the IDE.</p>
+
+<p>So figure out where your project directory is (under OSX this is available in the <code>Arduino-&gt;Preferences</code> menu), create a subdirectory called <code>libraries</code> with the project directory.  The name is important, so use exactly that.  Then inside that libraries directory checkout the SwitecX25 library.  You should end up with this structure:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>libraries
+</span><span class='line'>  |
+</span><span class='line'>  +-- SwitecX25
+</span><span class='line'>     |
+</span><span class='line'>     +-- SwitecX25.cpp
+</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu.  It appears in a separate
+section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
+sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
+of its range.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;SwitecX25.h&gt;
+</span><span class='line'>
+</span><span class='line'>// standard X25.168 range
+</span><span class='line'>#define STEPS (315*3)
+</span><span class='line'>// replace 1,2,3,4 with the pins you are connecting to.
+</span><span class='line'>SwitecX25 motor1(STEPS,1,2,3,4);
+</span><span class='line'>
+</span><span class='line'>void setup(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.zero();
+</span><span class='line'>  motor1.setPosition(STEPS/2);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>void loop(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.update();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LED Gauge Backlighting]]></title>

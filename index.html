@@ -9,9 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Today I added an LED backlight to my square gauge.
-I really like how light leaks from the grills at the top
-and bottom of gauge. I decided not to &hellip;">
+  <meta name="description" content="This post describes how to use the SwitecX25 library in a sketch. Install the Library For Arduino IDE version 1.0 and later you can store user- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +79,203 @@ and bottom of gauge. I decided not to &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-16T18:04:00+10:00" pubdate data-updated="true">Feb 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post describes how to use the SwitecX25 library in a sketch.</p>
+
+<h2>Install the Library</h2>
+
+<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
+of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
+to ensure that they persist when you upgrade the IDE.</p>
+
+<p>So figure out where your project directory is (under OSX the menu is Arduino->Preferences), create a subdirectory called <code>libraries</code>.  The name is important, so use exactly that.  Within that directory checkout the SwitecX25 library.  You should end up
+with this structure:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>libraries
+</span><span class='line'>  |
+</span><span class='line'>  +-- SwitecX25
+</span><span class='line'>     |
+</span><span class='line'>     +-- SwitecX25.cpp
+</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Restart the IDE and you should see the library in your library menu.  It appears in a separate
+section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
+sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
+of its range.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;SwitecX25.h&gt;
+</span><span class='line'>
+</span><span class='line'>// standard X25.168 range
+</span><span class='line'>#define STEPS (315*3)
+</span><span class='line'>// replace 1,2,3,4 with the pins you are connecting to.
+</span><span class='line'>SwitecX25 motor1(STEPS,1,2,3,4);
+</span><span class='line'>
+</span><span class='line'>void setup(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.zero();
+</span><span class='line'>  motor1.setPosition(STEPS/2);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>void loop(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.update();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/02/16/using-the-switec25-library/">Using the SwitecX25 Library</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-16T18:04:00+10:00" pubdate data-updated="true">Feb 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Getting Started with the SwitecX25 Library</h2>
+
+<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
+of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
+to ensure that they persist when you upgrade the IDE.</p>
+
+<p>So figure out where your project directory is (under OSX this is available in the <code>Arduino-&gt;Preferences</code> menu), create a subdirectory called <code>libraries</code> with the project directory.  The name is important, so use exactly that.  Then inside that libraries directory checkout the SwitecX25 library.  You should end up with this structure:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>libraries
+</span><span class='line'>  |
+</span><span class='line'>  +-- SwitecX25
+</span><span class='line'>     |
+</span><span class='line'>     +-- SwitecX25.cpp
+</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu.  It appears in a separate
+section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
+sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
+of its range.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;SwitecX25.h&gt;
+</span><span class='line'>
+</span><span class='line'>// standard X25.168 range
+</span><span class='line'>#define STEPS (315*3)
+</span><span class='line'>// replace 1,2,3,4 with the pins you are connecting to.
+</span><span class='line'>SwitecX25 motor1(STEPS,1,2,3,4);
+</span><span class='line'>
+</span><span class='line'>void setup(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.zero();
+</span><span class='line'>  motor1.setPosition(STEPS/2);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>void loop(void)
+</span><span class='line'>{
+</span><span class='line'>  motor1.update();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -645,118 +840,6 @@ code.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="right" src="/gaugette/resources/X12_Quad_Driver.png" title="Switec X12.017 Quad Driver" >
-The <a href="/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I like the look of these for keeping the I/O count down, and offloading
-a bunch of processing from the Arduino.</p>
-
-<p>However I have been unable to find a supplier for X12 quad driver chips.
-It seems that they were available until recently
-from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
-but after Swatch
-<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
-to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
-that website disappeared.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/15/needle-acceleration/">Motor Acceleration and Deceleration</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
-
-
-<p>My first cut at the <a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
-stepped the needle at a constant speed.  You can see the constant speed
-motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
-
-<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
-it seems more aesthetically pleasing, and partly because I have a notion that
-I should be able to reach faster peak speeds by ramping the speed up.  Motion is
-now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
-
-<p>For now I&#8217;ve used floating point calculations to compute each step period
-standard Newtonian velocity/distance/time
-calculations.  This works okay, but is unnecessarily compute-intensive.</p>
-
-<p>The Switec X25 library supports multiple motors
-and no doubt this computation will become a factor when I try to drive more than
-one motor, so I&#8217;ll have to address that at some point.</p>
-
-<p>One interesting aspect of the control logic is that the calculations are done at the start
-of each step, in distance-domain rather than in time domain like most simulations.
-This means the calculations must be done more frequently at higher needle
-speeds.  This is going to set an upper bound on maximum step rate.</p>
-
-<p>When it does become an issue,
-I think I could replace the entire floating point calculation with a small table of pre-computed
-(step-count, step-period) pairs with little perceptible difference.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/gaugette/blog/page/2/">&larr; Older</a>
@@ -770,6 +853,14 @@ I think I could replace the entire floating point calculation with a small table
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/16/using-the-switec25-library/">Using the SwitecX25 Library</a>
+      </li>
     
       <li class="post">
         <a href="/gaugette/blog/2012/02/11/backlighting/">LED Gauge Backlighting</a>
@@ -801,14 +892,6 @@ I think I could replace the entire floating point calculation with a small table
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/15/needle-acceleration/">Motor Acceleration and Deceleration</a>
       </li>
     
   </ul>

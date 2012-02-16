@@ -9,8 +9,10 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Wiring It Up Given the comments by Toby Catlin
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than &hellip;">
+  <meta name="description" content="The X25 data sheet
+describes the X12 family of driver chips which allow
+up to 4 Switec motors to be controlled over a 3-wire serial interface.
+I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +82,118 @@ about cooking the motors while soldering, I opted to make up a harness with a co
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="right" src="/gaugette/resources/X12_Quad_Driver.png" title="Switec X12.017 Quad Driver" >
+The <a href="/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
+describes the X12 family of driver chips which allow
+up to 4 Switec motors to be controlled over a 3-wire serial interface.
+I like the look of these for keeping the I/O count down, and offloading
+a bunch of processing from the Arduino.</p>
+
+<p>However I have been unable to find a supplier for X12 quad driver chips.
+It seems that they were available until recently
+from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
+but after Swatch
+<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
+to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
+that website disappeared.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/15/needle-acceleration/">Motor Acceleration and Deceleration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-15T19:38:00+10:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
+
+
+<p>My first cut at the <a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
+stepped the needle at a constant speed.  You can see the constant speed
+motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
+
+<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
+it seems more aesthetically pleasing, and partly because I have a notion that
+I should be able to reach faster peak speeds by ramping the speed up.  Motion is
+now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
+
+<p>For now I&#8217;ve used floating point calculations to compute each step period
+standard Newtonian velocity/distance/time
+calculations.  This works okay, but is unnecessarily compute-intensive.</p>
+
+<p>The Switec X25 library supports multiple motors
+and no doubt this computation will become a factor when I try to drive more than
+one motor, so I&#8217;ll have to address that at some point.</p>
+
+<p>One interesting aspect of the control logic is that the calculations are done at the start
+of each step, in distance-domain rather than in time domain like most simulations.
+This means the calculations must be done more frequently at higher needle
+speeds.  This is going to set an upper bound on maximum step rate.</p>
+
+<p>When it does become an issue,
+I think I could replace the entire floating point calculation with a small table of pre-computed
+(step-count, step-period) pairs with little perceptible difference.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -250,6 +364,14 @@ on the different models.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/16/using-the-switec25-library/">Using the SwitecX25 Library</a>
+      </li>
+    
+      <li class="post">
         <a href="/gaugette/blog/2012/02/11/backlighting/">LED Gauge Backlighting</a>
       </li>
     
@@ -279,14 +401,6 @@ on the different models.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/15/needle-acceleration/">Motor Acceleration and Deceleration</a>
       </li>
     
   </ul>
