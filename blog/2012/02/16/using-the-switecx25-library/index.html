@@ -9,7 +9,8 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="This post describes how to use the SwitecX25 library in a sketch. Install the Library For Arduino IDE version 1.0 and later you can store user- &hellip;">
+  <meta name="description" content="Getting Started with the SwitecX25 Library For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
+of your &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,16 +106,13 @@
   </header>
 
 
-<div class="entry-content"><p>This post describes how to use the SwitecX25 library in a sketch.</p>
-
-<h2>Install the Library</h2>
+<div class="entry-content"><h2>Getting Started with the SwitecX25 Library</h2>
 
 <p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
 of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
 to ensure that they persist when you upgrade the IDE.</p>
 
-<p>So figure out where your project directory is (under OSX the menu is Arduino->Preferences), create a subdirectory called <code>libraries</code>.  The name is important, so use exactly that.  Within that directory checkout the SwitecX25 library.  You should end up
-with this structure:</p>
+<p>So figure out where your project directory is (under OSX this is available in the <code>Arduino-&gt;Preferences</code> menu), create a subdirectory called <code>libraries</code> with the project directory.  The name is important, so use exactly that.  Then inside that libraries directory checkout the SwitecX25 library.  You should end up with this structure:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -130,7 +128,7 @@ with this structure:</p>
 </span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Restart the IDE and you should see the library in your library menu.  It appears in a separate
+<p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu.  It appears in a separate
 section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
 sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
 of its range.</p>
@@ -209,7 +207,7 @@ of its range.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/02/16/using-the-switec25-library/" title="Previous Post: Using the SwitecX25 Library">&laquo; Using the SwitecX25 Library</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/02/11/backlighting/" title="Previous Post: LED Gauge Backlighting">&laquo; LED Gauge Backlighting</a>
       
       
     </p>
@@ -232,10 +230,6 @@ of its range.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/02/16/using-the-switec25-library/">Using the SwitecX25 Library</a>
       </li>
     
       <li class="post">
@@ -268,6 +262,10 @@ of its range.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a>
       </li>
     
   </ul>
