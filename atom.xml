@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-02-16T18:20:00+10:00</updated>
+  <updated>2012-02-16T18:32:57+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -39,6 +39,8 @@ to ensure that they persist when you upgrade the IDE.</p>
 </span><span class='line'>     +-- SwitecX25.cpp
 </span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
 
+
+<p>There is also an examples directory under that, but those two files are the critical parts of the library.</p>
 
 <p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu.  It appears in a separate
 section at the bottom marked &#8216;Contributed&#8217;.  Now start a new sketch.  Here&#8217;s a minimum Hello World
@@ -80,6 +82,8 @@ of its range.</p>
 </span><span class='line'>  motor1.update();
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
+
+<p>I&#8217;ve added this little sketch to the library as an example, so it will appear as <code>File-&gt;Examples-&gt;SwitecX25-&gt;center</code>.</p>
 ]]></content>
   </entry>
   
