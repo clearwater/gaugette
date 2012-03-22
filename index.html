@@ -9,8 +9,9 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Getting Started with the SwitecX25 Library For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
-of your &hellip;">
+  <meta name="description" content="I&#8217;ve now added the backlight to the second gauge
+in this build. This time I was able to get the resistor tucked up nicely out
+the way so it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +81,68 @@ of your &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/03/22/finishing-build-one/">Finishing Build One</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-22T11:18:00+10:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve now added the backlight to the second gauge
+in this build.  This time I was able to get the resistor tucked up nicely out
+the way so it wont cast a shadow.
+A nice helping of hot-glue holds everything in place.</p>
+
+<p>These photos show the LEDs at 100% brightness, but they are
+on PWM pins so I can control the intensity from the Arduino code.</p>
+
+<p><img class="center" src="/gaugette/resources/backlight2.png"></p>
+
+<p>It is subtle, but in the next photo you
+can detect the shadow of the resistor
+in the right-most guage - a dark spot between 30 and 40.
+It&#8217;s fine, and the light spread isn&#8217;t that even anyway,
+so I&#8217;m going to call it character.</p>
+
+<p><img class="center" src="/gaugette/resources/backlight-pair.png"></p>
+
+<p>The box is made from salvaged hardwood fence pickets.  I think
+it&#8217;s red stringybark, very hard and with nice colour and
+grain definition.</p>
+
+<p><img class="center" src="/gaugette/resources/build1-mount.png"></p>
+
+<p>I&#8217;ll wire the 3-position switch to the arduino; maybe off, on, and
+on-with-backlight.  Still need to do some final treatment to the wood, and
+mount this thing.  Almost done.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -753,55 +816,6 @@ code.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-19T17:10:00+10:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="right" src="/gaugette/resources/X12_Quad_Driver.png" title="Switec X12.017 Quad Driver" >
-The <a href="/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I like the look of these for keeping the I/O count down, and offloading
-a bunch of processing from the Arduino.</p>
-
-<p>However I have been unable to find a supplier for X12 quad driver chips.
-It seems that they were available until recently
-from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
-but after Swatch
-<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
-to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
-that website disappeared.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/gaugette/blog/page/2/">&larr; Older</a>
@@ -815,6 +829,10 @@ that website disappeared.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/03/22/finishing-build-one/">Finishing Build One</a>
+      </li>
     
       <li class="post">
         <a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a>
@@ -850,10 +868,6 @@ that website disappeared.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/19/x12-quad-driver-chip/">X12 Quad Driver Chip</a>
       </li>
     
   </ul>
