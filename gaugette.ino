@@ -3,7 +3,8 @@
 #include "Command.h"
 #include "RotaryEncoder.h"
 #include "IntRotaryEncoder.h"
-#include "LCD.h"
+#include "LED.h"
+#include "Switch.h"
 
 /////////////////////////////////////
 //  0  RX
@@ -34,16 +35,20 @@ Command cmd;
 // at 3 steps per degree is 696 steps
 #define MOTOR_STEPS (696)
 SwitecX25 motors[] =  {
-  SwitecX25(MOTOR_STEPS, 8,9,12,13),
-  SwitecX25(MOTOR_STEPS, 4, 5, 6, 7)
+  SwitecX25(MOTOR_STEPS, 4,5,6,7),
+  SwitecX25(MOTOR_STEPS, 8,9,11,12)
 };
 const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 
 //RotaryEncoder encoder(2,3);
-IntRotaryEncoder encoder;
+//IntRotaryEncoder encoder;
 
-LCD lcds[] = {LCD(10), LCD(11)};
-const unsigned int lcdCount = sizeof(lcds)/sizeof(*lcds);
+LED leds[] = {LED(3), LED(10)};
+const unsigned int ledCount = sizeof(leds)/sizeof(*leds);
+
+Switch switch1(A1);
+Switch switch2(A0);
+boolean active = true;
 
 void setup(void) {
   Serial.begin(9600);
@@ -52,16 +57,21 @@ void setup(void) {
   Serial.println("Go!");
   
   // excercise the code to override the acceleration table.
-  static unsigned short accelTable[][2] = {
-    {   20, 3000},
-    {  100, 1000},
-    {  300,  600}
-  };
-  motors[1].accelTable = accelTable;
-  motors[1].maxVel = accelTable[3-1][0];
+  // static unsigned short accelTable[][2] = {
+  //   {   20, 3000},
+  //   {  100, 1000},
+  //   {  300,  600}
+  //};
+  //motors[1].accelTable = accelTable;
+  //motors[1].maxVel = accelTable[3-1][0];
+
+  leds[0].speed = 1;
+  leds[1].speed = 1;
+
 }
 
 void loop(void) {
+  /*
   {
     static int n = 0;
     int delta = encoder.read();
@@ -76,8 +86,32 @@ void loop(void) {
     if (pos>=motors[1].steps) pos=0;
     motors[1].setPosition(pos);
   }
+  */
+  
+  // switch1 on turns on light
+  if (switch1.changed()) {
+    Serial.print("switch1 ");
+    Serial.println(switch1.set ? "on" : "off");
+    for (int i=0;i<ledCount;i++) {
+      leds[i].set(switch1.set ? 100 : 0);
+    }
+  }
+  
+  // switch2 on turns everything off
+  if (switch2.changed()) {
+    Serial.print("switch2 ");
+    Serial.println(switch2.set ? "on" : "off");
+    active = !switch2.set;
+    motors[0].setPosition(0);
+    motors[1].setPosition(0);
+  }
+  
+  
+  
   motors[0].update();
   motors[1].update();
+  leds[0].update();
+  leds[1].update();
   if (cmd.parseInput()) {
     //cmd.dump();
     if (cmd.address[1]<motorCount) {
@@ -87,15 +121,15 @@ void loop(void) {
           motor->zero();        
           break;
         case 's':
-          motor->setPosition(cmd.value[1]);
+          if (active) motor->setPosition(cmd.value[1]);
           break;
         case 'r':
           // r <n> <steps> set motor range
           motor->steps = cmd.value[1];
           break;
         case 'l':
-          LCD *lcd = lcds + cmd.address[1];
-          lcd->set(cmd.value[1]);
+          LED *led = leds + cmd.address[1];
+          led->set(cmd.value[1]);
           break;
       }
     }
