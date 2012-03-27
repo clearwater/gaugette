@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-03-23T17:04:22+10:00</updated>
+  <updated>2012-03-27T13:19:24+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -14,37 +14,33 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Finishing Build One]]></title>
+    <title type="html"><![CDATA[A Better Backlight]]></title>
     <link href="http://clearwater.github.com/gaugette/blog/2012/03/22/finishing-build-one/"/>
     <updated>2012-03-22T11:18:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/03/22/finishing-build-one</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve now added the backlight to the second gauge
-in this build.  This time I was able to get the resistor tucked up nicely out
-the way so it wont cast a shadow.
-A nice helping of hot-glue holds everything in place.</p>
+    <content type="html"><![CDATA[<p>For the second gauge in this build, I tried to get
+better placement of the current-limiting resistor.
+By placing it tight in the corner, it wont
+cast a shadow.</p>
 
 <p>These photos show the LEDs at 100% brightness, but they are
 on PWM pins so I can control the intensity from the Arduino code.</p>
 
 <p><img class="center" src="http://clearwater.github.com/gaugette/resources/backlight2.png"></p>
 
-<p>It is subtle, but in the next photo you
-can detect the shadow of the resistor
-in the right-most gauge - a dark spot between 30 and 40.
+<p>It is subtle, but in the next photo you can see the difference
+between the first and second gauge.  The right-most gauge
+has a dark spot between 30 and 40.
 It&#8217;s fine, and the light spread isn&#8217;t that even anyway,
-so I&#8217;m going to call it character.</p>
+so I&#8217;m going to call it &#8216;character&#8217;.</p>
 
 <p><img class="center" src="http://clearwater.github.com/gaugette/resources/backlight-pair.png"></p>
 
-<p>The box is made from salvaged hardwood fence pickets.  I think
-it&#8217;s red stringybark, very hard and with nice colour and
-grain definition.</p>
+<p>The mounting panel is made from salvaged hardwood fence pickets.  It&#8217;s red stringybark, very hard and with nice colour and grain definition.</p>
 
 <p><img class="center" src="http://clearwater.github.com/gaugette/resources/build1-mount.png"></p>
 
-<p>I&#8217;ll wire the 3-position switch to the arduino; maybe off, on, and
-on-with-backlight.  Still need to do some final treatment to the wood, and
-mount this thing.  Almost done.</p>
+<p>I&#8217;ve wired the 3-position switch to control &#8220;off&#8221;, &#8220;on&#8221; and &#8220;on with backlight&#8221;.</p>
 ]]></content>
   </entry>
   
