@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-03-27T13:19:24+10:00</updated>
+  <updated>2012-03-27T14:32:49+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Better Backlight]]></title>
-    <link href="http://clearwater.github.com/gaugette/blog/2012/03/22/finishing-build-one/"/>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/03/22/a-better-backlight/"/>
     <updated>2012-03-22T11:18:00+10:00</updated>
-    <id>http://clearwater.github.com/gaugette/blog/2012/03/22/finishing-build-one</id>
+    <id>http://clearwater.github.com/gaugette/blog/2012/03/22/a-better-backlight</id>
     <content type="html"><![CDATA[<p>For the second gauge in this build, I tried to get
 better placement of the current-limiting resistor.
 By placing it tight in the corner, it wont
