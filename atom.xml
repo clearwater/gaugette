@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-03-27T14:32:49+10:00</updated>
+  <updated>2012-04-04T11:02:49+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pulling out the Stops]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/"/>
+    <updated>2012-04-04T09:58:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops</id>
+    <content type="html"><![CDATA[<p>Or more accurately, filing off the stops.</p>
+
+<p>Recently Tim Hirzel asked in the comments on this blog if I knew
+of a source of motors without stops, or if the X25.168&#8217;s could be
+modified to remove the stops and open up a full 360 degree rotation.</p>
+
+<p>Good question!  The [Buyers Guide] lists 6 models
+of motors without stops, but a quick search turned up no suppliers
+selling these in small volumes.</p>
+
+<p>So I figured it was time to figure out if the stops can be removed.  Note that I&#8217;m working
+on a VID-29 clone, not a genuine Switec X25.168 here.
+There are 4 tiny screws that open the case revealing this:</p>
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
+
+<p>The final drive gear is the one sitting loose, and it is trivially removed.  Flipping
+it over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face.</p>
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
+
+<p>I cut off the stop with a Stanley knife, and filed it down a bit with a small file
+until it felt pretty flat.</p>
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
+
+<p>Reassembly is easy, and lo! it works.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
+
+
+<p>You can see the rotation hesitates in the video - this is because of the acceleration/decelleration
+logic in the SwitexX25 library; I&#8217;m spinning 360 degrees, stopping, then spinning again.  I&#8217;ll need to
+add some better methods to the library to support free rotation.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Better Backlight]]></title>

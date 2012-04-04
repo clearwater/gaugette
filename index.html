@@ -9,10 +9,8 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="For the second gauge in this build, I tried to get
-better placement of the current-limiting resistor.
-By placing it tight in the corner, it wont
-cast &hellip;">
+  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked in the comments on this blog if I knew
+of a source of motors without stops, or if &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +80,75 @@ cast &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out the Stops</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-04T09:58:00+10:00" pubdate data-updated="true">Apr 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Or more accurately, filing off the stops.</p>
+
+<p>Recently Tim Hirzel asked in the comments on this blog if I knew
+of a source of motors without stops, or if the X25.168&#8217;s could be
+modified to remove the stops and open up a full 360 degree rotation.</p>
+
+<p>Good question!  The [Buyers Guide] lists 6 models
+of motors without stops, but a quick search turned up no suppliers
+selling these in small volumes.</p>
+
+<p>So I figured it was time to figure out if the stops can be removed.  Note that I&#8217;m working
+on a VID-29 clone, not a genuine Switec X25.168 here.
+There are 4 tiny screws that open the case revealing this:</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
+
+<p>The final drive gear is the one sitting loose, and it is trivially removed.  Flipping
+it over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face.</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
+
+<p>I cut off the stop with a Stanley knife, and filed it down a bit with a small file
+until it felt pretty flat.</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
+
+<p>Reassembly is easy, and lo! it works.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
+
+
+<p>You can see the rotation hesitates in the video - this is because of the acceleration/decelleration
+logic in the SwitexX25 library; I&#8217;m spinning 360 degrees, stopping, then spinning again.  I&#8217;ll need to
+add some better methods to the library to support free rotation.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -765,54 +832,6 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-23T14:39:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino.  Once concern
-I have is that the control logic that manages the acceleration and
-deceleration could be so slow that it will interfere with the motor
-drive signaling when trying to control more than one motor.  I have in mind to replace the
-floating point logic with a lookup table, but for now I like being
-able to easily fiddle with the motion parameters.</p>
-
-<p>It turns out that two motors work pretty well with only minor tweaks to the existing
-code.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/gaugette/blog/page/2/">&larr; Older</a>
@@ -826,6 +845,10 @@ code.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling out the Stops</a>
+      </li>
     
       <li class="post">
         <a href="/gaugette/blog/2012/03/22/a-better-backlight/">A Better Backlight</a>
@@ -861,10 +884,6 @@ code.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/">Attack of the Switec Clones?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
       </li>
     
   </ul>

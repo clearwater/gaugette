@@ -9,10 +9,9 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="The X25 data sheet
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I &hellip;">
+  <meta name="description" content="Last night I built a pair of improved wiring harnesses so I could
+connect two motors to the Arduino. Once concern
+I have is that the control logic &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +81,54 @@ I &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-23T14:39:00+10:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last night I built a pair of improved wiring harnesses so I could
+connect two motors to the Arduino.  Once concern
+I have is that the control logic that manages the acceleration and
+deceleration could be so slow that it will interfere with the motor
+drive signaling when trying to control more than one motor.  I have in mind to replace the
+floating point logic with a lookup table, but for now I like being
+able to easily fiddle with the motion parameters.</p>
+
+<p>It turns out that two motors work pretty well with only minor tweaks to the existing
+code.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -364,6 +411,10 @@ on the different models.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling out the Stops</a>
+      </li>
+    
+      <li class="post">
         <a href="/gaugette/blog/2012/03/22/a-better-backlight/">A Better Backlight</a>
       </li>
     
@@ -397,10 +448,6 @@ on the different models.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/">Attack of the Switec Clones?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/23/controlling-two-motors/">Two Motors, One Arduino</a>
       </li>
     
   </ul>

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Attack of the Switec Clones? - Gaugette</title>
+  <title>Pulling out the Stops - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
-the white motors with the &#8220;Switec&#8221; branding that I&#8217; &hellip;">
+  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked in the comments on this blog if I knew
+of a source of motors without stops, or if &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ the white motors with the &#8220;Switec&#8221; branding that I&#8217; &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -83,7 +83,7 @@ the white motors with the &#8220;Switec&#8221; branding that I&#8217; &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Attack of the Switec Clones?</h1>
+      <h1 class="entry-title">Pulling Out the Stops</h1>
     
     
       <p class="meta">
@@ -99,34 +99,47 @@ the white motors with the &#8220;Switec&#8221; branding that I&#8217; &hellip;">
   
 
 
-<time datetime="2012-01-24T09:29:00+10:00" pubdate data-updated="true">Jan 24<span>th</span>, 2012</time>
+<time datetime="2012-04-04T09:58:00+10:00" pubdate data-updated="true">Apr 4<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img class="right" src="/gaugette/resources/X25_clone.png" title="Switec Clones" >
-When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
-the white motors with the &#8220;Switec&#8221; branding that I&#8217;ve been seeing
-online.  I finally got around to tracking down what exactly they are.
-They have two identification numbers printed black on black:
-<code>vid29-02p</code> and <code>d11455db</code>.</p>
+<div class="entry-content"><p>Or more accurately, filing off the stops.</p>
 
-<p><img class="right" src="/gaugette/resources/VID29_diagram.png" title="Motor Diagram" >
-It turns out that the first number is the model, and these are in reality VID29 series stepper motors
-from <a href="http://www.vid.wellgain.com/product.aspx">Hong Kong VID</a>.  Interestingly their
-<a href="/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf">data sheet</a>
-includes details of recommended acceleration characteristics to bring the motors
-to full speed without visible and audible jitter.  Cool cool cool.</p>
+<p>Recently Tim Hirzel asked in the comments on this blog if I knew
+of a source of motors without stops, or if the X25.168&#8217;s could be
+modified to remove the stops and open up a full 360 degree rotation.</p>
 
-<p>Armed with that information
-I turned up what appears to be a third manufacturer, <a href="http://www.mcrmotor.com/en/">MCR Motor</a> who
-call this motor the MR1108.  The MCR <a href="/gaugette/resources/mcr/2010410104720473.pdf">data sheet</a>
-lists the Switec and VID motors as alternatives.</p>
+<p>Good question!  The [Buyers Guide] lists 6 models
+of motors without stops, but a quick search turned up no suppliers
+selling these in small volumes.</p>
 
-<p>The eBay seller had these marked unambiguously as X25.168 motors in their auction, but didn&#8217;t
-specifically say they were from Switec.  I wonder if any of the eBay offers are actual Switec motors?</p>
+<p>So I figured it was time to figure out if the stops can be removed.  Note that I&#8217;m working
+on a VID-29 clone, not a genuine Switec X25.168 here.
+There are 4 tiny screws that open the case revealing this:</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
+
+<p>The final drive gear is the one sitting loose, and it is trivially removed.  Flipping
+it over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face.</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
+
+<p>I cut off the stop with a Stanley knife, and filed it down a bit with a small file
+until it felt pretty flat.</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
+
+<p>Reassembly is easy, and lo! it works.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
+
+
+<p>You can see the rotation hesitates in the video - this is because of the acceleration/decelleration
+logic in the SwitexX25 library; I&#8217;m spinning 360 degrees, stopping, then spinning again.  I&#8217;ll need to
+add some better methods to the library to support free rotation.</p>
 </div>
 
 
@@ -149,7 +162,7 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
   
 
 
-<time datetime="2012-01-24T09:29:00+10:00" pubdate data-updated="true">Jan 24<span>th</span>, 2012</time>
+<time datetime="2012-04-04T09:58:00+10:00" pubdate data-updated="true">Apr 4<span>th</span>, 2012</time>
       
 
 
@@ -157,7 +170,7 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/" >Tweet</a>
   
   
   
@@ -166,10 +179,8 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/01/23/controlling-two-motors/" title="Previous Post: Two Motors, One Arduino">&laquo; Two Motors, One Arduino</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/03/22/a-better-backlight/" title="Previous Post: A Better Backlight">&laquo; A Better Backlight</a>
       
-      
-        <a class="basic-alignment right" href="/gaugette/blog/2012/01/26/simplified-acceleration-model/" title="next Post: A Simplified Acceleration Model">A Simplified Acceleration Model &raquo;</a>
       
     </p>
   </footer>
@@ -256,8 +267,8 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/';
-        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/';
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/';
         var disqus_script = 'embed.js';
       
     (function () {
