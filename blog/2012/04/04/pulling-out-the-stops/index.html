@@ -122,7 +122,7 @@ There are 4 tiny screws that open the case revealing this:</p>
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
 
-<p>The final drive gear is the one sitting loose, and it is trivially removed.  Flipping
+<p>The gear on the right with the drive-shaft is loose and can be lifted out.  Flipping
 it over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face.</p>
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
@@ -137,8 +137,53 @@ it over reveals the mechanism for the stop; a raised trapezoidal bump on the gea
 
 
 <p>You can see the rotation hesitates in the video - this is because of the acceleration/decelleration
-logic in the SwitecX25 library; I&#8217;m spinning 360 degrees, decellerating to a stop, then starting again.  I&#8217;ll need to
-add some better methods to the library to support free rotation.</p>
+logic in the SwitecX25 library; I&#8217;m acellerating the motor from stop,
+spinning 360 degrees, decellerating to a stop again, then repeating,
+using code like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>      for (int i=0;i&lt;nLoops;i++) {
+</span><span class='line'>        motor-&gt;currentStep = 0;    
+</span><span class='line'>        motor-&gt;setPosition(360*3);
+</span><span class='line'>        while (!motor-&gt;stopped) motor-&gt;update();
+</span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To keep the speed constant I could set the destination to be 2 full
+rotations ahead so that it is still at full speed when we reset
+the origin at 360 degrees.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>      for (int i=0;i&lt;nLoops;i++) {
+</span><span class='line'>        motor-&gt;currentStep = 0;         // reset origin on each rotation 
+</span><span class='line'>        motor-&gt;setPosition(320*3*2);    // set target to way past end of rotation
+</span><span class='line'>        while (motor-&gt;currentStep&lt;360*3) motor-&gt;update();  // turn until rotation is complete
+</span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or to reverse:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>      for (int i=0;i&lt;nLoops;i++) {
+</span><span class='line'>        motor-&gt;currentStep = 360*3*2;
+</span><span class='line'>        motor-&gt;setPosition(0);
+</span><span class='line'>        while (motor-&gt;currentStep&gt;360*3) motor-&gt;update();
+</span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The SwitecX25 library will need some extensions to support free-turning motors.</p>
 </div>
 
 
