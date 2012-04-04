@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Just a Pretty Face - Gaugette</title>
+  <title>Making Wiring Harnesses - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="I made dial faces for a couple of the square gauges built
-in Build Number One. Nearly
-ready to install these guys. Laying out the line-work on the &hellip;">
+  <meta name="description" content="A quick note about wiring harnesses for these motors.
+I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
+cables and breakaway &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@ ready to install these guys. Laying out the line-work on the &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +84,7 @@ ready to install these guys. Laying out the line-work on the &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Just a Pretty Face</h1>
+      <h1 class="entry-title">Making Wiring Harnesses</h1>
     
     
       <p class="meta">
@@ -100,66 +100,74 @@ ready to install these guys. Laying out the line-work on the &hellip;">
   
 
 
-<time datetime="2012-02-06T17:33:00+10:00" pubdate data-updated="true">Feb 6<span>th</span>, 2012</time>
+<time datetime="2012-04-04T13:05:00+10:00" pubdate data-updated="true">Apr 4<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img class="right" src="/gaugette/resources/100k_square_dial.png" title="Dial Face Artwork" >
-I made dial faces for a couple of the square gauges built
-in <a href="/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
-ready to install these guys.</p>
+<div class="entry-content"><p>A quick note about wiring harnesses for these motors.
+I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
+cables and breakaway headers.  I have heard that it is easy to
+overheat these motors when soldering to their contacts, so I&#8217;ve
+been using slip-on connectors made from recycled PC audio cables.</p>
 
-<p>Laying out the line-work on the square faces presents
-an interesting challenge.  I decided to generate the
-<a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.png">bare line-work</a>
-programmatically with a <a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.rb">ruby script</a>, and add the labels later with
-a graphics tool.</p>
+<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are
+used to connect the analog audio signal from a PC&#8217;s internal CD player to the
+motherboard or sound card. I have accumulated a bunch of
+these over the years, so I&#8217;m glad to have a use for them.</p>
 
-<p>My first attempt at the script used the GD2 library, but <a href="http://gd2.rubyforge.org/rdoc/">GD2</a>
-doesn&#8217;t seem to support anti-aliasing or line-caps and the resulting line-work
-was just too damned ugly.  I switched to <a href="http://rubyforge.org/projects/cairo/">Cairo</a> which makes pretty, pretty lines.
-A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines and remove the messy trig I was coding to figure out line
-intersections and stroke lengths.  Finally I imported the generated image into
-OpenOffice to add the text labels.</p>
+<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers from AdaFruit</a>.</p>
 
-<p>So what to print on?  On a recent trip to Cairns I looked in Officeworks
-for ideas.  I didn&#8217;t find any card stock I liked, but
-I did find some 120 gsm paper (Quill brand &#8220;Metallique&#8221;
-in Mother of Pearl) with a cool metallic / opalesque finish.
-120 gsm is heavier than standard typing paper, and maybe barely stiff
-enough to support itself in the gauge.  Over time it might curl
-or slump in the varying humidity here in the tropics.
-There is just enough drive shaft length to place the paper
-over the original dial plate so that the needle just clears
-the face, but if the paper will support itself I could
-backlight it with an LED which might look nice in the dark.</p>
+<p><img src="/gaugette/resources/2012-04-04/imgp9227.jpg" alt="image" /></p>
 
-<p><img class="left" src="/gaugette/resources/fiskars_hole_punch.png" title="Fiskars Hole Punch" >
-One thing that had me stuffed is how to punch a neat hole in the paper for
-the drive shaft.  A standard hole-punch is too big and can&#8217;t reach
-far enough from the edge of the paper.  Drilling would leave messy edges.  Scouring
-the aisles at Officeworks I found a
-<a href="http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack">set of three eyelet setters</a> from Fiskars in the scrap-booking section.  The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page, pull back the hammer, and smack, you have a hole.  I was reckon I want a 3mm hole, and the middle
-size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now
-I have some crafty hole punches.</p>
+<ul>
+<li>Chop the audio cable in half (each half makes one wiring harness),</li>
+<li>Strip and tin the wires on the cut end,</li>
+<li>Cut off a 4-pin section of breakaway header,</li>
+<li>Solder the wires to the header <em>with the two black wires in the center positions</em>,</li>
+<li>Protect the connections with heat-shrink tubing.</li>
+</ul>
 
-<p><img class="right" src="/gaugette/resources/finished_square_face.png" title="Custom Dial Face" >
-I tried printing the dials with an ink-jet.  That
-seemed okay until I mounted it in the gauge and I found
-that at certain angles the metallic finish
-on the paper made the line-work look really washed out.  Redoing
-the printing with a laser printer gave much better results.</p>
 
-<p>After installing the new face I calibrated it carefully and found
-a discrepancy between the printed face and needle position that I can&#8217;t
-explain.  If I line up zero precisely, then at full-scale (230 degrees
-sweep) I find the needle is about 2 degrees short of the 100% mark on
-the dial.  I&#8217;m not sure what the source of error is - presumably just measurement and positioning errors -  but it is easily
-solved by changing the stepper motor sweep from 690 steps to 696 steps
-to full-scale deflection.</p>
+<p><img src="/gaugette/resources/2012-04-04/imgp9228.jpg" alt="image" /></p>
+
+<ul>
+<li>Pull up the plastic tabs on the JST connector and slide the crimped terminator out of the block,</li>
+<li>Use pliers to close the crimp connectors a little, but don&#8217;t crush them entirely. The pins on the Switec motors are really small, so you need to squeeze it down a little to create a tight fit.</li>
+</ul>
+
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9229.jpg" alt="image" /></p>
+
+<p>You&#8217;ll notice that these harnesses have two black wires, which would
+normally be a bit annoying.  However it turns out that the wires to
+pins 2 and 3 on the Switec motors are interchangable, so make them
+black and you don&#8217;t need to distinguish between them.</p>
+
+<p>Wire your motor up like this:</p>
+
+<ul>
+<li>1 : white</li>
+<li>2 : black</li>
+<li>3 : black</li>
+<li>4 : red</li>
+</ul>
+
+
+<p>Be careful not to bend the pins on the motors when you slide the
+crimp connectors on.  Also note that the pins on the motor are flat, not round,
+so the orientation of the crimp connector matters.</p>
+
+<p>Finally, if you plug the header into an Arduino so that white is at
+pin 4, and red is pin 7, you can define your motor in code like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 
@@ -182,7 +190,7 @@ to full-scale deflection.</p>
   
 
 
-<time datetime="2012-02-06T17:33:00+10:00" pubdate data-updated="true">Feb 6<span>th</span>, 2012</time>
+<time datetime="2012-04-04T13:05:00+10:00" pubdate data-updated="true">Apr 4<span>th</span>, 2012</time>
       
 
 
@@ -190,7 +198,7 @@ to full-scale deflection.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/" >Tweet</a>
   
   
   
@@ -199,10 +207,8 @@ to full-scale deflection.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/02/04/source-code-cleanup/" title="Previous Post: Separation Anxiety">&laquo; Separation Anxiety</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/04/04/pulling-out-the-stops/" title="Previous Post: Pulling Out All The Stops">&laquo; Pulling Out All The Stops</a>
       
-      
-        <a class="basic-alignment right" href="/gaugette/blog/2012/02/11/backlighting/" title="next Post: LED Gauge Backlighting">LED Gauge Backlighting &raquo;</a>
       
     </p>
   </footer>
@@ -289,8 +295,8 @@ to full-scale deflection.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/';
-        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/';
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/';
         var disqus_script = 'embed.js';
       
     (function () {

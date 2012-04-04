@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-04-04T12:55:58+10:00</updated>
+  <updated>2012-04-04T15:16:34+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Making Wiring Harnesses]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/"/>
+    <updated>2012-04-04T13:05:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses</id>
+    <content type="html"><![CDATA[<p>A quick note about wiring harnesses for these motors.
+I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
+cables and breakaway headers.  I have heard that it is easy to
+overheat these motors when soldering to their contacts, so I&#8217;ve
+been using slip-on connectors made from recycled PC audio cables.</p>
+
+<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are
+used to connect the analog audio signal from a PC&#8217;s internal CD player to the
+motherboard or sound card. I have accumulated a bunch of
+these over the years, so I&#8217;m glad to have a use for them.</p>
+
+<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers from AdaFruit</a>.</p>
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9227.jpg" alt="image" /></p>
+
+<ul>
+<li>Chop the audio cable in half (each half makes one wiring harness),</li>
+<li>Strip and tin the wires on the cut end,</li>
+<li>Cut off a 4-pin section of breakaway header,</li>
+<li>Solder the wires to the header <em>with the two black wires in the center positions</em>,</li>
+<li>Protect the connections with heat-shrink tubing.</li>
+</ul>
+
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9228.jpg" alt="image" /></p>
+
+<ul>
+<li>Pull up the plastic tabs on the JST connector and slide the crimped terminator out of the block,</li>
+<li>Use pliers to close the crimp connectors a little, but don&#8217;t crush them entirely. The pins on the Switec motors are really small, so you need to squeeze it down a little to create a tight fit.</li>
+</ul>
+
+
+<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9229.jpg" alt="image" /></p>
+
+<p>You&#8217;ll notice that these harnesses have two black wires, which would
+normally be a bit annoying.  However it turns out that the wires to
+pins 2 and 3 on the Switec motors are interchangable, so make them
+black and you don&#8217;t need to distinguish between them.</p>
+
+<p>Wire your motor up like this:</p>
+
+<ul>
+<li>1 : white</li>
+<li>2 : black</li>
+<li>3 : black</li>
+<li>4 : red</li>
+</ul>
+
+
+<p>Be careful not to bend the pins on the motors when you slide the
+crimp connectors on.  Also note that the pins on the motor are flat, not round,
+so the orientation of the crimp connector matters.</p>
+
+<p>Finally, if you plug the header into an Arduino so that white is at
+pin 4, and red is pin 7, you can define your motor in code like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pulling Out All The Stops]]></title>

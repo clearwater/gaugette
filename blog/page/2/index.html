@@ -9,9 +9,8 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino. Once concern
-I have is that the control logic &hellip;">
+  <meta name="description" content="When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
+the white motors with the &#8220;Switec&#8221; branding that I&#8217; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +80,62 @@ I have is that the control logic &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/">Attack of the Switec Clones?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-24T09:29:00+10:00" pubdate data-updated="true">Jan 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="right" src="/gaugette/resources/X25_clone.png" title="Switec Clones" >
+When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
+the white motors with the &#8220;Switec&#8221; branding that I&#8217;ve been seeing
+online.  I finally got around to tracking down what exactly they are.
+They have two identification numbers printed black on black:
+<code>vid29-02p</code> and <code>d11455db</code>.</p>
+
+<p><img class="right" src="/gaugette/resources/VID29_diagram.png" title="Motor Diagram" >
+It turns out that the first number is the model, and these are in reality VID29 series stepper motors
+from <a href="http://www.vid.wellgain.com/product.aspx">Hong Kong VID</a>.  Interestingly their
+<a href="/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf">data sheet</a>
+includes details of recommended acceleration characteristics to bring the motors
+to full speed without visible and audible jitter.  Cool cool cool.</p>
+
+<p>Armed with that information
+I turned up what appears to be a third manufacturer, <a href="http://www.mcrmotor.com/en/">MCR Motor</a> who
+call this motor the MR1108.  The MCR <a href="/gaugette/resources/mcr/2010410104720473.pdf">data sheet</a>
+lists the Switec and VID motors as alternatives.</p>
+
+<p>The eBay seller had these marked unambiguously as X25.168 motors in their auction, but didn&#8217;t
+specifically say they were from Switec.  I wonder if any of the eBay offers are actual Switec motors?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -411,6 +466,10 @@ on the different models.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/gaugette/blog/2012/04/04/making-wiring-harnesses/">Making Wiring Harnesses</a>
+      </li>
+    
+      <li class="post">
         <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out All The Stops</a>
       </li>
     
@@ -444,10 +503,6 @@ on the different models.</p>
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/26/simplified-acceleration-model/">A Simplified Acceleration Model</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/24/attack-of-the-switec-clones/">Attack of the Switec Clones?</a>
       </li>
     
   </ul>
