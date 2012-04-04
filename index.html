@@ -9,8 +9,8 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked in the comments on this blog if I knew
-of a source of motors without stops, or if &hellip;">
+  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked if I knew
+of a source of motors without stops, or if the X25.168&#8217;s could be &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,7 +86,7 @@ of a source of motors without stops, or if &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out the Stops</a></h1>
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out All the Stops</a></h1>
     
     
       <p class="meta">
@@ -111,22 +111,23 @@ of a source of motors without stops, or if &hellip;">
 
   <div class="entry-content"><p>Or more accurately, filing off the stops.</p>
 
-<p>Recently Tim Hirzel asked in the comments on this blog if I knew
+<p>Recently Tim Hirzel asked if I knew
 of a source of motors without stops, or if the X25.168&#8217;s could be
-modified to remove the stops and open up a full 360 degree rotation.</p>
+modified to remove the stops and open up the full 360 degrees of rotation.</p>
 
 <p>Good question!  The <a href="/gaugette/resources">X25 Series Buyers Guide</a> lists 6 models
 of motors without stops, but a quick search turned up no suppliers
 selling these in small volumes.</p>
 
-<p>Time to figure out if the stops can be removed.  Note that I&#8217;m working
+<p>Okay, time to figure out if the stops can be removed.  Note that I&#8217;m working
 on a VID-29 clone, not a genuine Switec X25.168 here.
 There are 4 tiny screws that open the case revealing this:</p>
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
 
-<p>The gear on the right with the drive-shaft is loose and can be lifted out.  Flipping
-it over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face.</p>
+<p>The drive-shaft and attached gear sit loose and can be lifted out.  Flipping the
+gear over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face
+that stops against a matching protrusion at the bottom of the case.</p>
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
 
@@ -134,14 +135,14 @@ it over reveals the mechanism for the stop; a raised trapezoidal bump on the gea
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
 
-<p>Reassembly was easy, and lo! it works.</p>
+<p>Reassembly was easy, and bugger me, it works.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
 
 
-<p>You can see the rotation hesitates in the video - this is because of the acceleration/decelleration
-logic in the SwitecX25 library; I&#8217;m acellerating the motor from stop,
-spinning 360 degrees, decellerating to a stop again, then repeating,
+<p>In the video you can see the needle hesitates on each rotation.  This is because of the acceleration/deceleration
+logic in the SwitecX25 library; I&#8217;m accelerating the motor from stop,
+spinning 360 degrees, decelerating to a stop again, then repeating,
 using code like this:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -156,9 +157,9 @@ using code like this:</p>
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
 
 
-<p>To keep the speed constant I could set the destination to be 2 full
-rotations ahead so that it is still at full speed when we reset
-the origin at 360 degrees.</p>
+<p>To keep the speed constant I need to prevent it coming to a stop.
+I can do that by resetting the origin and destination before
+it reaches its goal step, like this:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -172,7 +173,7 @@ the origin at 360 degrees.</p>
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Or to reverse:</p>
+<p>Or to run the motor in reverse:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -186,7 +187,8 @@ the origin at 360 degrees.</p>
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The SwitecX25 library will need some extensions to support free-turning motors.</p>
+<p>I think the SwitecX25 library will need some extensions to support stop-less motors&#8230;  need to
+think about that a bit.</p>
 </div>
   
   
@@ -891,7 +893,7 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling out the Stops</a>
+        <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out All The Stops</a>
       </li>
     
       <li class="post">
