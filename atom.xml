@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-04-04T15:19:42+10:00</updated>
+  <updated>2012-04-04T15:33:47+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -89,7 +89,7 @@ pin 4, and red is pin 7, you can define your motor in code like this:</p>
     <id>http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops</id>
     <content type="html"><![CDATA[<p>Or more accurately, filing off the stops.</p>
 
-<p>Recently Tim Hirzel asked if I knew
+<p>Recently <a href="http://clearwater.github.com/gaugette/about/index.html#comment-459699391">Tim Hirzel asked</a> if I knew
 of a source of motors without stops, or if the X25.168&#8217;s could be
 modified to remove the stops and open up the full 360 degrees of rotation.</p>
 
