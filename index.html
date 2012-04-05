@@ -11,7 +11,7 @@
   
   <meta name="description" content="A quick note about wiring harnesses for these motors.
 I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
-cables and breakaway &hellip;">
+cables. My harnesses &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,16 +112,17 @@ cables and breakaway &hellip;">
 
   <div class="entry-content"><p>A quick note about wiring harnesses for these motors.
 I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
-cables and breakaway headers.  I have heard that it is easy to
-overheat these motors when soldering to their contacts, so I&#8217;ve
-been using slip-on connectors made from recycled PC audio cables.</p>
+cables.  My harnesses use push-on connectors at the motor end
+so I never <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">accidentally cook the motor</a> by soldering to the motor pins.</p>
+
+<p><img src="/gaugette/resources/2012-04-04/imgp9232.jpg" alt="image" /></p>
 
 <p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are
 used to connect the analog audio signal from a PC&#8217;s internal CD player to the
 motherboard or sound card. I have accumulated a bunch of
 these over the years, so I&#8217;m glad to have a use for them.</p>
 
-<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers from AdaFruit</a>.</p>
+<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers</a> and heatshrink tubing, both from AdaFruit.</p>
 
 <p><img src="/gaugette/resources/2012-04-04/imgp9227.jpg" alt="image" /></p>
 
@@ -146,22 +147,21 @@ these over the years, so I&#8217;m glad to have a use for them.</p>
 
 <p>You&#8217;ll notice that these harnesses have two black wires, which would
 normally be a bit annoying.  However it turns out that the wires to
-pins 2 and 3 on the Switec motors are interchangable, so make them
-black and you don&#8217;t need to distinguish between them.</p>
+pins 2 and 3 on the Switec motors are interchangable so you don&#8217;t need to distinguish between them.</p>
 
 <p>Wire your motor up like this:</p>
 
 <ul>
-<li>motor pin 1 : white : arduino pin 4</li>
-<li>motor pin 2 : black : arduino pin 5</li>
-<li>motor pin 3 : black : arduino pin 6</li>
-<li>motor pin 4 : red   : arduino pin 7</li>
+<li>Motor Pin 1         | white      | Arduino Pin 4</li>
+<li>Motor Pin 2         | black      | Arduino Pin 5</li>
+<li>Motor Pin 3         | black      | Arduino Pin 6</li>
+<li>Motor Pin 4         | red        | Arduino Pin 7</li>
 </ul>
 
 
 <p>Be careful not to bend the pins on the motors when you slide the
 crimp connectors on.  Also note that the pins on the motor are flat, not round,
-so the orientation of the crimp connector matters.</p>
+so the orientation of the crimp connector matters; if it is too tight or too lose, try rotating the connector 90 degrees.</p>
 
 <p>Finally, if you plug the header into an Arduino so that white is at
 pin 4, and red is pin 7, you can define your motor in code like this:</p>
@@ -208,7 +208,7 @@ pin 4, and red is pin 7, you can define your motor in code like this:</p>
 
   <div class="entry-content"><p>Or more accurately, filing off the stops.</p>
 
-<p>Recently <a href="http://clearwater.github.com/gaugette/about/index.html#comment-459699391">Tim Hirzel asked</a> if I knew
+<p>Recently Tim Hirzel asked if I knew
 of a source of motors without stops, or if the X25.168&#8217;s could be
 modified to remove the stops and open up the full 360 degrees of rotation.</p>
 
