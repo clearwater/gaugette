@@ -9,9 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="A quick note about wiring harnesses for these motors.
-I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
-cables. My harnesses &hellip;">
+  <meta name="description" content="A quick note about wiring harnesses for these motors. I&#8217;ve found it really handy to make harnesses from 4-wire CD audio cables. My harnesses &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +71,7 @@ cables. My harnesses &hellip;">
   <li><a href="/gaugette/">Blog</a></li>
   <li><a href="/gaugette/blog/archives">Archives</a></li>
   <li><a href="/gaugette/resources">Resources</a></li>
-  <li><a href="https://github.com/clearwater/gaugette">Source Code</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
 </ul>
 
 </nav>
@@ -107,68 +105,51 @@ cables. My harnesses &hellip;">
   </header>
 
 
-<div class="entry-content"><p>A quick note about wiring harnesses for these motors.
-I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
-cables.  My harnesses use push-on connectors at the motor end
-so I never <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">accidentally cook the motor</a> by soldering to the motor pins.</p>
+<div class="entry-content"><p>A quick note about wiring harnesses for these motors. I&#8217;ve found it really handy to make harnesses from 4-wire CD audio cables. My harnesses use push-on connectors at the motor end so I never <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>accidentally cook the motor</a> by soldering to the motor pins.</p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9232.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9232.jpg' /></p>
 
-<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are
-used to connect the analog audio signal from a PC&#8217;s internal CD player to the
-motherboard or sound card. I have accumulated a bunch of
-these over the years, so I&#8217;m glad to have a use for them.</p>
+<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are used to connect the analog audio signal from a PC&#8217;s internal CD player to the motherboard or sound card. I have accumulated a bunch of these over the years, so I&#8217;m glad to have a use for them.</p>
 
-<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers</a> and heatshrink tubing, both from AdaFruit.</p>
+<p>I also use <a href='https://www.adafruit.com/products/392'>0.1&#8221; breakaway headers</a> and heatshrink tubing, both from AdaFruit.</p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9227.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9227.jpg' /></p>
 
 <ul>
 <li>Chop the audio cable in half (each half makes one wiring harness),</li>
+
 <li>Strip and tin the wires on the cut end,</li>
+
 <li>Cut off a 4-pin section of breakaway header,</li>
+
 <li>Solder the wires to the header <em>with the two black wires in the center positions</em>,</li>
+
 <li>Protect the connections with heat-shrink tubing.</li>
 </ul>
 
-
-<p><img src="/gaugette/resources/2012-04-04/imgp9228.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9228.jpg' /></p>
 
 <ul>
 <li>Pull up the plastic tabs on the JST connector and slide the crimped terminator out of the block,</li>
+
 <li>Use pliers to close the crimp connectors a little, but don&#8217;t crush them entirely. The pins on the Switec motors are really small, so you need to squeeze it down a little to create a tight fit.</li>
 </ul>
 
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9229.jpg' /></p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9229.jpg" alt="image" /></p>
-
-<p>You&#8217;ll notice that these harnesses have two black wires, which would
-normally be a bit annoying.  However it turns out that the wires to
-pins 2 and 3 on the Switec motors are interchangable so you don&#8217;t need to distinguish between them.</p>
+<p>You&#8217;ll notice that these harnesses have two black wires, which would normally be a bit annoying. However it turns out that the wires to pins 2 and 3 on the Switec motors are interchangable so you don&#8217;t need to distinguish between them.</p>
 
 <p>Wire your motor up like this:</p>
+<table><thead><tr><th>Motor Pin</th><th>Wire Color</th><th>Arduino Pin</th></tr></thead><tbody><tr><td style='text-align: left;'>1</td><td style='text-align: left;'>white</td><td style='text-align: left;'>4</td>
+</tr><tr><td style='text-align: left;'>2</td><td style='text-align: left;'>black</td><td style='text-align: left;'>5</td>
+</tr><tr><td style='text-align: left;'>3</td><td style='text-align: left;'>black</td><td style='text-align: left;'>6</td>
+</tr><tr><td style='text-align: left;'>4</td><td style='text-align: left;'>red</td><td style='text-align: left;'>7</td>
+</tr></tbody></table>
+<p>Be careful not to bend the pins on the motors when you slide the crimp connectors on. Also note that the pins on the motor are flat, not round, so the orientation of the crimp connector matters; if it is too tight or too lose, try rotating the connector 90 degrees.</p>
 
-<ul>
-<li>Motor Pin 1         | white      | Arduino Pin 4</li>
-<li>Motor Pin 2         | black      | Arduino Pin 5</li>
-<li>Motor Pin 3         | black      | Arduino Pin 6</li>
-<li>Motor Pin 4         | red        | Arduino Pin 7</li>
-</ul>
-
-
-<p>Be careful not to bend the pins on the motors when you slide the
-crimp connectors on.  Also note that the pins on the motor are flat, not round,
-so the orientation of the crimp connector matters; if it is too tight or too lose, try rotating the connector 90 degrees.</p>
-
-<p>Finally, if you plug the header into an Arduino so that white is at
-pin 4, and red is pin 7, you can define your motor in code like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
+<p>Finally, if you plug the header into an Arduino so that white is at pin 4, and red is pin 7, you can define your motor in code like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure></div>
 
 
   <footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-04-05T12:52:08+10:00</updated>
+  <updated>2012-04-08T13:25:59+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -18,68 +18,51 @@
     <link href="http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses/"/>
     <updated>2012-04-04T13:05:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/04/04/making-wiring-harnesses</id>
-    <content type="html"><![CDATA[<p>A quick note about wiring harnesses for these motors.
-I&#8217;ve found it really handy to make harnesses from 4-wire CD audio
-cables.  My harnesses use push-on connectors at the motor end
-so I never <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">accidentally cook the motor</a> by soldering to the motor pins.</p>
+    <content type="html"><![CDATA[<p>A quick note about wiring harnesses for these motors. I&#8217;ve found it really handy to make harnesses from 4-wire CD audio cables. My harnesses use push-on connectors at the motor end so I never <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>accidentally cook the motor</a> by soldering to the motor pins.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9232.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9232.jpg' /></p>
 
-<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are
-used to connect the analog audio signal from a PC&#8217;s internal CD player to the
-motherboard or sound card. I have accumulated a bunch of
-these over the years, so I&#8217;m glad to have a use for them.</p>
+<p>The cables I&#8217;m talking about have 4-pin JST connectors on each end, and are used to connect the analog audio signal from a PC&#8217;s internal CD player to the motherboard or sound card. I have accumulated a bunch of these over the years, so I&#8217;m glad to have a use for them.</p>
 
-<p>I also use <a href="https://www.adafruit.com/products/392">0.1&#8221; breakaway headers</a> and heatshrink tubing, both from AdaFruit.</p>
+<p>I also use <a href='https://www.adafruit.com/products/392'>0.1&#8221; breakaway headers</a> and heatshrink tubing, both from AdaFruit.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9227.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9227.jpg' /></p>
 
 <ul>
 <li>Chop the audio cable in half (each half makes one wiring harness),</li>
+
 <li>Strip and tin the wires on the cut end,</li>
+
 <li>Cut off a 4-pin section of breakaway header,</li>
+
 <li>Solder the wires to the header <em>with the two black wires in the center positions</em>,</li>
+
 <li>Protect the connections with heat-shrink tubing.</li>
 </ul>
 
-
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9228.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9228.jpg' /></p>
 
 <ul>
 <li>Pull up the plastic tabs on the JST connector and slide the crimped terminator out of the block,</li>
+
 <li>Use pliers to close the crimp connectors a little, but don&#8217;t crush them entirely. The pins on the Switec motors are really small, so you need to squeeze it down a little to create a tight fit.</li>
 </ul>
 
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9229.jpg' /></p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9229.jpg" alt="image" /></p>
-
-<p>You&#8217;ll notice that these harnesses have two black wires, which would
-normally be a bit annoying.  However it turns out that the wires to
-pins 2 and 3 on the Switec motors are interchangable so you don&#8217;t need to distinguish between them.</p>
+<p>You&#8217;ll notice that these harnesses have two black wires, which would normally be a bit annoying. However it turns out that the wires to pins 2 and 3 on the Switec motors are interchangable so you don&#8217;t need to distinguish between them.</p>
 
 <p>Wire your motor up like this:</p>
+<table><thead><tr><th>Motor Pin</th><th>Wire Color</th><th>Arduino Pin</th></tr></thead><tbody><tr><td style='text-align: left;'>1</td><td style='text-align: left;'>white</td><td style='text-align: left;'>4</td>
+</tr><tr><td style='text-align: left;'>2</td><td style='text-align: left;'>black</td><td style='text-align: left;'>5</td>
+</tr><tr><td style='text-align: left;'>3</td><td style='text-align: left;'>black</td><td style='text-align: left;'>6</td>
+</tr><tr><td style='text-align: left;'>4</td><td style='text-align: left;'>red</td><td style='text-align: left;'>7</td>
+</tr></tbody></table>
+<p>Be careful not to bend the pins on the motors when you slide the crimp connectors on. Also note that the pins on the motor are flat, not round, so the orientation of the crimp connector matters; if it is too tight or too lose, try rotating the connector 90 degrees.</p>
 
-<ul>
-<li>Motor Pin 1         | white      | Arduino Pin 4</li>
-<li>Motor Pin 2         | black      | Arduino Pin 5</li>
-<li>Motor Pin 3         | black      | Arduino Pin 6</li>
-<li>Motor Pin 4         | red        | Arduino Pin 7</li>
-</ul>
-
-
-<p>Be careful not to bend the pins on the motors when you slide the
-crimp connectors on.  Also note that the pins on the motor are flat, not round,
-so the orientation of the crimp connector matters; if it is too tight or too lose, try rotating the connector 90 degrees.</p>
-
-<p>Finally, if you plug the header into an Arduino so that white is at
-pin 4, and red is pin 7, you can define your motor in code like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
+<p>Finally, if you plug the header into an Arduino so that white is at pin 4, and red is pin 7, you can define your motor in code like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SwitecX25 motor1(MOTOR_STEPS, 4,5,6,7);</span></code></pre></td></tr></table></div></figure>]]></content>
   </entry>
   
   <entry>
@@ -89,41 +72,26 @@ pin 4, and red is pin 7, you can define your motor in code like this:</p>
     <id>http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops</id>
     <content type="html"><![CDATA[<p>Or more accurately, filing off the stops.</p>
 
-<p>Recently Tim Hirzel asked if I knew
-of a source of motors without stops, or if the X25.168&#8217;s could be
-modified to remove the stops and open up the full 360 degrees of rotation.</p>
+<p>Recently <a href='http://clearwater.github.com/gaugette/about/index.html#comment-459699391'>Tim Hirzel asked</a> if I knew of a source of motors without stops, or if the X25.168&#8217;s could be modified to remove the stops and open up the full 360 degrees of rotation.</p>
 
-<p>Good question!  The <a href="http://clearwater.github.com/gaugette/resources">X25 Series Buyers Guide</a> lists 6 models
-of motors without stops, but a quick search turned up no suppliers
-selling these in small volumes.</p>
+<p>Good question! The <a href='http://clearwater.github.com/gaugette/resources'>X25 Series Buyers Guide</a> lists 6 models of motors without stops, but a quick search turned up no suppliers selling these in small volumes.</p>
 
-<p>Okay, time to figure out if the stops can be removed.  Note that I&#8217;m working
-on a VID-29 clone, not a genuine Switec X25.168 here.
-There are 4 tiny screws that open the case revealing this:</p>
+<p>Okay, time to figure out if the stops can be removed. Note that I&#8217;m working on a VID-29 clone, not a genuine Switec X25.168 here. There are 4 tiny screws that open the case revealing this:</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9223.jpg' /></p>
 
-<p>The drive-shaft and attached gear sit loose and can be lifted out.  Flipping the
-gear over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face
-that stops against a matching protrusion at the bottom of the case.</p>
+<p>The drive-shaft and attached gear sit loose and can be lifted out. Flipping the gear over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face that stops against a matching protrusion at the bottom of the case.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9225.jpg' /></p>
 
 <p>I cut off the stop with a Stanley knife, and filed it flat with a small file.</p>
 
-<p><img src="http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
+<p><img alt='image' src='http://clearwater.github.com/gaugette/resources/2012-04-04/imgp9226.jpg' /></p>
 
 <p>Reassembly was easy, and bugger me, it works.</p>
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
-
-
-<p>In the video you can see the needle hesitates on each rotation.  This is because of the acceleration/deceleration
-logic in the SwitecX25 library; I&#8217;m accelerating the motor from stop,
-spinning 360 degrees, decelerating to a stop again, then repeating,
-using code like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>In the video you can see the needle hesitates on each rotation. This is because of the acceleration/deceleration logic in the SwitecX25 library; I&#8217;m accelerating the motor from stop, spinning 360 degrees, decelerating to a stop again, then repeating, using code like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -133,13 +101,8 @@ using code like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(360*3);
 </span><span class='line'>        while (!motor-&gt;stopped) motor-&gt;update();
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To keep the speed constant I need to prevent it coming to a stop.
-I can do that by resetting the origin and destination before
-it reaches its goal step, like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>To keep the speed constant I need to prevent it coming to a stop. I can do that by resetting the origin and destination before it reaches its goal step, like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,11 +112,8 @@ it reaches its goal step, like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(320*3*2);    // set target to way past end of rotation
 </span><span class='line'>        while (motor-&gt;currentStep&lt;360*3) motor-&gt;update();  // turn until rotation is complete
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
 <p>Or to run the motor in reverse:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -163,11 +123,7 @@ it reaches its goal step, like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(0);
 </span><span class='line'>        while (motor-&gt;currentStep&gt;360*3) motor-&gt;update();
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I think the SwitecX25 library will need some extensions to support stop-less motors&#8230;  need to
-think about that a bit.</p>
-]]></content>
+<p>I think the SwitecX25 library will need some extensions to support stop-less motors&#8230; need to think about that a bit.</p>]]></content>
   </entry>
   
   <entry>
@@ -175,30 +131,15 @@ think about that a bit.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/03/22/a-better-backlight/"/>
     <updated>2012-03-22T11:18:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/03/22/a-better-backlight</id>
-    <content type="html"><![CDATA[<p>For the second gauge in this build, I tried to get
-better placement of the current-limiting resistor.
-By placing it tight in the corner, it wont
-cast a shadow.</p>
+    <content type="html"><![CDATA[<p>For the second gauge in this build, I tried to get better placement of the current-limiting resistor. By placing it tight in the corner, it wont cast a shadow.</p>
 
-<p>These photos show the LEDs at 100% brightness, but they are
-on PWM pins so I can control the intensity from the Arduino code.</p>
-
-<p><img class="center" src="http://clearwater.github.com/gaugette/resources/backlight2.png"></p>
-
-<p>It is subtle, but in the next photo you can see the difference
-between the first and second gauge.  The right-most gauge
-has a dark spot between 30 and 40.
-It&#8217;s fine, and the light spread isn&#8217;t that even anyway,
-so I&#8217;m going to call it &#8216;character&#8217;.</p>
-
-<p><img class="center" src="http://clearwater.github.com/gaugette/resources/backlight-pair.png"></p>
-
-<p>The mounting panel is made from salvaged hardwood fence pickets.  It&#8217;s red stringybark, very hard and with nice colour and grain definition.</p>
-
-<p><img class="center" src="http://clearwater.github.com/gaugette/resources/build1-mount.png"></p>
-
-<p>I&#8217;ve wired the 3-position switch to control &#8220;off&#8221;, &#8220;on&#8221; and &#8220;on with backlight&#8221;.</p>
-]]></content>
+<p>These photos show the LEDs at 100% brightness, but they are on PWM pins so I can control the intensity from the Arduino code.</p>
+<img class='center' src='http://clearwater.github.com/gaugette/resources/backlight2.png' />
+<p>It is subtle, but in the next photo you can see the difference between the first and second gauge. The right-most gauge has a dark spot between 30 and 40. It&#8217;s fine, and the light spread isn&#8217;t that even anyway, so I&#8217;m going to call it &#8216;character&#8217;.</p>
+<img class='center' src='http://clearwater.github.com/gaugette/resources/backlight-pair.png' />
+<p>The mounting panel is made from salvaged hardwood fence pickets. It&#8217;s red stringybark, very hard and with nice colour and grain definition.</p>
+<img class='center' src='http://clearwater.github.com/gaugette/resources/build1-mount.png' />
+<p>I&#8217;ve wired the 3-position switch to control &#8220;off&#8221;, &#8220;on&#8221; and &#8220;on with backlight&#8221;.</p>]]></content>
   </entry>
   
   <entry>
@@ -206,15 +147,11 @@ so I&#8217;m going to call it &#8216;character&#8217;.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switecx25-library/"/>
     <updated>2012-02-16T18:04:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/16/using-the-switecx25-library</id>
-    <content type="html"><![CDATA[<h2>Getting Started with the SwitecX25 Library</h2>
+    <content type="html"><![CDATA[<h2 id='getting_started_with_the_switecx25_library'>Getting Started with the SwitecX25 Library</h2>
 
-<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory
-of your sketch directory named &#8216;libraries&#8217;.  In fact you really should install them there
-to ensure that they persist when you upgrade the IDE.</p>
+<p>For Arduino IDE version 1.0 and later you can store user-contributed libraries in a subdirectory of your sketch directory named &#8216;libraries&#8217;. In fact you really should install them there to ensure that they persist when you upgrade the IDE.</p>
 
-<p>So figure out where your project directory is (under OSX this is available in the <code>Arduino -&gt; Preferences</code> menu), create a subdirectory called <code>libraries</code> with the project directory.  The name is important, so use exactly that.  Then inside that libraries directory checkout the SwitecX25 library.  You should end up with this structure:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>So figure out where your project directory is (under OSX this is available in the <code>Arduino -&gt; Preferences</code> menu), create a subdirectory called <code>libraries</code> with the project directory. The name is important, so use exactly that. Then inside that libraries directory checkout the SwitecX25 library. You should end up with this structure: <figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -225,17 +162,12 @@ to ensure that they persist when you upgrade the IDE.</p>
 </span><span class='line'>  +-- SwitecX25
 </span><span class='line'>     |
 </span><span class='line'>     +-- SwitecX25.cpp
-</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure>
-
+</span><span class='line'>         SwitecX25.h</span></code></pre></td></tr></table></div></figure></p>
 
 <p>There is also an examples directory under that, but those two files are the critical parts of the library.</p>
 
-<p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu.  It appears in a separate
-section at the bottom marked <code>contributed</code>.  Now start a new sketch.  Here&#8217;s a minimum Hello World
-sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center
-of its range.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>Restart the IDE and you should see the library in your <code>Sketch -&gt; Import Library</code> menu. It appears in a separate section at the bottom marked <code>contributed</code>. Now start a new sketch. Here&#8217;s a minimum Hello World sketch for the Switec X25 that runs the motor against the zero stop then moves the motor to the center of its range.</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -277,10 +209,7 @@ of its range.</p>
 </span><span class='line'>  // the motor only moves when you call update
 </span><span class='line'>  motor1.update();
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I&#8217;ve added this little sketch to the library as an example, so it will appear as <code>File -&gt; Examples -&gt; SwitecX25 -&gt; center</code>.</p>
-]]></content>
+<p>I&#8217;ve added this little sketch to the library as an example, so it will appear as <code>File -&gt; Examples -&gt; SwitecX25 -&gt; center</code>.</p>]]></content>
   </entry>
   
   <entry>
@@ -288,42 +217,18 @@ of its range.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/"/>
     <updated>2012-02-11T17:14:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/thermo_backlit.png" title="LED Backlighting" ></p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/thermo_backlit.png' title='LED Backlighting' />
+<p>Today I added an LED backlight to my square gauge. I really like how light leaks from the grills at the top and bottom of gauge.</p>
 
-<p>Today I added an LED backlight to my square gauge.
-I really like how light leaks from the grills at the top
-and bottom of gauge.</p>
+<p>I decided not to use RGB LEDs in this build due to size and pin-count constraints. The white LED was originally part of a solar-powered LED light string.</p>
 
-<p>I decided not to use RGB LEDs in this build due to size
-and pin-count constraints.
-The white LED was originally part
-of a solar-powered LED light string.</p>
+<p>These are side-emitting LEDs by virtue of a conical indent in the tip of the lens that refracts much of the light sideways. I tried grinding back the lens and using blobs of hot-glue to make the lighting more diffuse, but in the end I wasn&#8217;t convinced it was an improvement, and so the simpler design won out.</p>
+<img class='left' src='http://clearwater.github.com/gaugette/resources/thermo_led.png' title='with face removed' />
+<p>I soldered the 330&#8486; current-limiting resistor to the LED. I trimmed the leads on the LED and resistor really short to get it all to fit. I would have liked the resistor tight against the wall to prevent a dark spot, but it didn&#8217;t work out that way.</p>
 
-<p>These are side-emitting
-LEDs by virtue of a conical indent in the tip of the lens that
-refracts much of the light sideways.
-I tried grinding back the lens and using blobs of hot-glue to make
-the lighting more diffuse, but in the end I wasn&#8217;t convinced
-it was an improvement, and so the simpler design won out.</p>
-
-<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_led.png" title="with face removed" ></p>
-
-<p>I soldered the 330&#8486; current-limiting resistor to the LED.
-I trimmed the leads on the LED and resistor really short to get it
-all to fit.  I would have liked the resistor tight against
-the wall to prevent a dark spot, but it didn&#8217;t work out that way.</p>
-
-<p>The holes for the connection wires had to be drilled
-right in the extreme inner corner to avoid the stepper motor on the back.
-The cathode wire goes to a PWM pin on the Arduino, and the anode
-to ground.  I recently added LED control options to the Gaugette software
-to control the brightness.</p>
-
-<p><img class="right" src="http://www.battlecruiserzone.com/Boom1.jpg">
-ZOMG, now this gauge <a href="http://totallylookslike.icanhascheezburger.com/">totally looks like</a> the
-helmets worn by the Viper pilots in the original 80&#8217;s
-Battlestar Galactica series!</p>
-]]></content>
+<p>The holes for the connection wires had to be drilled right in the extreme inner corner to avoid the stepper motor on the back. The cathode wire goes to a PWM pin on the Arduino, and the anode to ground. I recently added LED control options to the Gaugette software to control the brightness.</p>
+<img class='right' src='http://www.battlecruiserzone.com/Boom1.jpg' />
+<p>ZOMG, now this gauge <a href='http://totallylookslike.icanhascheezburger.com/'>totally looks like</a> the helmets worn by the Viper pilots in the original 80&#8217;s Battlestar Galactica series!</p>]]></content>
   </entry>
   
   <entry>
@@ -331,60 +236,20 @@ Battlestar Galactica series!</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face/"/>
     <updated>2012-02-06T17:33:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/06/just-a-pretty-face</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/100k_square_dial.png" title="Dial Face Artwork" >
-I made dial faces for a couple of the square gauges built
-in <a href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/">Build Number One</a>.  Nearly
-ready to install these guys.</p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/100k_square_dial.png' title='Dial Face Artwork' />
+<p>I made dial faces for a couple of the square gauges built in <a href='http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/'>Build Number One</a>. Nearly ready to install these guys.</p>
 
-<p>Laying out the line-work on the square faces presents
-an interesting challenge.  I decided to generate the
-<a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.png">bare line-work</a>
-programmatically with a <a href="https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.rb">ruby script</a>, and add the labels later with
-a graphics tool.</p>
+<p>Laying out the line-work on the square faces presents an interesting challenge. I decided to generate the <a href='https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.png'>bare line-work</a> programmatically with a <a href='https://github.com/clearwater/gaugette/blob/master/tools/square_dial/dial.rb'>ruby script</a>, and add the labels later with a graphics tool.</p>
 
-<p>My first attempt at the script used the GD2 library, but <a href="http://gd2.rubyforge.org/rdoc/">GD2</a>
-doesn&#8217;t seem to support anti-aliasing or line-caps and the resulting line-work
-was just too damned ugly.  I switched to <a href="http://rubyforge.org/projects/cairo/">Cairo</a> which makes pretty, pretty lines.
-A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines and remove the messy trig I was coding to figure out line
-intersections and stroke lengths.  Finally I imported the generated image into
-OpenOffice to add the text labels.</p>
+<p>My first attempt at the script used the GD2 library, but <a href='http://gd2.rubyforge.org/rdoc/'>GD2</a> doesn&#8217;t seem to support anti-aliasing or line-caps and the resulting line-work was just too damned ugly. I switched to <a href='http://rubyforge.org/projects/cairo/'>Cairo</a> which makes pretty, pretty lines. A revelation at this point was that I could use Cairo&#8217;s clipping operator to trim the graticule lines and remove the messy trig I was coding to figure out line intersections and stroke lengths. Finally I imported the generated image into OpenOffice to add the text labels.</p>
 
-<p>So what to print on?  On a recent trip to Cairns I looked in Officeworks
-for ideas.  I didn&#8217;t find any card stock I liked, but
-I did find some 120 gsm paper (Quill brand &#8220;Metallique&#8221;
-in Mother of Pearl) with a cool metallic / opalesque finish.
-120 gsm is heavier than standard typing paper, and maybe barely stiff
-enough to support itself in the gauge.  Over time it might curl
-or slump in the varying humidity here in the tropics.
-There is just enough drive shaft length to place the paper
-over the original dial plate so that the needle just clears
-the face, but if the paper will support itself I could
-backlight it with an LED which might look nice in the dark.</p>
+<p>So what to print on? On a recent trip to Cairns I looked in Officeworks for ideas. I didn&#8217;t find any card stock I liked, but I did find some 120 gsm paper (Quill brand &#8220;Metallique&#8221; in Mother of Pearl) with a cool metallic / opalesque finish. 120 gsm is heavier than standard typing paper, and maybe barely stiff enough to support itself in the gauge. Over time it might curl or slump in the varying humidity here in the tropics. There is just enough drive shaft length to place the paper over the original dial plate so that the needle just clears the face, but if the paper will support itself I could backlight it with an LED which might look nice in the dark.</p>
+<img class='left' src='http://clearwater.github.com/gaugette/resources/fiskars_hole_punch.png' title='Fiskars Hole Punch' />
+<p>One thing that had me stuffed is how to punch a neat hole in the paper for the drive shaft. A standard hole-punch is too big and can&#8217;t reach far enough from the edge of the paper. Drilling would leave messy edges. Scouring the aisles at Officeworks I found a <a href='http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack'>set of three eyelet setters</a> from Fiskars in the scrap-booking section. The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page, pull back the hammer, and smack, you have a hole. I was reckon I want a 3mm hole, and the middle size is 3.2mm (1/8&#8221;). The downside is the set of 3 cost about $25. Anyway they work a treat and now I have some crafty hole punches.</p>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/finished_square_face.png' title='Custom Dial Face' />
+<p>I tried printing the dials with an ink-jet. That seemed okay until I mounted it in the gauge and I found that at certain angles the metallic finish on the paper made the line-work look really washed out. Redoing the printing with a laser printer gave much better results.</p>
 
-<p><img class="left" src="http://clearwater.github.com/gaugette/resources/fiskars_hole_punch.png" title="Fiskars Hole Punch" >
-One thing that had me stuffed is how to punch a neat hole in the paper for
-the drive shaft.  A standard hole-punch is too big and can&#8217;t reach
-far enough from the edge of the paper.  Drilling would leave messy edges.  Scouring
-the aisles at Officeworks I found a
-<a href="http://www.fiskarscraft.eu/Products/Craft/Punches/Eyelet-Setter/Eyelet-Setter-Pack">set of three eyelet setters</a> from Fiskars in the scrap-booking section.  The hole punches use a crazy spring-driven hammer mechanism, so you can position them anywhere on the page, pull back the hammer, and smack, you have a hole.  I was reckon I want a 3mm hole, and the middle
-size is 3.2mm (1/8&#8221;).  The downside is the set of 3 cost about $25.  Anyway they work a treat and now
-I have some crafty hole punches.</p>
-
-<p><img class="right" src="http://clearwater.github.com/gaugette/resources/finished_square_face.png" title="Custom Dial Face" >
-I tried printing the dials with an ink-jet.  That
-seemed okay until I mounted it in the gauge and I found
-that at certain angles the metallic finish
-on the paper made the line-work look really washed out.  Redoing
-the printing with a laser printer gave much better results.</p>
-
-<p>After installing the new face I calibrated it carefully and found
-a discrepancy between the printed face and needle position that I can&#8217;t
-explain.  If I line up zero precisely, then at full-scale (230 degrees
-sweep) I find the needle is about 2 degrees short of the 100% mark on
-the dial.  I&#8217;m not sure what the source of error is - presumably just measurement and positioning errors -  but it is easily
-solved by changing the stepper motor sweep from 690 steps to 696 steps
-to full-scale deflection.</p>
-]]></content>
+<p>After installing the new face I calibrated it carefully and found a discrepancy between the printed face and needle position that I can&#8217;t explain. If I line up zero precisely, then at full-scale (230 degrees sweep) I find the needle is about 2 degrees short of the 100% mark on the dial. I&#8217;m not sure what the source of error is - presumably just measurement and positioning errors - but it is easily solved by changing the stepper motor sweep from 690 steps to 696 steps to full-scale deflection.</p>]]></content>
   </entry>
   
   <entry>
@@ -392,22 +257,16 @@ to full-scale deflection.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/"/>
     <updated>2012-02-04T11:38:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/dial_parts.png" title="Separation Anxiety" >
-I&#8217;ve separated the Switec X25 motor driver code into a separate
-library repository on GitHub.  This will make it easier to use
-the driver library in other applications.</p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/dial_parts.png' title='Separation Anxiety' />
+<p>I&#8217;ve separated the Switec X25 motor driver code into a separate library repository on GitHub. This will make it easier to use the driver library in other applications.</p>
 
-<h2><a href="https://github.com/clearwater/SwitecX25">SwitecX25 Library</a></h2>
+<h2 id='switecx25_library'><a href='https://github.com/clearwater/SwitecX25'>SwitecX25 Library</a></h2>
 
 <p>This contains only the Switec X25 driver.</p>
 
-<h2><a href="https://github.com/clearwater/gaugette">Gaugette</a> </h2>
+<h2 id='gaugette'><a href='https://github.com/clearwater/gaugette'>Gaugette</a></h2>
 
-<p>This is an arduino application that controls analog
-gauges by interpreting commands received over the serial interface.
-To compile Gaugette you will now need to add the SwitecX25 library
-to your Arduino libraries folder.</p>
-]]></content>
+<p>This is an arduino application that controls analog gauges by interpreting commands received over the serial interface. To compile Gaugette you will now need to add the SwitecX25 library to your Arduino libraries folder.</p>]]></content>
   </entry>
   
   <entry>
@@ -415,66 +274,25 @@ to your Arduino libraries folder.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/"/>
     <updated>2012-01-28T15:56:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_original.jpg" title="$5 Hygrometer" >
-This weekend I opened up one of the cheap-but-funky thermometers/hygrometers
-from <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-and replaced the thermometer mechanism with the
-Arduino-controlled Switec X25.168 stepper.</p>
+    <content type="html"><![CDATA[<img class='left' src='http://clearwater.github.com/gaugette/resources/thermo_original.jpg' title='$5 Hygrometer' />
+<p>This weekend I opened up one of the cheap-but-funky thermometers/hygrometers from <a href='http://www.letsmaketime.com.au'>Lets Make Time</a> and replaced the thermometer mechanism with the Arduino-controlled Switec X25.168 stepper.</p>
 
-<p>The thermometer and hygrometer are installed
-in identical one-part plastic housings with no screws
-or seams, so it wasn&#8217;t clear how to crack them open.
-<img class="right" src="http://clearwater.github.com/gaugette/resources/thermo_back.jpg" title="back removed" >
-I used a Dremel to cut away the back panel giving access to the
-thermometer mechanism, but to my surprise the dial face was still firmly
-locked in place.  After a bit
-of poking around I discovered that I could push the whole assembly out
-forward - in fact the plastic lens is only held in by friction, and
-the dial and mechanism are held in by the lens.  No cutting was
-required.  #LFMF</p>
+<p>The thermometer and hygrometer are installed in identical one-part plastic housings with no screws or seams, so it wasn&#8217;t clear how to crack them open. <img class='right' src='http://clearwater.github.com/gaugette/resources/thermo_back.jpg' title='back removed' /> I used a Dremel to cut away the back panel giving access to the thermometer mechanism, but to my surprise the dial face was still firmly locked in place. After a bit of poking around I discovered that I could push the whole assembly out forward - in fact the plastic lens is only held in by friction, and the dial and mechanism are held in by the lens. No cutting was required. #LFMF</p>
+<img class='left' src='http://clearwater.github.com/gaugette/resources/thermo_disassembly.jpg' title='thermometer disassembly' />
+<p>This turned out to be important because after careful measurement I realized that the motor would have to be mounted snugly against the the back of the housing to leave the drive shaft protruding enough to attach a needle. The plastic panel I cut away would have been ideal to screw the motor to. Starting again with an undamaged housing, I gently pried out the plastic lens, removed the face and mechanism. This time I only cut away enough plastic on the back to allow the drive shaft to pass through.</p>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/thermo_mount.jpg' title='mechanism removal' />
+<p>The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil is a crafty two-piece deal that mounts through the centre of the dial. It appeared to be assembled a bit like a rivet, and a couple of solid blows from the back with a punch released it cleanly from the dial face.</p>
+<img class='left' src='http://clearwater.github.com/gaugette/resources/thermo_glued.jpg' title='hot glue to the rescue' />
+<p>I originally intended to use screws to secure the stepper to the back of the housing, but there isn&#8217;t much tolerance for positional error, which made me nervous. Instead I used the conical rivet-thingy to precisely align the motor drive shaft in hole in the dial and held it all in place while I hot-glued it to the back of the case. Alignment was spot-on the the motor seems to be solidly secured. So far so good.</p>
 
-<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_disassembly.jpg"" title="thermometer disassembly" >
-This turned out to be important because after careful measurement I realized
-that the motor would have to be mounted snugly against the the back of the housing to
-leave the drive shaft protruding enough to attach a needle.  The plastic panel I cut away
-would have been ideal to screw the motor to.
-Starting again with an undamaged housing, I gently pried out the plastic lens, removed the face and mechanism.
-This time I only cut away enough plastic on the back to allow the drive shaft to pass through.</p>
+<p>Next I wired up the Arduino and zeroed the motor against the low stop and put the needle on. There were some unexpected complications at this point. The motor has a sweep of 315 degrees, but this dial only allows about 230 degrees of needle movement. I modified the library to support a soft range limit to avoid exceeding 230 degrees, while still running through a full 315 degrees during reset.</p>
 
-<p><img class="right" src="http://clearwater.github.com/gaugette/resources/thermo_mount.jpg" title="mechanism removal" >
-The needle and the bi-metal thermometer coil came off the face easily enough, but the mounting for the coil
-is a crafty two-piece deal that mounts through the centre of the dial.  It appeared to be
-assembled a bit like a rivet, and a couple of solid blows from the back with a punch
-released it cleanly from the dial face.</p>
+<p>While trying to calibrate the dial I found the needle slipping at times, especially under vibration caused by the power-on reset or slow stepping. With the needle slipping calibration was impossible. I tried applying the smallest drop of hot glue I could manage to the back of the needle. That really didn&#8217;t work - the tiny irregular mass between the needle and the dial face would sometimes bind against the dial face, causing more problems.</p>
 
-<p><img class="left" src="http://clearwater.github.com/gaugette/resources/thermo_glued.jpg" title="hot glue to the rescue" >
-I originally intended to use screws to secure the stepper to the back of the housing, but
-there isn&#8217;t much tolerance for positional
-error, which made me nervous.  Instead I used the conical rivet-thingy to precisely align the motor drive shaft in hole in the dial and held it all in place while I hot-glued it to the back of the case.  Alignment was spot-on the the motor seems to be solidly secured.  So far so good.</p>
+<p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away, and smacked it with a hammer to flatten out the dish and close up the hole. That worked a little too well and I had to ream the hole out a bit with a thumb tack. Now the needle is nice and snug, no slippage.</p>
 
-<p>Next I wired up the Arduino and zeroed the motor against the low stop and put the needle on.
-There were some unexpected complications at this point.
-The motor has a sweep of 315 degrees, but this dial only
-allows about 230 degrees of needle movement.  I modified the library to support a
-soft range limit to avoid exceeding 230 degrees, while still running through a full 315
-degrees during reset.</p>
-
-<p>While trying to calibrate the dial I found the needle slipping at times, especially under
-vibration caused by the power-on reset or slow stepping.  With the needle slipping calibration
-was impossible. I tried applying the smallest drop of hot glue I could manage to the back of the needle.  That really didn&#8217;t work - the tiny irregular mass between the needle and the dial face would sometimes
-bind against the dial face, causing more problems.</p>
-
-<p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away,
-and smacked it with a hammer to flatten out the dish and close up the hole.  That worked
-a little too well and I had to ream the hole out a bit with a thumb tack.  Now the needle
-is nice and snug, no slippage.</p>
-
-<p>So here&#8217;s how it looks assembled.  Calibration is slightly out, but I&#8217;m going to make
-a new dial face anyway, so no need to sweat about that.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/UJKaaRR9W6g" frameborder="0" allowfullscreen></iframe>
-
-]]></content>
+<p>So here&#8217;s how it looks assembled. Calibration is slightly out, but I&#8217;m going to make a new dial face anyway, so no need to sweat about that.</p>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/UJKaaRR9W6g' width='560' />]]></content>
   </entry>
   
   <entry>
@@ -482,32 +300,14 @@ a new dial face anyway, so no need to sweat about that.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny/"/>
     <updated>2012-01-26T11:03:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/26/well-aint-that-shiny</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/shiny_things.jpg" title="Pretty Shiny Things" >
-I&#8217;ve been looking around on-line and in stores for some parts to
-make some classy steam-punk gauges.
-After a lot of searching I came
-across <a href="http://www.letsmaketime.com.au">Lets Make Time</a>
-here in Australia who carry clock and weather station
-parts at very reasonable prices.
-It&#8217;s always hard to gauge build quality from pictures, so I laid
-down some cash and bought a grab bag of stuff.</p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/shiny_things.jpg' title='Pretty Shiny Things' />
+<p>I&#8217;ve been looking around on-line and in stores for some parts to make some classy steam-punk gauges. After a lot of searching I came across <a href='http://www.letsmaketime.com.au'>Lets Make Time</a> here in Australia who carry clock and weather station parts at very reasonable prices. It&#8217;s always hard to gauge build quality from pictures, so I laid down some cash and bought a grab bag of stuff.</p>
 
-<p>The order arrived and it all looks great.
-It was no surprise to find the rectangular gauges are made from
-plastic and look a bit cheap, but I really love the retro shape
-and they actually don&#8217;t look too bad.  I haven&#8217;t cut one open yet,
-but from the outside everything looks great for my purposes.</p>
+<p>The order arrived and it all looks great. It was no surprise to find the rectangular gauges are made from plastic and look a bit cheap, but I really love the retro shape and they actually don&#8217;t look too bad. I haven&#8217;t cut one open yet, but from the outside everything looks great for my purposes.</p>
 
-<p>The large lens is glass, with a metal rim, mounted over
-a plastic frame.  I&#8217;m very pleased with it too.</p>
+<p>The large lens is glass, with a metal rim, mounted over a plastic frame. I&#8217;m very pleased with it too.</p>
 
-<p>The circular thermometers turned out to be the real gem in
-this collection.  The outer ring is metal, and the lens is acrylic
-but well finished and looks beautiful.  The printed dial seems to be made out
-of metal too - maybe aluminium with a gold-coloured foil on both sides.
-As an extra-happy bonus, the needle fits the shaft of the X25s so it
-can be used with no modification.</p>
-]]></content>
+<p>The circular thermometers turned out to be the real gem in this collection. The outer ring is metal, and the lens is acrylic but well finished and looks beautiful. The printed dial seems to be made out of metal too - maybe aluminium with a gold-coloured foil on both sides. As an extra-happy bonus, the needle fits the shaft of the X25s so it can be used with no modification.</p>]]></content>
   </entry>
   
   <entry>
@@ -515,24 +315,11 @@ can be used with no modification.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model/"/>
     <updated>2012-01-26T09:42:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/26/simplified-acceleration-model</id>
-    <content type="html"><![CDATA[<p>The logic in the <code>advance()</code> function of the
-<a href="https://github.com/clearwater/SwitecX25">Switec X25 library</a>
-steps the motor forward or backward one step, then computes the delay in
-microseconds until the next step is due.  This logic determines the acceleration curve and
-maximum speed of the needle.  My first cut at this
-code used floating point arithmetic to model this as time/accel/velocity problem.  The
-motion was nice and smooth, but it was overkill, and consumes too many precious Arduino
-compute cycles.  When driving multiple motors, this will create an artificial ceiling on the
-maximum motor speed.</p>
+    <content type="html"><![CDATA[<p>The logic in the <code>advance()</code> function of the <a href='https://github.com/clearwater/SwitecX25'>Switec X25 library</a> steps the motor forward or backward one step, then computes the delay in microseconds until the next step is due. This logic determines the acceleration curve and maximum speed of the needle. My first cut at this code used floating point arithmetic to model this as time/accel/velocity problem. The motion was nice and smooth, but it was overkill, and consumes too many precious Arduino compute cycles. When driving multiple motors, this will create an artificial ceiling on the maximum motor speed.</p>
 
-<p>I&#8217;ve rewritten that logic to use a simple lookup table instead.
-This is a fairly obvious approach, but it was
-reassuring to see similar approaches recommended in both the
-<a href="http://clearwater.github.com/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf">VID 29 documentation</a>
-and the <a href="http://clearwater.github.com/gaugette/resources/mcr/2010410104915847.pdf">MCR MR1107 data sheet</a>.</p>
+<p>I&#8217;ve rewritten that logic to use a simple lookup table instead. This is a fairly obvious approach, but it was reassuring to see similar approaches recommended in both the <a href='http://clearwater.github.com/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf'>VID 29 documentation</a> and the <a href='http://clearwater.github.com/gaugette/resources/mcr/2010410104915847.pdf'>MCR MR1107 data sheet</a>.</p>
 
 <p>The acceleration curve is defined as pairs of vel,delay values:</p>
-
 <pre><code>unsigned short accelTable[][2] = {
   {   10, 5000},
   {   30, 1500},
@@ -541,43 +328,17 @@ and the <a href="http://clearwater.github.com/gaugette/resources/mcr/20104101049
   {  300,  600}
 };
 </code></pre>
+<p>We maintain a variable <code>vel</code> (which isn&#8217;t actually velocity, but is a surrogate for velocity) that increments each step under acceleration, and decrements each step under deceleration. When stationary, <code>vel</code> is zero. After 1 step of acceleration it is 1. For simplicity I&#8217;ve made the acceleration and deceleration curves identical so they can share the same lookup table.</p>
 
+<p>To determine the inter-step delay at any given value of <code>vel</code>, we find the first table entry such that <code>accelTable[i][0] &lt; vel</code>. In practice this means that the motor will step at 5000 &#181;S intervals for 9 steps, then 1500 &#181;S steps for the next 20 steps, 1000 &#181;S for the next 70 steps, and so on. The peak speed with a delay of 600 &#181;S equates to 1666 Hz step rate or about 500 degrees per second.</p>
 
-<p>We maintain a variable <code>vel</code> (which isn&#8217;t actually velocity,
-but is a surrogate for velocity) that increments
-each step under acceleration, and decrements each step under deceleration.
-When stationary, <code>vel</code> is zero.  After 1 step of acceleration it is 1.
-For simplicity I&#8217;ve made the acceleration and deceleration curves identical
-so they can share the same lookup table.</p>
+<p>The motion control logic first determines if the motor is subject to acceleration, at full speed, or deceleration and adjusts <code>vel</code> accordingly. Using steps as the unit for <code>vel</code> makes it very easy to determine when to declerate: when <code>vel</code> is greater than or equal to the number of steps to reach our destination, we need to start decelerating.</p>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/VID29_accel.png' title='From the VID29 Tech Note' />
+<p>The new logic also ensures that if the motor is moving at speed in one direction and is directed to a new position in the opposite direction it will decelerate to a stop before accelerating in the opposite direction.</p>
 
-<p>To determine the inter-step delay at any given value of <code>vel</code>, we find
-the first table entry such that <code>accelTable[i][0] &lt; vel</code>.  In practice this means that the
-motor will step at 5000 &micro;S intervals for 9 steps, then 1500 &micro;S
-steps for the next 20 steps, 1000 &micro;S for the next 70 steps, and so on.
-The peak speed with a delay of 600 &micro;S equates to 1666 Hz step rate
-or about 500 degrees per second.</p>
+<p>The constants that make up the acceleration table are constrained by the the inertia of the needle attached to the motor. The <a href='http://clearwater.github.com/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf'>VID 29 documentation</a> gives some recommendations for calculating these values, but I actually didn&#8217;t use that. I experimented until I found values that were within operational limits and look nice to me.</p>
 
-<p>The motion control logic first determines if the motor is subject to acceleration,
-at full speed, or deceleration and adjusts <code>vel</code> accordingly.  Using
-steps as the unit for <code>vel</code> makes it very
-easy to determine when to declerate: when <code>vel</code> is greater than or equal to the number of steps
-to reach our destination, we need to start decelerating.</p>
-
-<p><img class="right" src="http://clearwater.github.com/gaugette/resources/VID29_accel.png" title="From the VID29 Tech Note" >
-The new logic also ensures that if the motor is moving at
-speed in one direction and is directed to a new position in the opposite direction it will
-decelerate to a stop before accelerating in the opposite direction.</p>
-
-<p>The constants that make up the acceleration table are constrained by the
-the inertia of the needle attached to the motor.  The
-<a href="http://clearwater.github.com/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf">VID 29 documentation</a>
-gives some recommendations for calculating these values, but I actually
-didn&#8217;t use that.  I experimented until I
-found values that were within operational limits and look nice to me.</p>
-
-<p>I tested this code driving 3 motors simultaneously with an Arduino Uno.
-All good.  New code is in the <a href="https://github.com/clearwater/SwitecX25">library on Github</a>.</p>
-]]></content>
+<p>I tested this code driving 3 motors simultaneously with an Arduino Uno. All good. New code is in the <a href='https://github.com/clearwater/SwitecX25'>library on Github</a>.</p>]]></content>
   </entry>
   
   <entry>
@@ -585,28 +346,14 @@ All good.  New code is in the <a href="https://github.com/clearwater/SwitecX25">
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones/"/>
     <updated>2012-01-24T09:29:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/24/attack-of-the-switec-clones</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/X25_clone.png" title="Switec Clones" >
-When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like
-the white motors with the &#8220;Switec&#8221; branding that I&#8217;ve been seeing
-online.  I finally got around to tracking down what exactly they are.
-They have two identification numbers printed black on black:
-<code>vid29-02p</code> and <code>d11455db</code>.</p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/X25_clone.png' title='Switec Clones' />
+<p>When my eBay Switec X25.168 motors arrived, they didn&#8217;t look at all like the white motors with the &#8220;Switec&#8221; branding that I&#8217;ve been seeing online. I finally got around to tracking down what exactly they are. They have two identification numbers printed black on black: <code>vid29-02p</code> and <code>d11455db</code>.</p>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/VID29_diagram.png' title='Motor Diagram' />
+<p>It turns out that the first number is the model, and these are in reality VID29 series stepper motors from <a href='http://www.vid.wellgain.com/product.aspx'>Hong Kong VID</a>. Interestingly their <a href='http://clearwater.github.com/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf'>data sheet</a> includes details of recommended acceleration characteristics to bring the motors to full speed without visible and audible jitter. Cool cool cool.</p>
 
-<p><img class="right" src="http://clearwater.github.com/gaugette/resources/VID29_diagram.png" title="Motor Diagram" >
-It turns out that the first number is the model, and these are in reality VID29 series stepper motors
-from <a href="http://www.vid.wellgain.com/product.aspx">Hong Kong VID</a>.  Interestingly their
-<a href="http://clearwater.github.com/gaugette/resources/vid/20091026113525_VID29_manual_EN-080606.pdf">data sheet</a>
-includes details of recommended acceleration characteristics to bring the motors
-to full speed without visible and audible jitter.  Cool cool cool.</p>
+<p>Armed with that information I turned up what appears to be a third manufacturer, <a href='http://www.mcrmotor.com/en/'>MCR Motor</a> who call this motor the MR1108. The MCR <a href='http://clearwater.github.com/gaugette/resources/mcr/2010410104720473.pdf'>data sheet</a> lists the Switec and VID motors as alternatives.</p>
 
-<p>Armed with that information
-I turned up what appears to be a third manufacturer, <a href="http://www.mcrmotor.com/en/">MCR Motor</a> who
-call this motor the MR1108.  The MCR <a href="http://clearwater.github.com/gaugette/resources/mcr/2010410104720473.pdf">data sheet</a>
-lists the Switec and VID motors as alternatives.</p>
-
-<p>The eBay seller had these marked unambiguously as X25.168 motors in their auction, but didn&#8217;t
-specifically say they were from Switec.  I wonder if any of the eBay offers are actual Switec motors?</p>
-]]></content>
+<p>The eBay seller had these marked unambiguously as X25.168 motors in their auction, but didn&#8217;t specifically say they were from Switec. I wonder if any of the eBay offers are actual Switec motors?</p>]]></content>
   </entry>
   
   <entry>
@@ -614,20 +361,10 @@ specifically say they were from Switec.  I wonder if any of the eBay offers are 
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors/"/>
     <updated>2012-01-23T14:39:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors</id>
-    <content type="html"><![CDATA[<p>Last night I built a pair of improved wiring harnesses so I could
-connect two motors to the Arduino.  Once concern
-I have is that the control logic that manages the acceleration and
-deceleration could be so slow that it will interfere with the motor
-drive signaling when trying to control more than one motor.  I have in mind to replace the
-floating point logic with a lookup table, but for now I like being
-able to easily fiddle with the motion parameters.</p>
+    <content type="html"><![CDATA[<p>Last night I built a pair of improved wiring harnesses so I could connect two motors to the Arduino. Once concern I have is that the control logic that manages the acceleration and deceleration could be so slow that it will interfere with the motor drive signaling when trying to control more than one motor. I have in mind to replace the floating point logic with a lookup table, but for now I like being able to easily fiddle with the motion parameters.</p>
 
-<p>It turns out that two motors work pretty well with only minor tweaks to the existing
-code.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
-
-]]></content>
+<p>It turns out that two motors work pretty well with only minor tweaks to the existing code.</p>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />]]></content>
   </entry>
   
   <entry>
@@ -635,21 +372,10 @@ code.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/"/>
     <updated>2012-01-19T17:10:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://clearwater.github.com/gaugette/resources/X12_Quad_Driver.png" title="Switec X12.017 Quad Driver" >
-The <a href="http://clearwater.github.com/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">X25 data sheet</a>
-describes the X12 family of driver chips which allow
-up to 4 Switec motors to be controlled over a 3-wire serial interface.
-I like the look of these for keeping the I/O count down, and offloading
-a bunch of processing from the Arduino.</p>
+    <content type="html"><![CDATA[<img class='right' src='http://clearwater.github.com/gaugette/resources/X12_Quad_Driver.png' title='Switec X12.017 Quad Driver' />
+<p>The <a href='http://clearwater.github.com/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf'>X25 data sheet</a> describes the X12 family of driver chips which allow up to 4 Switec motors to be controlled over a 3-wire serial interface. I like the look of these for keeping the I/O count down, and offloading a bunch of processing from the Arduino.</p>
 
-<p>However I have been unable to find a supplier for X12 quad driver chips.
-It seems that they were available until recently
-from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch,
-but after Swatch
-<a href="http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology">sold the stepping motor business</a>
-to Singapore-based <a href="http://www.jukenswisstech.com">Juken Techonology</a> in 2009,
-that website disappeared.</p>
-]]></content>
+<p>However I have been unable to find a supplier for X12 quad driver chips. It seems that they were available until recently from Swatch subsidiary Microcomponents Ltd. at microcomponents.ch, but after Swatch <a href='http://www.swatchgroup.com/en/services/archive/2009/swatch_group_sale_of_microcomponents_automotive_business_activities_to_juken_technology'>sold the stepping motor business</a> to Singapore-based <a href='http://www.jukenswisstech.com'>Juken Techonology</a> in 2009, that website disappeared.</p>]]></content>
   </entry>
   
   <entry>
@@ -657,35 +383,18 @@ that website disappeared.</p>
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/"/>
     <updated>2012-01-15T19:38:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration</id>
-    <content type="html"><![CDATA[<iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
+    <content type="html"><![CDATA[<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/uNLySm71OBc' width='560' />
+<p>My first cut at the <a href='https://github.com/clearwater/gaugette'>Switec X25 library</a> stepped the needle at a constant speed. You can see the constant speed motion in the <a href='http://www.youtube.com/watch?v=vwAxRk_5oXA'>original video</a>.</p>
 
+<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because it seems more aesthetically pleasing, and partly because I have a notion that I should be able to reach faster peak speeds by ramping the speed up. Motion is now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
 
-<p>My first cut at the <a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
-stepped the needle at a constant speed.  You can see the constant speed
-motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
+<p>For now I&#8217;ve used floating point calculations to compute each step period standard Newtonian velocity/distance/time calculations. This works okay, but is unnecessarily compute-intensive.</p>
 
-<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
-it seems more aesthetically pleasing, and partly because I have a notion that
-I should be able to reach faster peak speeds by ramping the speed up.  Motion is
-now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
+<p>The Switec X25 library supports multiple motors and no doubt this computation will become a factor when I try to drive more than one motor, so I&#8217;ll have to address that at some point.</p>
 
-<p>For now I&#8217;ve used floating point calculations to compute each step period
-standard Newtonian velocity/distance/time
-calculations.  This works okay, but is unnecessarily compute-intensive.</p>
+<p>One interesting aspect of the control logic is that the calculations are done at the start of each step, in distance-domain rather than in time domain like most simulations. This means the calculations must be done more frequently at higher needle speeds. This is going to set an upper bound on maximum step rate.</p>
 
-<p>The Switec X25 library supports multiple motors
-and no doubt this computation will become a factor when I try to drive more than
-one motor, so I&#8217;ll have to address that at some point.</p>
-
-<p>One interesting aspect of the control logic is that the calculations are done at the start
-of each step, in distance-domain rather than in time domain like most simulations.
-This means the calculations must be done more frequently at higher needle
-speeds.  This is going to set an upper bound on maximum step rate.</p>
-
-<p>When it does become an issue,
-I think I could replace the entire floating point calculation with a small table of pre-computed
-(step-count, step-period) pairs with little perceptible difference.</p>
-]]></content>
+<p>When it does become an issue, I think I could replace the entire floating point calculation with a small table of pre-computed (step-count, step-period) pairs with little perceptible difference.</p>]]></content>
   </entry>
   
   <entry>
@@ -693,29 +402,14 @@ I think I could replace the entire floating point calculation with a small table
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results/"/>
     <updated>2012-01-09T14:16:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results</id>
-    <content type="html"><![CDATA[<h2>Wiring It Up</h2>
+    <content type="html"><![CDATA[<h2 id='wiring_it_up'>Wiring It Up</h2>
 
-<p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than
-soldering directly to the motor.
-The pins on each winding exactly match the spacing of the first and fourth pins
-of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
-too short and too narrow to engage with the connectors.  For my first harness I cut up
-a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
-pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
-very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
+<p>Given the comments by <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>Toby Catlin</a> about cooking the motors while soldering, I opted to make up a harness with a connector rather than soldering directly to the motor. The pins on each winding exactly match the spacing of the first and fourth pins of a standard 0.1&#8221; connector. JST RE connectors are the right pitch, but the pins on the motor are too short and too narrow to engage with the connectors. For my first harness I cut up a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth pins. It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder very easily. For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
 
-<p>I wrote some code for the Arduino to step the motor using the IO pattern established
-in <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">this post</a>
-and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
+<p>I wrote some code for the Arduino to step the motor using the IO pattern established in <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>this post</a> and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
 
 <p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
-
-
-
-]]></content>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/vwAxRk_5oXA' width='560' />]]></content>
   </entry>
   
   <entry>
@@ -723,69 +417,25 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/"/>
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
-    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using
-an Arduino microcontroller and Switec X25.168 stepper motors.
-Each motor requires 4 digital I/O pins,
-and a single Arduino can drive three motors.  The limit
-is purely due to Aruidno limit of 14 digital I/O lines.</p>
+    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using an Arduino microcontroller and Switec X25.168 stepper motors. Each motor requires 4 digital I/O pins, and a single Arduino can drive three motors. The limit is purely due to Aruidno limit of 14 digital I/O lines.</p>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />
+<p>Source code for the project is available on <a href='https://github.com/clearwater/gaugette'>GitHub</a>.</p>
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
+<h2 id='motivation'>Motivation</h2>
 
+<p>After playing with the <a href='http://www.adafruit.com/products/171'>motor shield party pack</a> from Adafruit, I started thinking it would be fun to have a couple of analog gauges mounted on the wall somewhere to show system health indication; maybe network bandwidth or web traffic? <img class='right' src='http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg' title='TorrentMeter by Skytee' /> Of course I&#8217;ve seen the very beautiful <a href='http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/'>TorrentMeter by Skytee</a> which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply around here.</p>
 
-<p>Source code for the project is available on
-<a href="https://github.com/clearwater/gaugette">GitHub</a>.</p>
+<p>The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges. The little stepper they include runs really hot. The servo seemed like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield. But it is quite bulky and noisy, so I started looking for something better.</p>
 
-<h2>Motivation</h2>
+<h2 id='the_switec_x25_stepper_motor'>The Switec X25 Stepper Motor</h2>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg' title='Switec X26.168 Stepper Motor' />
+<p>I noticed a lot of sellers on eBay selling tiny Switec X25 motors as replacements for GM auto instrument clusters. They were developed by the technology arm of Swatch, so I figured they should be low power and pretty quiet. Certainly they are cheap; under $5 each!</p>
 
-<p>After playing with the
-<a href="http://www.adafruit.com/products/171">motor shield party pack</a> from Adafruit,
-I started thinking it would be fun to have a couple of analog gauges
-mounted on the wall somewhere to show system health indication; maybe network bandwidth or
-web traffic?
-<img class="right" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" title="TorrentMeter by Skytee" >
-Of course I&#8217;ve seen the very beautiful
-<a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
-which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply
-around here.</p>
+<p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a resolution of 1/3 degree. The <a href='http://clearwater.github.com/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf'>data sheet</a> indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V Arduino data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I understand the risks associated with wiring inductive loads directly to the microcontroller. Arduinos are cheap, why not try it?</p>
 
-<p>The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges.  The little stepper they
-include runs really hot.  The servo seemed
-like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield.
-But it is quite bulky and noisy, so I started looking for something better.</p>
+<p>On the net I found an excellent <a href='http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge'>overview of the Switec X25 by Mike Powell</a>. Mike expresses concerns about driving inductive loads directly from the microcontroller and uses an external L293D driver. There is an intriguing <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>thread by Toby Catlin</a> which approaches the issue of driving these without a controller, but the thread ends abruptly at the point where he sees the first signs of success. What happens next? Blue smoke?</p>
 
-<h2>The Switec X25 Stepper Motor</h2>
-
-<p><img class="right" src="http://clearwater.github.com/gaugette/resources/Switec_X25_168.jpg" title="Switec X26.168 Stepper Motor" >
-I noticed a lot of sellers on eBay selling tiny Switec X25
-motors as replacements for GM auto instrument clusters.  They were developed
-by the technology arm of Swatch, so I figured they should be low power and
-pretty quiet.  Certainly they are cheap; under $5 each!</p>
-
-<p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a
-resolution of 1/3 degree.
-The <a href="http://clearwater.github.com/gaugette/resources/switec/X25_xxx_01_SP_E-1.pdf">data sheet</a>
-indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V
-Arduino data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I
-understand the risks associated with wiring inductive loads directly to the microcontroller.  Arduinos are
-cheap, why not try it?</p>
-
-<p>On the net I found an excellent
-<a href="http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge">overview of the Switec X25 by Mike Powell</a>.
-Mike expresses concerns about driving inductive loads directly from the microcontroller and uses
-an external L293D driver.  There is an intriguing
-<a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">thread by Toby Catlin</a>
-which approaches the issue of driving these without a controller, but the thread ends abruptly at the point
-where he sees the first signs of success.  What happens next?  Blue smoke?</p>
-
-<p>At the price I figured it was worth a shot driving these directly,
-so I ordered 6 from  <a href="http://stores.ebay.com.au/partsangel">one of many</a>
-eBay stores selling them.  Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity.
-In all it cost about $25 including postage from the US to Australia.
-At the time of writing they carry both the X25.168
-with rear contacts, and the X25.589 with front contacts and a longer indicator shaft.
-Both have internal stops.  See the <a href="http://clearwater.github.com/gaugette/resources/switec/ISM_Buyers_Guide.pdf">buyers guide</a> for details
-on the different models.</p>
-]]></content>
+<p>At the price I figured it was worth a shot driving these directly, so I ordered 6 from <a href='http://stores.ebay.com.au/partsangel'>one of many</a> eBay stores selling them. Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity. In all it cost about $25 including postage from the US to Australia. At the time of writing they carry both the X25.168 with rear contacts, and the X25.589 with front contacts and a longer indicator shaft. Both have internal stops. See the <a href='http://clearwater.github.com/gaugette/resources/switec/ISM_Buyers_Guide.pdf'>buyers guide</a> for details on the different models.</p>]]></content>
   </entry>
   
 </feed>

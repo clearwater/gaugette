@@ -9,8 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked if I knew
-of a source of motors without stops, or if the X25.168&#8217;s could be &hellip;">
+  <meta name="description" content="Or more accurately, filing off the stops. Recently Tim Hirzel asked if I knew of a source of motors without stops, or if the X25.168&#8217;s could be &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +71,7 @@ of a source of motors without stops, or if the X25.168&#8217;s could be &hellip;
   <li><a href="/gaugette/">Blog</a></li>
   <li><a href="/gaugette/blog/archives">Archives</a></li>
   <li><a href="/gaugette/resources">Resources</a></li>
-  <li><a href="https://github.com/clearwater/gaugette">Source Code</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
 </ul>
 
 </nav>
@@ -108,41 +107,26 @@ of a source of motors without stops, or if the X25.168&#8217;s could be &hellip;
 
 <div class="entry-content"><p>Or more accurately, filing off the stops.</p>
 
-<p>Recently Tim Hirzel asked if I knew
-of a source of motors without stops, or if the X25.168&#8217;s could be
-modified to remove the stops and open up the full 360 degrees of rotation.</p>
+<p>Recently <a href='http://clearwater.github.com/gaugette/about/index.html#comment-459699391'>Tim Hirzel asked</a> if I knew of a source of motors without stops, or if the X25.168&#8217;s could be modified to remove the stops and open up the full 360 degrees of rotation.</p>
 
-<p>Good question!  The <a href="/gaugette/resources">X25 Series Buyers Guide</a> lists 6 models
-of motors without stops, but a quick search turned up no suppliers
-selling these in small volumes.</p>
+<p>Good question! The <a href='/gaugette/resources'>X25 Series Buyers Guide</a> lists 6 models of motors without stops, but a quick search turned up no suppliers selling these in small volumes.</p>
 
-<p>Okay, time to figure out if the stops can be removed.  Note that I&#8217;m working
-on a VID-29 clone, not a genuine Switec X25.168 here.
-There are 4 tiny screws that open the case revealing this:</p>
+<p>Okay, time to figure out if the stops can be removed. Note that I&#8217;m working on a VID-29 clone, not a genuine Switec X25.168 here. There are 4 tiny screws that open the case revealing this:</p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9223.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9223.jpg' /></p>
 
-<p>The drive-shaft and attached gear sit loose and can be lifted out.  Flipping the
-gear over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face
-that stops against a matching protrusion at the bottom of the case.</p>
+<p>The drive-shaft and attached gear sit loose and can be lifted out. Flipping the gear over reveals the mechanism for the stop; a raised trapezoidal bump on the gear face that stops against a matching protrusion at the bottom of the case.</p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9225.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9225.jpg' /></p>
 
 <p>I cut off the stop with a Stanley knife, and filed it flat with a small file.</p>
 
-<p><img src="/gaugette/resources/2012-04-04/imgp9226.jpg" alt="image" /></p>
+<p><img alt='image' src='/gaugette/resources/2012-04-04/imgp9226.jpg' /></p>
 
 <p>Reassembly was easy, and bugger me, it works.</p>
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/kY2yiKImWJE" frameborder="0" allowfullscreen></iframe>
-
-
-<p>In the video you can see the needle hesitates on each rotation.  This is because of the acceleration/deceleration
-logic in the SwitecX25 library; I&#8217;m accelerating the motor from stop,
-spinning 360 degrees, decelerating to a stop again, then repeating,
-using code like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>In the video you can see the needle hesitates on each rotation. This is because of the acceleration/deceleration logic in the SwitecX25 library; I&#8217;m accelerating the motor from stop, spinning 360 degrees, decelerating to a stop again, then repeating, using code like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -152,13 +136,8 @@ using code like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(360*3);
 </span><span class='line'>        while (!motor-&gt;stopped) motor-&gt;update();
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To keep the speed constant I need to prevent it coming to a stop.
-I can do that by resetting the origin and destination before
-it reaches its goal step, like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>To keep the speed constant I need to prevent it coming to a stop. I can do that by resetting the origin and destination before it reaches its goal step, like this:</p>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -168,11 +147,8 @@ it reaches its goal step, like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(320*3*2);    // set target to way past end of rotation
 </span><span class='line'>        while (motor-&gt;currentStep&lt;360*3) motor-&gt;update();  // turn until rotation is complete
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
 <p>Or to run the motor in reverse:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -182,11 +158,7 @@ it reaches its goal step, like this:</p>
 </span><span class='line'>        motor-&gt;setPosition(0);
 </span><span class='line'>        while (motor-&gt;currentStep&gt;360*3) motor-&gt;update();
 </span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I think the SwitecX25 library will need some extensions to support stop-less motors&#8230;  need to
-think about that a bit.</p>
-</div>
+<p>I think the SwitecX25 library will need some extensions to support stop-less motors&#8230; need to think about that a bit.</p></div>
 
 
   <footer>

@@ -9,9 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Today I added an LED backlight to my square gauge.
-I really like how light leaks from the grills at the top
-and bottom of gauge. I decided not to &hellip;">
+  <meta name="description" content="Today I added an LED backlight to my square gauge. I really like how light leaks from the grills at the top and bottom of gauge. I decided not to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +71,7 @@ and bottom of gauge. I decided not to &hellip;">
   <li><a href="/gaugette/">Blog</a></li>
   <li><a href="/gaugette/blog/archives">Archives</a></li>
   <li><a href="/gaugette/resources">Resources</a></li>
-  <li><a href="https://github.com/clearwater/gaugette">Source Code</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
 </ul>
 
 </nav>
@@ -107,42 +105,18 @@ and bottom of gauge. I decided not to &hellip;">
   </header>
 
 
-<div class="entry-content"><p><img class="right" src="/gaugette/resources/thermo_backlit.png" title="LED Backlighting" ></p>
+<div class="entry-content"><img class='right' src='/gaugette/resources/thermo_backlit.png' title='LED Backlighting' />
+<p>Today I added an LED backlight to my square gauge. I really like how light leaks from the grills at the top and bottom of gauge.</p>
 
-<p>Today I added an LED backlight to my square gauge.
-I really like how light leaks from the grills at the top
-and bottom of gauge.</p>
+<p>I decided not to use RGB LEDs in this build due to size and pin-count constraints. The white LED was originally part of a solar-powered LED light string.</p>
 
-<p>I decided not to use RGB LEDs in this build due to size
-and pin-count constraints.
-The white LED was originally part
-of a solar-powered LED light string.</p>
+<p>These are side-emitting LEDs by virtue of a conical indent in the tip of the lens that refracts much of the light sideways. I tried grinding back the lens and using blobs of hot-glue to make the lighting more diffuse, but in the end I wasn&#8217;t convinced it was an improvement, and so the simpler design won out.</p>
+<img class='left' src='/gaugette/resources/thermo_led.png' title='with face removed' />
+<p>I soldered the 330&#8486; current-limiting resistor to the LED. I trimmed the leads on the LED and resistor really short to get it all to fit. I would have liked the resistor tight against the wall to prevent a dark spot, but it didn&#8217;t work out that way.</p>
 
-<p>These are side-emitting
-LEDs by virtue of a conical indent in the tip of the lens that
-refracts much of the light sideways.
-I tried grinding back the lens and using blobs of hot-glue to make
-the lighting more diffuse, but in the end I wasn&#8217;t convinced
-it was an improvement, and so the simpler design won out.</p>
-
-<p><img class="left" src="/gaugette/resources/thermo_led.png" title="with face removed" ></p>
-
-<p>I soldered the 330&#8486; current-limiting resistor to the LED.
-I trimmed the leads on the LED and resistor really short to get it
-all to fit.  I would have liked the resistor tight against
-the wall to prevent a dark spot, but it didn&#8217;t work out that way.</p>
-
-<p>The holes for the connection wires had to be drilled
-right in the extreme inner corner to avoid the stepper motor on the back.
-The cathode wire goes to a PWM pin on the Arduino, and the anode
-to ground.  I recently added LED control options to the Gaugette software
-to control the brightness.</p>
-
-<p><img class="right" src="http://www.battlecruiserzone.com/Boom1.jpg">
-ZOMG, now this gauge <a href="http://totallylookslike.icanhascheezburger.com/">totally looks like</a> the
-helmets worn by the Viper pilots in the original 80&#8217;s
-Battlestar Galactica series!</p>
-</div>
+<p>The holes for the connection wires had to be drilled right in the extreme inner corner to avoid the stepper motor on the back. The cathode wire goes to a PWM pin on the Arduino, and the anode to ground. I recently added LED control options to the Gaugette software to control the brightness.</p>
+<img class='right' src='http://www.battlecruiserzone.com/Boom1.jpg' />
+<p>ZOMG, now this gauge <a href='http://totallylookslike.icanhascheezburger.com/'>totally looks like</a> the helmets worn by the Viper pilots in the original 80&#8217;s Battlestar Galactica series!</p></div>
 
 
   <footer>

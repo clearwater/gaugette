@@ -9,8 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Wiring It Up Given the comments by Toby Catlin
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than &hellip;">
+  <meta name="description" content="Wiring It Up Given the comments by Toby Catlin about cooking the motors while soldering, I opted to make up a harness with a connector rather than &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +71,7 @@ about cooking the motors while soldering, I opted to make up a harness with a co
   <li><a href="/gaugette/">Blog</a></li>
   <li><a href="/gaugette/blog/archives">Archives</a></li>
   <li><a href="/gaugette/resources">Resources</a></li>
-  <li><a href="https://github.com/clearwater/gaugette">Source Code</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
 </ul>
 
 </nav>
@@ -106,29 +105,14 @@ about cooking the motors while soldering, I opted to make up a harness with a co
   </header>
 
 
-<div class="entry-content"><h2>Wiring It Up</h2>
+<div class="entry-content"><h2 id='wiring_it_up'>Wiring It Up</h2>
 
-<p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than
-soldering directly to the motor.
-The pins on each winding exactly match the spacing of the first and fourth pins
-of a standard 0.1&#8221; connector.  JST RE connectors are the right pitch, but the pins on the motor are
-too short and too narrow to engage with the connectors.  For my first harness I cut up
-a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
-pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
-very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
+<p>Given the comments by <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>Toby Catlin</a> about cooking the motors while soldering, I opted to make up a harness with a connector rather than soldering directly to the motor. The pins on each winding exactly match the spacing of the first and fourth pins of a standard 0.1&#8221; connector. JST RE connectors are the right pitch, but the pins on the motor are too short and too narrow to engage with the connectors. For my first harness I cut up a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth pins. It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder very easily. For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
 
-<p>I wrote some code for the Arduino to step the motor using the IO pattern established
-in <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">this post</a>
-and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
+<p>I wrote some code for the Arduino to step the motor using the IO pattern established in <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>this post</a> and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
 
 <p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
-
-
-
-</div>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/vwAxRk_5oXA' width='560' /></div>
 
 
   <footer>

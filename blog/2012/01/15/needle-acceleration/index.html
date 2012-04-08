@@ -9,9 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="My first cut at the Switec X25 library
-stepped the needle at a constant speed. You can see the constant speed
-motion in the original video. I&#8217; &hellip;">
+  <meta name="description" content="My first cut at the Switec X25 library stepped the needle at a constant speed. You can see the constant speed motion in the original video. I&#8217; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +71,7 @@ motion in the original video. I&#8217; &hellip;">
   <li><a href="/gaugette/">Blog</a></li>
   <li><a href="/gaugette/blog/archives">Archives</a></li>
   <li><a href="/gaugette/resources">Resources</a></li>
-  <li><a href="https://github.com/clearwater/gaugette">Source Code</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
 </ul>
 
 </nav>
@@ -107,35 +105,18 @@ motion in the original video. I&#8217; &hellip;">
   </header>
 
 
-<div class="entry-content"><iframe width="560" height="315" src="http://www.youtube.com/embed/uNLySm71OBc" frameborder="0" allowfullscreen></iframe>
+<div class="entry-content"><iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/uNLySm71OBc' width='560' />
+<p>My first cut at the <a href='https://github.com/clearwater/gaugette'>Switec X25 library</a> stepped the needle at a constant speed. You can see the constant speed motion in the <a href='http://www.youtube.com/watch?v=vwAxRk_5oXA'>original video</a>.</p>
 
+<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because it seems more aesthetically pleasing, and partly because I have a notion that I should be able to reach faster peak speeds by ramping the speed up. Motion is now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
 
-<p>My first cut at the <a href="https://github.com/clearwater/gaugette">Switec X25 library</a>
-stepped the needle at a constant speed.  You can see the constant speed
-motion in the <a href="http://www.youtube.com/watch?v=vwAxRk_5oXA">original video</a>.</p>
+<p>For now I&#8217;ve used floating point calculations to compute each step period standard Newtonian velocity/distance/time calculations. This works okay, but is unnecessarily compute-intensive.</p>
 
-<p>I&#8217;ve updated the library to support acceleration and deceleration, partly because
-it seems more aesthetically pleasing, and partly because I have a notion that
-I should be able to reach faster peak speeds by ramping the speed up.  Motion is
-now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
+<p>The Switec X25 library supports multiple motors and no doubt this computation will become a factor when I try to drive more than one motor, so I&#8217;ll have to address that at some point.</p>
 
-<p>For now I&#8217;ve used floating point calculations to compute each step period
-standard Newtonian velocity/distance/time
-calculations.  This works okay, but is unnecessarily compute-intensive.</p>
+<p>One interesting aspect of the control logic is that the calculations are done at the start of each step, in distance-domain rather than in time domain like most simulations. This means the calculations must be done more frequently at higher needle speeds. This is going to set an upper bound on maximum step rate.</p>
 
-<p>The Switec X25 library supports multiple motors
-and no doubt this computation will become a factor when I try to drive more than
-one motor, so I&#8217;ll have to address that at some point.</p>
-
-<p>One interesting aspect of the control logic is that the calculations are done at the start
-of each step, in distance-domain rather than in time domain like most simulations.
-This means the calculations must be done more frequently at higher needle
-speeds.  This is going to set an upper bound on maximum step rate.</p>
-
-<p>When it does become an issue,
-I think I could replace the entire floating point calculation with a small table of pre-computed
-(step-count, step-period) pairs with little perceptible difference.</p>
-</div>
+<p>When it does become an issue, I think I could replace the entire floating point calculation with a small table of pre-computed (step-count, step-period) pairs with little perceptible difference.</p></div>
 
 
   <footer>

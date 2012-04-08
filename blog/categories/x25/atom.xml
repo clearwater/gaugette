@@ -4,7 +4,7 @@
   <title><![CDATA[Category: x25 | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/x25/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-04-05T12:52:08+10:00</updated>
+  <updated>2012-04-08T13:25:59+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -18,29 +18,14 @@
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results/"/>
     <updated>2012-01-09T14:16:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results</id>
-    <content type="html"><![CDATA[<h2>Wiring It Up</h2>
+    <content type="html"><![CDATA[<h2 id='wiring_it_up'>Wiring It Up</h2>
 
-<p>Given the comments by <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">Toby Catlin</a>
-about cooking the motors while soldering, I opted to make up a harness with a connector rather than
-soldering directly to the motor.
-The pins on each winding exactly match the spacing of the first and fourth pins
-of a standard 0.1" connector.  JST RE connectors are the right pitch, but the pins on the motor are
-too short and too narrow to engage with the connectors.  For my first harness I cut up
-a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth
-pins.  It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder
-very easily.  For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
+<p>Given the comments by <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>Toby Catlin</a> about cooking the motors while soldering, I opted to make up a harness with a connector rather than soldering directly to the motor. The pins on each winding exactly match the spacing of the first and fourth pins of a standard 0.1&#8221; connector. JST RE connectors are the right pitch, but the pins on the motor are too short and too narrow to engage with the connectors. For my first harness I cut up a floppy disk cable connector into two 4-hole sections and soldered wire to the first and fourth pins. It worked fine but it is pretty bulky, and the metal contacts in the connector did not solder very easily. For now I just pushed the tinned ends of the wires directly into the Arduino connectors.</p>
 
-<p>I wrote some code for the Arduino to step the motor using the IO pattern established
-in <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">this post</a>
-and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
+<p>I wrote some code for the Arduino to step the motor using the IO pattern established in <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>this post</a> and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
 
 <p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" allowfullscreen></iframe>
-
-
-
-]]></content>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/vwAxRk_5oXA' width='560' />]]></content>
   </entry>
   
   <entry>
@@ -48,69 +33,25 @@ and a quick ruby script to query my pfSense firewall to get some live data to te
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/"/>
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
-    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using
-an Arduino microcontroller and Switec X25.168 stepper motors.
-Each motor requires 4 digital I/O pins,
-and a single Arduino can drive three motors.  The limit
-is purely due to Aruidno limit of 14 digital I/O lines.</p>
+    <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using an Arduino microcontroller and Switec X25.168 stepper motors. Each motor requires 4 digital I/O pins, and a single Arduino can drive three motors. The limit is purely due to Aruidno limit of 14 digital I/O lines.</p>
+<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />
+<p>Source code for the project is available on <a href='https://github.com/clearwater/gaugette'>GitHub</a>.</p>
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" allowfullscreen></iframe>
+<h2 id='motivation'>Motivation</h2>
 
+<p>After playing with the <a href='http://www.adafruit.com/products/171'>motor shield party pack</a> from Adafruit, I started thinking it would be fun to have a couple of analog gauges mounted on the wall somewhere to show system health indication; maybe network bandwidth or web traffic? <img class="right" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" title="TorrentMeter by Skytee" > Of course I&#8217;ve seen the very beautiful <a href='http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/'>TorrentMeter by Skytee</a> which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply around here.</p>
 
-<p>Source code for the project is available on
-<a href="https://github.com/clearwater/gaugette">GitHub</a>.</p>
+<p>The servos and steppers in the Adafruit pack aren&#8217;t ideal for driving gauges. The little stepper they include runs really hot. The servo seemed like possibility and it is driven by PWM, so I wouldn&#8217;t even need the motor shield. But it is quite bulky and noisy, so I started looking for something better.</p>
 
-<h2>Motivation</h2>
+<h2 id='the_switec_x25_stepper_motor'>The Switec X25 Stepper Motor</h2>
 
-<p>After playing with the
-<a href="http://www.adafruit.com/products/171">motor shield party pack</a> from Adafruit,
-I started thinking it would be fun to have a couple of analog gauges
-mounted on the wall somewhere to show system health indication; maybe network bandwidth or
-web traffic?
-<img class="right" src="http://blog.skytee.com/wp-content/uploads/2010/11/B-300x277.jpg" title="TorrentMeter by Skytee" >
-Of course I've seen the very beautiful
-<a href="http://blog.skytee.com/2010/11/torrentmeter-a-steampunk-bandwidth-meter/">TorrentMeter by Skytee</a>
-which is so pretty it makes me weep, but beautiful brass antique voltmeters are in short supply
-around here.</p>
+<p><img class="right" src="/resources/Switec_X25_168.jpg" title="Switec X26.168 Stepper Motor" > I noticed a lot of sellers on eBay selling tiny Switec X25 motors as replacements for GM auto instrument clusters. They were developed by the technology arm of Swatch, so I figured they should be low power and pretty quiet. Certainly they are cheap; under $5 each!</p>
 
-<p>The servos and steppers in the Adafruit pack aren't ideal for driving gauges.  The little stepper they
-include runs really hot.  The servo seemed
-like possibility and it is driven by PWM, so I wouldn't even need the motor shield.
-But it is quite bulky and noisy, so I started looking for something better.</p>
+<p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a resolution of 1/3 degree. The <a href='/resources/switec/X25_xxx_01_SP_E-1.pdf'>data sheet</a> indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V Arduino data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I understand the risks associated with wiring inductive loads directly to the microcontroller. Arduinos are cheap, why not try it?</p>
 
-<h2>The Switec X25 Stepper Motor</h2>
+<p>On the net I found an excellent <a href='http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge'>overview of the Switec X25 by Mike Powell</a>. Mike expresses concerns about driving inductive loads directly from the microcontroller and uses an external L293D driver. There is an intriguing <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>thread by Toby Catlin</a> which approaches the issue of driving these without a controller, but the thread ends abruptly at the point where he sees the first signs of success. What happens next? Blue smoke?</p>
 
-<p><img class="right" src="/resources/Switec_X25_168.jpg" title="Switec X26.168 Stepper Motor" >
-I noticed a lot of sellers on eBay selling tiny Switec X25
-motors as replacements for GM auto instrument clusters.  They were developed
-by the technology arm of Swatch, so I figured they should be low power and
-pretty quiet.  Certainly they are cheap; under $5 each!</p>
-
-<p>The X25 motors have 6 steps per revolution, and a 180:1 gearbox, giving a
-resolution of 1/3 degree.
-The <a href="/resources/switec/X25_xxx_01_SP_E-1.pdf">data sheet</a>
-indicates they draw no more than 20mA per winding, which is low enough to source directly from the 5V
-Arduino data pins, raising the possibility of driving these without an intermediate controller chip. Yes, I
-understand the risks associated with wiring inductive loads directly to the microcontroller.  Arduinos are
-cheap, why not try it?</p>
-
-<p>On the net I found an excellent
-<a href="http://www.mycockpit.org/forums/content.php/355-An-Easy-Approach-to-an-Analog-Gauge">overview of the Switec X25 by Mike Powell</a>.
-Mike expresses concerns about driving inductive loads directly from the microcontroller and uses
-an external L293D driver.  There is an intriguing
-<a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962">thread by Toby Catlin</a>
-which approaches the issue of driving these without a controller, but the thread ends abruptly at the point
-where he sees the first signs of success.  What happens next?  Blue smoke?</p>
-
-<p>At the price I figured it was worth a shot driving these directly,
-so I ordered 6 from  <a href="http://stores.ebay.com.au/partsangel">one of many</a>
-eBay stores selling them.  Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity.
-In all it cost about $25 including postage from the US to Australia.
-At the time of writing they carry both the X25.168
-with rear contacts, and the X25.589 with front contacts and a longer indicator shaft.
-Both have internal stops.  See the <a href="/resources/switec/ISM_Buyers_Guide.pdf">buyers guide</a> for details
-on the different models.</p>
-]]></content>
+<p>At the price I figured it was worth a shot driving these directly, so I ordered 6 from <a href='http://stores.ebay.com.au/partsangel'>one of many</a> eBay stores selling them. Apparently a complete GM instrument cluster has 6 motors, so 6 is a popular quantity. In all it cost about $25 including postage from the US to Australia. At the time of writing they carry both the X25.168 with rear contacts, and the X25.589 with front contacts and a longer indicator shaft. Both have internal stops. See the <a href='/resources/switec/ISM_Buyers_Guide.pdf'>buyers guide</a> for details on the different models.</p>]]></content>
   </entry>
   
 </feed>
