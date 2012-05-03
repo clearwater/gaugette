@@ -34,6 +34,8 @@ Command cmd;
 // limit to 232 degrees sweep for square thermo dials
 // at 3 steps per degree is 696 steps
 #define MOTOR_STEPS (696)
+#define MOTOR_OFF_POS (MOTOR_STEPS/2)
+
 SwitecX25 motors[] =  {
   SwitecX25(MOTOR_STEPS, 4,5,6,7),
   SwitecX25(MOTOR_STEPS, 8,9,11,12)
@@ -43,12 +45,40 @@ const unsigned int motorCount = sizeof(motors)/sizeof(*motors);
 //RotaryEncoder encoder(2,3);
 //IntRotaryEncoder encoder;
 
+#define LED_BRIGHT  100
+#define LED_DIM      20
+#define LED_OFF       0
+#define LED_PERIOD 1000
+
 LED leds[] = {LED(3), LED(10)};
 const unsigned int ledCount = sizeof(leds)/sizeof(*leds);
+
+#define MOTOR_INACTIVE_TIMEOUT 5000
+unsigned long motorUpdate[] = {0,0};
+unsigned char motorActive[] = {false, false};
 
 Switch switch1(A1);
 Switch switch2(A0);
 boolean active = true;
+
+void setLedBrightness(int index)
+{
+  unsigned char brightness = LED_OFF;
+  if (switch2.set) {
+    brightness = LED_OFF;
+    Serial.println("off - switch2 on");
+  } else if (!switch1.set) {
+    brightness = LED_OFF;
+    Serial.println("off - switch1 off");
+  } else if (motorActive[index]) {
+    brightness = LED_BRIGHT;
+    Serial.println("bright - active");
+  } else {
+    brightness = LED_DIM;
+    Serial.println("dim - inactive");
+  }
+  leds[index].set(brightness);
+}
 
 void setup(void) {
   Serial.begin(9600);
@@ -65,8 +95,8 @@ void setup(void) {
   //motors[1].accelTable = accelTable;
   //motors[1].maxVel = accelTable[3-1][0];
 
-  leds[0].speed = 1;
-  leds[1].speed = 1;
+  leds[0].period = LED_PERIOD;  // milliseconds to change
+  leds[1].period = LED_PERIOD;
 
 }
 
@@ -92,9 +122,8 @@ void loop(void) {
   if (switch1.changed()) {
     Serial.print("switch1 ");
     Serial.println(switch1.set ? "on" : "off");
-    for (int i=0;i<ledCount;i++) {
-      leds[i].set(switch1.set ? 100 : 0);
-    }
+    setLedBrightness(0);
+    setLedBrightness(1);
   }
   
   // switch2 on turns everything off
@@ -102,34 +131,70 @@ void loop(void) {
     Serial.print("switch2 ");
     Serial.println(switch2.set ? "on" : "off");
     active = !switch2.set;
-    motors[0].setPosition(0);
-    motors[1].setPosition(0);
+    if (switch2.set) {
+      // inactive
+      motors[0].zero();
+      motors[1].zero();
+      motors[0].setPosition(MOTOR_OFF_POS);
+      motors[1].setPosition(MOTOR_OFF_POS);
+    } else {
+    }    
+    setLedBrightness(0);
+    setLedBrightness(1);
   }
   
-  
+  // if motors become inactive, dim leds
+  {
+    for (int i=0;i<motorCount;i++) {
+      if (motorActive[i]) {
+        if ((millis() - motorUpdate[i]) > MOTOR_INACTIVE_TIMEOUT) {
+          motorActive[i] = false;
+          setLedBrightness(i);
+          Serial.println("inactive");
+        }
+      }
+    }
+  }
   
   motors[0].update();
   motors[1].update();
   leds[0].update();
   leds[1].update();
   if (cmd.parseInput()) {
+    int index = cmd.address[1];
     //cmd.dump();
-    if (cmd.address[1]<motorCount) {
-      SwitecX25 *motor = motors+cmd.address[1];
+    if (index<motorCount) {
+      SwitecX25 *motor = motors+index;
       switch (cmd.command) {
         case 'z':
-          motor->zero();        
+          motor->zero(); 
           break;
         case 's':
           if (active) motor->setPosition(cmd.value[1]);
+          motorActive[index] = true;
+          motorUpdate[index] = millis();
+          setLedBrightness(index);
           break;
         case 'r':
           // r <n> <steps> set motor range
           motor->steps = cmd.value[1];
           break;
         case 'l':
+        {
           LED *led = leds + cmd.address[1];
           led->set(cmd.value[1]);
+          break;
+        }
+        case 'x':
+          motor->steps = 2000; // > 3 * 360
+          for (int i=0;i<cmd.value[1];i++) {
+            motor->currentStep = 0;    
+            motor->setPosition(360*3);
+            //while (motor->currentStep < 360*3) motor->update();
+            while (!motor->stopped) motor->update();
+          }
+          motor->currentStep = 0;
+          motor->setPosition(0);
           break;
       }
     }

@@ -4,19 +4,21 @@
 LED::LED(unsigned char pin)
 {
   this->pin = pin;
+  this->time0 = 0;
   this->target = 0;
   this->value = 0;
-  this->speed = 0;  // instant
+  this->period = 0;  // instant
   pinMode(pin, OUTPUT);
   analogWrite(pin, 0);
 }
 
 void LED::set(unsigned char value)
 {
-  if (this->speed==0) {
+  if (this->period==0) {
     this->value = this->target = value;
     analogWrite(pin, this->value);
   } else {
+    this->time0 = millis();
     this->target = value;
   }
 }
@@ -24,16 +26,18 @@ void LED::set(unsigned char value)
 void LED::update()
 {
   if (this->value != this->target) {
-     if (this->value < this->target) {
-       unsigned char delta = this->target-this->value;
-       if (delta > this->speed) delta = this->speed;
-       this->value+=delta;
+     unsigned long delta = millis() - time0;
+     unsigned char newValue;
+     if (delta>=period) {
+       Serial.print(delta);
+       Serial.println(" done");
+       newValue = this->value = this->target; // done
      } else {
-       unsigned char delta = this->value-this->target;
-       if (delta > this->speed) delta = this->speed;
-       this->value-=delta;
+       int dv = (int)target - (int)value;  
+       // cast to long because dv * d will exceed 16-bit signed int.
+       int dvt = (long)dv * (long)delta / (long)period;
+       newValue = (int)value + dvt;
      }
-     Serial.println(this->value);
-     analogWrite(pin, this->value);
+     analogWrite(pin, newValue);
   }
 }

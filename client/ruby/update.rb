@@ -10,7 +10,8 @@ require 'gaugette'
 require 'pfsense'
 require 'pp'
 
-gaugette_device = "/dev/tty.usbmodem411"  # serial port to Arduino
+#gaugette_device = "/dev/tty.usbmodem411"  # serial port to Arduino
+gaugette_device = "/dev/cu.usbmodem641"
 gaugette_steps = 696                      # full-scale deflection
 interval = 2                              # polling interval in seconds 
 pfsense_host = "pfsense"                  # hostname of firewall
@@ -31,6 +32,7 @@ puts "Displaying bandwidth from #{pfsense_host}:#{pfsense_interface} on gaugette
 [0,1].each do |i|
   @gaugette.range(i, gaugette_steps) # unnecessary
   @gaugette.zero(i)
+  @gaugette.set(i, gaugette_steps) # visual indication of restart
 end
 
 # The first call to @pfsense.read will return nil,nil.  Subsequent
@@ -41,12 +43,10 @@ while true
   if bps_in
     kbps_in = bps_in / 1000.0
     @gaugette.set_scaled(0, kbps_in, 100.0)
-    @gaugette.lcd(0, kbps_in * 255 / 100.0)
   end
   if bps_out
     kbps_out = bps_out / 1000.0
     @gaugette.set_scaled(1, kbps_out, 100.0)
-    @gaugette.lcd(1, kbps_out * 255 / 100.0)
   end
   sleep interval
 end

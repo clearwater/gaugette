@@ -7,7 +7,8 @@ class LED
   unsigned char pin;
   unsigned char target;
   unsigned char value;
-  unsigned char speed;
+  unsigned long period;
+  unsigned long time0;
   LED(unsigned char pin);
   void set(unsigned char value);
   void update();
