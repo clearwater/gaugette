@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How Fast Is It? - Gaugette</title>
+  <meta name="author" content="Guy">
+
+  
+  <meta name="description" content="I recently removed the internal stops on a VID-29 stepper. I&#8217;ve used this free-turning motor and an optical sensor to exerimentally determine &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it">
+  <link href="/gaugette/favicon.png" rel="icon">
+  <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
+  <script src="/gaugette/javascripts/ender.js"></script>
+  <script src="/gaugette/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/gaugette/atom.xml" rel="alternate" title="Gaugette" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28552776-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/gaugette/">Gaugette</a></h1>
+  
+    <h2>a simple and cheap Arduino analog gauge using the Switec X25.168 stepper motor.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/gaugette/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:clearwater.github.com/gaugette" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/gaugette/about">About</a></li>
+  <li><a href="/gaugette/">Blog</a></li>
+  <li><a href="/gaugette/blog/archives">Archives</a></li>
+  <li><a href="/gaugette/resources">Resources</a></li>
+  <li><a href="https://github.com/clearwater/SwitecX25">Source Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How Fast Is It?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T09:06:00+10:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I recently <a href='/gaugette/blog/2012/04/04/pulling-out-the-stops/'>removed the internal stops</a> on a VID-29 stepper. I&#8217;ve used this free-turning motor and an optical sensor to exerimentally determine the operational limits of the motor. The test rig uses a photo-interruptor (salvaged from a pre-PC era 8-inch floppy drive).</p>
+<img class='right' src='/gaugette/resources/2012-05-08/accel-test.jpg' />
+<h2 id='methodology'>Methodology</h2>
+
+<p>The test strategy is to move the need forward under varying conditions, then move the needle back to the home position in a known-reliable manner while counting the steps to get back to the start position. If the steps counted back do not match the number of steps programmed forward then we know we have exceeded the operational limits of the motor.</p>
+
+<p>After some experimentation I selected a delay of 1000&#956;S per step for the counting phase as this is well within the safe limits of operation. This gives perfectly repeatable results, confirming that the sensor is accurate enough to detect a single one-third degree step.</p>
+
+<p>Be sure your needle is tight! Until I eliminated needle slippage, my results were very unreliable, with anomalous drifts both above and below the expected results.</p>
+
+<h2 id='constant_speed_test'>Constant Speed Test</h2>
+
+<p>Move the needle forward at constant speed with varying speeds to determine the operational limits of step-frequency.</p>
+
+<p>One thing to note here is that we are reading the sensor analog input inside our timing loop, which means the step periods shown are slightly below the actual value.</p>
+
+<p>The following table shows the results from the constant speed test. Each test was repeated 5 times. In each case the expected result was 500.</p>
+<table><thead><tr><th>Delay &#956;S</th><th>Test 1</th><th>Test 2</th><th>Test 3</th><th>Test 4</th><th>Test 5</th><th>Hz</th><th>&#176;/S</th></tr></thead><tbody><tr><td style='text-align: left;'>500</td><td style='text-align: left;'>8</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2000</td><td style='text-align: left;'>667</td>
+</tr><tr><td style='text-align: left;'>520</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1923</td><td style='text-align: left;'>641</td>
+</tr><tr><td style='text-align: left;'>540</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1852</td><td style='text-align: left;'>617</td>
+</tr><tr><td style='text-align: left;'>560</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>0</td><td style='text-align: left;'>8</td><td style='text-align: left;'>8</td><td style='text-align: left;'>1786</td><td style='text-align: left;'>595</td>
+</tr><tr><td style='text-align: left;'>580</td><td style='text-align: left;'>2</td><td style='text-align: left;'>8</td><td style='text-align: left;'>4</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1724</td><td style='text-align: left;'>575</td>
+</tr><tr><td style='text-align: left;'>600</td><td style='text-align: left;'>518</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>506</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1667</td><td style='text-align: left;'>556</td>
+</tr><tr><td style='text-align: left;'>620</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1613</td><td style='text-align: left;'>538</td>
+</tr><tr><td style='text-align: left;'>640</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1563</td><td style='text-align: left;'>521</td>
+</tr><tr><td style='text-align: left;'>660</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1515</td><td style='text-align: left;'>505</td>
+</tr><tr><td style='text-align: left;'>680</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1471</td><td style='text-align: left;'>490</td>
+</tr><tr><td style='text-align: left;'>700</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1429</td><td style='text-align: left;'>476</td>
+</tr></tbody></table>
+<p>The results show that with a step period below 580&#956;S the motor did not advance with each step. Above 600&#956;S it was reliably moving 500 steps forward. Interestingly in the boundary range of 580&#956;S and 600&#956;S the motor sometimes advanced <em>more</em> than the expected number of steps. This is an indication that the momentum of the needle is turning the motor after the motor stops driving forward - overshoot.</p>
+
+<h2 id='observations'>Observations</h2>
+
+<p>I compared my results with the VID29 data sheet which states rather confusingly that &#8220;The angular speed can reach more than 500Hz&#8221; (presumably they mean &#176;/S, not Hz), and elsewhere that the maximum driving frequency is 600Hz (that just seems wrong). Bearing in mind that our timigns do not account for the overhead of code execution time, our results suggest that, with this particular needle, the motor can be reliably driven at 1613Hz with an angular velocity of 538&#176;/S with no missed steps and no overshoot. Very slightly higher speeds could be obtained if the needle is decellerated before stopping to avoid overshoot.</p>
+
+<p>With this motor &amp; needle, reliable constant-speed operation requires a step-interval of 620&#956;S or more.</p>
+
+<p>It appears that close to the limit of operation there is some overshoot caused by needle inertial. If you run your motor in this range, you will need to ramp the speed down before stopping to avoid overshoot.</p></div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T09:06:00+10:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/gaugette/blog/2012/04/04/making-wiring-harnesses/" title="Previous Post: Making Wiring Harnesses">&laquo; Making Wiring Harnesses</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/05/08/how-fast-is-it/">How Fast Is It?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/04/04/making-wiring-harnesses/">Making Wiring Harnesses</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/04/04/pulling-out-the-stops/">Pulling Out All The Stops</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/03/22/a-better-backlight/">A Better Backlight</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/16/using-the-switecx25-library/">Using the SwitecX25 Library</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/11/backlighting/">LED Gauge Backlighting</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/06/just-a-pretty-face/">Just a Pretty Face</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/02/04/source-code-cleanup/">Separation Anxiety</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/01/28/build-number-one/">Gauge Build Number One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/01/26/well-aint-that-shiny/">Well Ain't That Shiny!</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gaugetteblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

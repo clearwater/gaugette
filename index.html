@@ -9,7 +9,7 @@
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="A quick note about wiring harnesses for these motors. I&#8217;ve found it really handy to make harnesses from 4-wire CD audio cables. My harnesses &hellip;">
+  <meta name="description" content="I recently removed the internal stops on a VID-29 stepper. I&#8217;ve used this free-turning motor and an optical sensor to exerimentally determine &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/gaugette/blog/2012/05/08/how-fast-is-it/">How Fast Is It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T09:06:00+10:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I recently <a href='/gaugette/blog/2012/04/04/pulling-out-the-stops/'>removed the internal stops</a> on a VID-29 stepper. I&#8217;ve used this free-turning motor and an optical sensor to exerimentally determine the operational limits of the motor. The test rig uses a photo-interruptor (salvaged from a pre-PC era 8-inch floppy drive).</p>
+<img class='right' src='/gaugette/resources/2012-05-08/accel-test.jpg' />
+<h2 id='methodology'>Methodology</h2>
+
+<p>The test strategy is to move the need forward under varying conditions, then move the needle back to the home position in a known-reliable manner while counting the steps to get back to the start position. If the steps counted back do not match the number of steps programmed forward then we know we have exceeded the operational limits of the motor.</p>
+
+<p>After some experimentation I selected a delay of 1000&#956;S per step for the counting phase as this is well within the safe limits of operation. This gives perfectly repeatable results, confirming that the sensor is accurate enough to detect a single one-third degree step.</p>
+
+<p>Be sure your needle is tight! Until I eliminated needle slippage, my results were very unreliable, with anomalous drifts both above and below the expected results.</p>
+
+<h2 id='constant_speed_test'>Constant Speed Test</h2>
+
+<p>Move the needle forward at constant speed with varying speeds to determine the operational limits of step-frequency.</p>
+
+<p>One thing to note here is that we are reading the sensor analog input inside our timing loop, which means the step periods shown are slightly below the actual value.</p>
+
+<p>The following table shows the results from the constant speed test. Each test was repeated 5 times. In each case the expected result was 500.</p>
+<table><thead><tr><th>Delay &#956;S</th><th>Test 1</th><th>Test 2</th><th>Test 3</th><th>Test 4</th><th>Test 5</th><th>Hz</th><th>&#176;/S</th></tr></thead><tbody><tr><td style='text-align: left;'>500</td><td style='text-align: left;'>8</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2000</td><td style='text-align: left;'>667</td>
+</tr><tr><td style='text-align: left;'>520</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1923</td><td style='text-align: left;'>641</td>
+</tr><tr><td style='text-align: left;'>540</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1852</td><td style='text-align: left;'>617</td>
+</tr><tr><td style='text-align: left;'>560</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>0</td><td style='text-align: left;'>8</td><td style='text-align: left;'>8</td><td style='text-align: left;'>1786</td><td style='text-align: left;'>595</td>
+</tr><tr><td style='text-align: left;'>580</td><td style='text-align: left;'>2</td><td style='text-align: left;'>8</td><td style='text-align: left;'>4</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1724</td><td style='text-align: left;'>575</td>
+</tr><tr><td style='text-align: left;'>600</td><td style='text-align: left;'>518</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>506</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1667</td><td style='text-align: left;'>556</td>
+</tr><tr><td style='text-align: left;'>620</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1613</td><td style='text-align: left;'>538</td>
+</tr><tr><td style='text-align: left;'>640</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1563</td><td style='text-align: left;'>521</td>
+</tr><tr><td style='text-align: left;'>660</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1515</td><td style='text-align: left;'>505</td>
+</tr><tr><td style='text-align: left;'>680</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1471</td><td style='text-align: left;'>490</td>
+</tr><tr><td style='text-align: left;'>700</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1429</td><td style='text-align: left;'>476</td>
+</tr></tbody></table>
+<p>The results show that with a step period below 580&#956;S the motor did not advance with each step. Above 600&#956;S it was reliably moving 500 steps forward. Interestingly in the boundary range of 580&#956;S and 600&#956;S the motor sometimes advanced <em>more</em> than the expected number of steps. This is an indication that the momentum of the needle is turning the motor after the motor stops driving forward - overshoot.</p>
+
+<h2 id='observations'>Observations</h2>
+
+<p>I compared my results with the VID29 data sheet which states rather confusingly that &#8220;The angular speed can reach more than 500Hz&#8221; (presumably they mean &#176;/S, not Hz), and elsewhere that the maximum driving frequency is 600Hz (that just seems wrong). Bearing in mind that our timigns do not account for the overhead of code execution time, our results suggest that, with this particular needle, the motor can be reliably driven at 1613Hz with an angular velocity of 538&#176;/S with no missed steps and no overshoot. Very slightly higher speeds could be obtained if the needle is decellerated before stopping to avoid overshoot.</p>
+
+<p>With this motor &amp; needle, reliable constant-speed operation requires a step-interval of 620&#956;S or more.</p>
+
+<p>It appears that close to the limit of operation there is some overshoot caused by needle inertial. If you run your motor in this range, you will need to ramp the speed down before stopping to avoid overshoot.</p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -620,64 +692,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gaugette/blog/2012/01/26/simplified-acceleration-model/">A Simplified Acceleration Model</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-26T09:42:00+10:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The logic in the <code>advance()</code> function of the <a href='https://github.com/clearwater/SwitecX25'>Switec X25 library</a> steps the motor forward or backward one step, then computes the delay in microseconds until the next step is due. This logic determines the acceleration curve and maximum speed of the needle. My first cut at this code used floating point arithmetic to model this as time/accel/velocity problem. The motion was nice and smooth, but it was overkill, and consumes too many precious Arduino compute cycles. When driving multiple motors, this will create an artificial ceiling on the maximum motor speed.</p>
-
-<p>I&#8217;ve rewritten that logic to use a simple lookup table instead. This is a fairly obvious approach, but it was reassuring to see similar approaches recommended in both the <a href='/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf'>VID 29 documentation</a> and the <a href='/gaugette/resources/mcr/2010410104915847.pdf'>MCR MR1107 data sheet</a>.</p>
-
-<p>The acceleration curve is defined as pairs of vel,delay values:</p>
-<pre><code>unsigned short accelTable[][2] = {
-  {   10, 5000},
-  {   30, 1500},
-  {  100, 1000},
-  {  150,  800},
-  {  300,  600}
-};
-</code></pre>
-<p>We maintain a variable <code>vel</code> (which isn&#8217;t actually velocity, but is a surrogate for velocity) that increments each step under acceleration, and decrements each step under deceleration. When stationary, <code>vel</code> is zero. After 1 step of acceleration it is 1. For simplicity I&#8217;ve made the acceleration and deceleration curves identical so they can share the same lookup table.</p>
-
-<p>To determine the inter-step delay at any given value of <code>vel</code>, we find the first table entry such that <code>accelTable[i][0] &lt; vel</code>. In practice this means that the motor will step at 5000 &#181;S intervals for 9 steps, then 1500 &#181;S steps for the next 20 steps, 1000 &#181;S for the next 70 steps, and so on. The peak speed with a delay of 600 &#181;S equates to 1666 Hz step rate or about 500 degrees per second.</p>
-
-<p>The motion control logic first determines if the motor is subject to acceleration, at full speed, or deceleration and adjusts <code>vel</code> accordingly. Using steps as the unit for <code>vel</code> makes it very easy to determine when to declerate: when <code>vel</code> is greater than or equal to the number of steps to reach our destination, we need to start decelerating.</p>
-<img class='right' src='/gaugette/resources/VID29_accel.png' title='From the VID29 Tech Note' />
-<p>The new logic also ensures that if the motor is moving at speed in one direction and is directed to a new position in the opposite direction it will decelerate to a stop before accelerating in the opposite direction.</p>
-
-<p>The constants that make up the acceleration table are constrained by the the inertia of the needle attached to the motor. The <a href='/gaugette/resources/vid/2009111395111_Acceleration_&amp;_reset_calculation_example.pdf'>VID 29 documentation</a> gives some recommendations for calculating these values, but I actually didn&#8217;t use that. I experimented until I found values that were within operational limits and look nice to me.</p>
-
-<p>I tested this code driving 3 motors simultaneously with an Arduino Uno. All good. New code is in the <a href='https://github.com/clearwater/SwitecX25'>library on Github</a>.</p></div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/gaugette/blog/page/2/">&larr; Older</a>
@@ -691,6 +705,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/gaugette/blog/2012/05/08/how-fast-is-it/">How Fast Is It?</a>
+      </li>
     
       <li class="post">
         <a href="/gaugette/blog/2012/04/04/making-wiring-harnesses/">Making Wiring Harnesses</a>
@@ -726,10 +744,6 @@
     
       <li class="post">
         <a href="/gaugette/blog/2012/01/26/well-aint-that-shiny/">Well Ain&#8217;t That Shiny!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/gaugette/blog/2012/01/26/simplified-acceleration-model/">A Simplified Acceleration Model</a>
       </li>
     
   </ul>

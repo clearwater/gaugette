@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-04-08T13:33:07+10:00</updated>
+  <updated>2012-05-08T10:41:18+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How Fast Is It?]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it/"/>
+    <updated>2012-05-08T09:06:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/05/08/how-fast-is-it</id>
+    <content type="html"><![CDATA[<p>I recently <a href='http://clearwater.github.com/gaugette/blog/2012/04/04/pulling-out-the-stops/'>removed the internal stops</a> on a VID-29 stepper. I&#8217;ve used this free-turning motor and an optical sensor to exerimentally determine the operational limits of the motor. The test rig uses a photo-interruptor (salvaged from a pre-PC era 8-inch floppy drive).</p>
+<img class='right' src='http://clearwater.github.com/gaugette/resources/2012-05-08/accel-test.jpg' />
+<h2 id='methodology'>Methodology</h2>
+
+<p>The test strategy is to move the need forward under varying conditions, then move the needle back to the home position in a known-reliable manner while counting the steps to get back to the start position. If the steps counted back do not match the number of steps programmed forward then we know we have exceeded the operational limits of the motor.</p>
+
+<p>After some experimentation I selected a delay of 1000&#956;S per step for the counting phase as this is well within the safe limits of operation. This gives perfectly repeatable results, confirming that the sensor is accurate enough to detect a single one-third degree step.</p>
+
+<p>Be sure your needle is tight! Until I eliminated needle slippage, my results were very unreliable, with anomalous drifts both above and below the expected results.</p>
+
+<h2 id='constant_speed_test'>Constant Speed Test</h2>
+
+<p>Move the needle forward at constant speed with varying speeds to determine the operational limits of step-frequency.</p>
+
+<p>One thing to note here is that we are reading the sensor analog input inside our timing loop, which means the step periods shown are slightly below the actual value.</p>
+
+<p>The following table shows the results from the constant speed test. Each test was repeated 5 times. In each case the expected result was 500.</p>
+<table><thead><tr><th>Delay &#956;S</th><th>Test 1</th><th>Test 2</th><th>Test 3</th><th>Test 4</th><th>Test 5</th><th>Hz</th><th>&#176;/S</th></tr></thead><tbody><tr><td style='text-align: left;'>500</td><td style='text-align: left;'>8</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2000</td><td style='text-align: left;'>667</td>
+</tr><tr><td style='text-align: left;'>520</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1923</td><td style='text-align: left;'>641</td>
+</tr><tr><td style='text-align: left;'>540</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>2</td><td style='text-align: left;'>1852</td><td style='text-align: left;'>617</td>
+</tr><tr><td style='text-align: left;'>560</td><td style='text-align: left;'>2</td><td style='text-align: left;'>3</td><td style='text-align: left;'>0</td><td style='text-align: left;'>8</td><td style='text-align: left;'>8</td><td style='text-align: left;'>1786</td><td style='text-align: left;'>595</td>
+</tr><tr><td style='text-align: left;'>580</td><td style='text-align: left;'>2</td><td style='text-align: left;'>8</td><td style='text-align: left;'>4</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1724</td><td style='text-align: left;'>575</td>
+</tr><tr><td style='text-align: left;'>600</td><td style='text-align: left;'>518</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>506</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1667</td><td style='text-align: left;'>556</td>
+</tr><tr><td style='text-align: left;'>620</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1613</td><td style='text-align: left;'>538</td>
+</tr><tr><td style='text-align: left;'>640</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1563</td><td style='text-align: left;'>521</td>
+</tr><tr><td style='text-align: left;'>660</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1515</td><td style='text-align: left;'>505</td>
+</tr><tr><td style='text-align: left;'>680</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1471</td><td style='text-align: left;'>490</td>
+</tr><tr><td style='text-align: left;'>700</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>500</td><td style='text-align: left;'>1429</td><td style='text-align: left;'>476</td>
+</tr></tbody></table>
+<p>The results show that with a step period below 580&#956;S the motor did not advance with each step. Above 600&#956;S it was reliably moving 500 steps forward. Interestingly in the boundary range of 580&#956;S and 600&#956;S the motor sometimes advanced <em>more</em> than the expected number of steps. This is an indication that the momentum of the needle is turning the motor after the motor stops driving forward - overshoot.</p>
+
+<h2 id='observations'>Observations</h2>
+
+<p>I compared my results with the VID29 data sheet which states rather confusingly that &#8220;The angular speed can reach more than 500Hz&#8221; (presumably they mean &#176;/S, not Hz), and elsewhere that the maximum driving frequency is 600Hz (that just seems wrong). Bearing in mind that our timigns do not account for the overhead of code execution time, our results suggest that, with this particular needle, the motor can be reliably driven at 1613Hz with an angular velocity of 538&#176;/S with no missed steps and no overshoot. Very slightly higher speeds could be obtained if the needle is decellerated before stopping to avoid overshoot.</p>
+
+<p>With this motor &amp; needle, reliable constant-speed operation requires a step-interval of 620&#956;S or more.</p>
+
+<p>It appears that close to the limit of operation there is some overshoot caused by needle inertial. If you run your motor in this range, you will need to ramp the speed down before stopping to avoid overshoot.</p>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Making Wiring Harnesses]]></title>
