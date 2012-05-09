@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-05-09T11:16:15+10:00</updated>
+  <updated>2012-05-09T14:13:01+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -30,7 +30,7 @@
 
 <h2 id='constant_speed_test'>Constant Speed Test</h2>
 
-<p>In this test the motor is turned at constant speed to identify the maximum constant speed that the motor will respond to. The speed is set by manipulating the motor accelleration table. I also recorded the total sweep time with the <code>micros()</code> function to determine the variation between the programmed inter-step time and the actual interstep time.</p>
+<p>In this test the motor is turned at constant speed to identify the maximum constant speed that the motor will respond to. The speed is set by manipulating the motor accelleration table. I also recorded the total sweep time with the <code>micros()</code> function to determine the variation between the programmed inter-step time and the actual inter-step time.</p>
 
 <p>The following table shows the results from the constant speed test. Each test was repeated 5 times. In each case the expected result was 500.</p>
 <table><thead><tr><th>Delay &#956;S</th><th>Test 1</th><th>Test 2</th><th>Test 3</th><th>Test 4</th><th>Test 5</th><th>Actual &#956;S</th><th>Steps/Sec</th><th>&#176;/S</th></tr></thead><tbody><tr><td style='text-align: left;'>500</td><td style='text-align: left;'>4</td><td style='text-align: left;'>-6</td><td style='text-align: left;'>4</td><td style='text-align: left;'>-6</td><td style='text-align: left;'>4</td><td style='text-align: left;'>509</td><td style='text-align: left;'>1964</td><td style='text-align: left;'>654</td>
@@ -60,7 +60,11 @@
 
 <p>I compared my results with the VID29 data sheet which states rather confusingly that &#8220;The angular speed can reach more than 500Hz&#8221; (presumably they mean &#176;/S, not Hz?), and elsewhere that the maximum driving frequency is 600Hz (I can&#8217;t make any sense of that). The ~10&#956;S difference between programmed delay and measured delay gives a useful measure of the error of the timing logic in the SwitecX25 library.</p>
 
-<p>In setting up this test I discovered a bug in the SwitecX25 library: the library does not enforce a timing delay between the last signal change before stopping, and the first signal change after starting. This only exhibits if the motor is stopped and immediately restarted (within ~600&amp;uS). Because the two signals come too close together, the step may be missed. This leaves the motor out of phase with the libraries state map, and it appears the motor then misses 5 more steps before it gets back into phase, so this error shows as a 6-step error.</p>]]></content>
+<p>In setting up this test I discovered a bug in the SwitecX25 library: the library does not enforce a timing delay between the last signal change before stopping, and the first signal change after starting. This only exhibits if the motor is stopped and immediately restarted (within ~600&amp;uS). Because the two signals come too close together, the step may be missed. This leaves the motor out of phase with the libraries state map, and it appears the motor then misses 5 more steps before it gets back into phase, so this error shows as a 6-step error.</p>
+
+<h2 id='test_code'>Test Code</h2>
+
+<p>Here&#8217;s the full <a href='https://gist.github.com/2590599/092aebe1244c3cccf1af000a6968522acc75975a'>source code</a> for this test.</p>]]></content>
   </entry>
   
   <entry>
