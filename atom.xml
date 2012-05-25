@@ -4,7 +4,7 @@
   <title><![CDATA[Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-05-09T14:17:46+10:00</updated>
+  <updated>2012-05-25T13:35:52+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Buyers Guide]]></title>
+    <link href="http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/"/>
+    <updated>2012-05-25T11:06:00+10:00</updated>
+    <id>http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide</id>
+    <content type="html"><![CDATA[<h2 id='manufacturers'>Manufacturers</h2>
+
+<p>I am aware of three companies manufacturing compatible motors. All appear to produce a good-quality product.</p>
+
+<h3 id='switec_'>Switec <img class='right' src='http://clearwater.github.com/gaugette/resources/2012-05-25/x25-168.jpg' /></h3>
+
+<p>Switec was originally the technology arm of the Swiss watch company Swatch. The stepper business was sold off to Singapore-based <a href='http://jukenswisstech.com/'>Juken Technology</a> in 2009. Switec motors are white, and have part numbers starting with &#8220;X&#8221;.</p>
+
+<h3 id='vid_'>VID <img class='right' src='http://clearwater.github.com/gaugette/resources/2012-05-25/vid29-02.jpg' /></h3>
+
+<p>Hong Kong based <a href='http://www.vid.wellgain.com/product.aspx'>VID</a> also manufacture a range of similar motors. Their motors are black, and have a black model number starting with &#8220;vid&#8221;. <br clear='right' /></p>
+
+<h3 id='mcr_'>MCR <img class='right' src='http://clearwater.github.com/gaugette/resources/2012-05-25/mr1108.jpg' /></h3>
+
+<p>Chinese company <a href='http://www.mcrmotor.com/en/'>MCR Motor</a> manufacture a range of compatible motors. Their motors are white. with part numbers starting with &#8220;MR&#8221;. <br clear='right' /></p>
+
+<h2 id='x25_product_numbers'>X25 Product Numbers</h2>
+
+<p>Each manufacturer produces a number of variations of the motor.</p>
+<table><thead><tr><th>Switec</th><th>VID</th><th>MCR</th><th>Contacts</th><th>Mounting Pegs</th><th>Internal Stop</th><th>Shaft</th></tr></thead><tbody><tr><td style='text-align: left;'>X25.156</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.166</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.158</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.168</td><td style='text-align: left;'>VID29-02</td><td style='text-align: left;'>MR1108</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.278</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.288</td><td style='text-align: left;'>VID29-04</td><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.559</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.569</td><td style='text-align: left;'>VID29-05</td><td style='text-align: left;'>MR1107</td><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.579</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.589</td><td style='text-align: left;'>VID29-07</td><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.679</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.689</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr></tbody></table>
+<h2 id='other_switec_series'>Other Switec Series</h2>
+
+<h3 id='x23_series'>X23 Series</h3>
+
+<p>The X23 motors have an a hollow metal shaft encasing a transparent light guide to make it possible to have an illuminated pointer.</p>
+
+<h3 id='x26_series'>X26 Series</h3>
+
+<p>The X26 motors are dual-shaft analog clock motors. The model numbers are X26.101, X26.103, X26.123, X26.504. See the the &#8220;Switec Series Buyers Guide&#8221; in the <a href='http://clearwater.github.com/gaugette/resources'>Resources</a> for more details.</p>
+
+<h3 id='x27_series'>X27 Series</h3>
+
+<p>The X27 motors are a new line replacing the X25 series. The X27 part numbers mirror the X25 series.</p>
+
+<h3 id='x12_motor_drivers'>X12 Motor Drivers</h3>
+
+<p>The X12 part numbers refer to a series of driver chips developed by Switec. I have not been able to locate a supplier of these chips since microcomponents.ch shut down.</p>
+
+<h2 id='suppliers'>Suppliers</h2>
+
+<p>I have not found any well-know online store supplying these parts. They are however cheap and plentiful on ebay. However it can be difficult to determine exactly what you are getting; these motors are generally sold as Switec X25 <em>replacements</em>, without clearly specifying the manufacturer.</p>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How Fast Is It?]]></title>
@@ -344,9 +404,8 @@
 <p>While trying to calibrate the dial I found the needle slipping at times, especially under vibration caused by the power-on reset or slow stepping. With the needle slipping calibration was impossible. I tried applying the smallest drop of hot glue I could manage to the back of the needle. That really didn&#8217;t work - the tiny irregular mass between the needle and the dial face would sometimes bind against the dial face, causing more problems.</p>
 
 <p>I believe the needle hole is dished a little, so I removed the needle, cleaned the glue away, and smacked it with a hammer to flatten out the dish and close up the hole. That worked a little too well and I had to ream the hole out a bit with a thumb tack. Now the needle is nice and snug, no slippage.</p>
-
-<p>So here&#8217;s how it looks assembled. Calibration is slightly out, but I&#8217;m going to make a new dial face anyway, so no need to sweat about that.</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/UJKaaRR9W6g' width='560' />]]></content>
+<iframe allowFullScreen='allowFullScreen' frameborder='0' height='390' mozallowfullscreen='mozallowfullscreen' src='http://www.youtube.com/embed/UJKaaRR9W6g' webkitAllowFullScreen='webkitAllowFullScreen' width='640'> </iframe>
+<p>So here&#8217;s how it looks assembled. Calibration is slightly out, but I&#8217;m going to make a new dial face anyway, so no need to sweat about that.</p>]]></content>
   </entry>
   
   <entry>
@@ -418,7 +477,7 @@
     <content type="html"><![CDATA[<p>Last night I built a pair of improved wiring harnesses so I could connect two motors to the Arduino. Once concern I have is that the control logic that manages the acceleration and deceleration could be so slow that it will interfere with the motor drive signaling when trying to control more than one motor. I have in mind to replace the floating point logic with a lookup table, but for now I like being able to easily fiddle with the motion parameters.</p>
 
 <p>It turns out that two motors work pretty well with only minor tweaks to the existing code.</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />]]></content>
+<iframe allowFullScreen='allowFullScreen' frameborder='0' height='390' mozallowfullscreen='mozallowfullscreen' src='http://www.youtube.com/embed/Z-f4m18n48I' webkitAllowFullScreen='webkitAllowFullScreen' width='640'> </iframe>]]></content>
   </entry>
   
   <entry>
@@ -437,9 +496,8 @@
     <link href="http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/"/>
     <updated>2012-01-15T19:38:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration</id>
-    <content type="html"><![CDATA[<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/uNLySm71OBc' width='560' />
-<p>My first cut at the <a href='https://github.com/clearwater/gaugette'>Switec X25 library</a> stepped the needle at a constant speed. You can see the constant speed motion in the <a href='http://www.youtube.com/watch?v=vwAxRk_5oXA'>original video</a>.</p>
-
+    <content type="html"><![CDATA[<p>My first cut at the <a href='https://github.com/clearwater/gaugette'>Switec X25 library</a> stepped the needle at a constant speed. You can see the constant speed motion in the <a href='http://www.youtube.com/watch?v=vwAxRk_5oXA'>original video</a>.</p>
+<iframe allowFullScreen='allowFullScreen' frameborder='0' height='390' mozallowfullscreen='mozallowfullscreen' src='http://www.youtube.com/embed/uNLySm71OBc' webkitAllowFullScreen='webkitAllowFullScreen' width='640'> </iframe>
 <p>I&#8217;ve updated the library to support acceleration and deceleration, partly because it seems more aesthetically pleasing, and partly because I have a notion that I should be able to reach faster peak speeds by ramping the speed up. Motion is now specified by 4 parameters: minimum speed, maximum speed, acceleration, deceleration.</p>
 
 <p>For now I&#8217;ve used floating point calculations to compute each step period standard Newtonian velocity/distance/time calculations. This works okay, but is unnecessarily compute-intensive.</p>
@@ -463,7 +521,7 @@
 <p>I wrote some code for the Arduino to step the motor using the IO pattern established in <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>this post</a> and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
 
 <p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/vwAxRk_5oXA' width='560' />]]></content>
+<iframe allowFullScreen='allowFullScreen' frameborder='0' height='390' mozallowfullscreen='mozallowfullscreen' src='http://www.youtube.com/embed/vwAxRk_5oXA' webkitAllowFullScreen='webkitAllowFullScreen' width='640'> </iframe>]]></content>
   </entry>
   
   <entry>
@@ -472,7 +530,7 @@
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
     <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using an Arduino microcontroller and Switec X25.168 stepper motors. Each motor requires 4 digital I/O pins, and a single Arduino can drive three motors. The limit is purely due to Aruidno limit of 14 digital I/O lines.</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />
+<iframe allowFullScreen='allowFullScreen' frameborder='0' height='390' mozallowfullscreen='mozallowfullscreen' src='http://www.youtube.com/embed/Z-f4m18n48I' webkitAllowFullScreen='webkitAllowFullScreen' width='640'> </iframe>
 <p>Source code for the project is available on <a href='https://github.com/clearwater/gaugette'>GitHub</a>.</p>
 
 <h2 id='motivation'>Motivation</h2>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: x25 | Gaugette]]></title>
   <link href="http://clearwater.github.com/gaugette/blog/categories/x25/atom.xml" rel="self"/>
   <link href="http://clearwater.github.com/gaugette/"/>
-  <updated>2012-05-09T14:17:46+10:00</updated>
+  <updated>2012-05-25T13:35:52+10:00</updated>
   <id>http://clearwater.github.com/gaugette/</id>
   <author>
     <name><![CDATA[Guy]]></name>
@@ -25,7 +25,8 @@
 <p>I wrote some code for the Arduino to step the motor using the IO pattern established in <a href='http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1260978962'>this post</a> and a quick ruby script to query my pfSense firewall to get some live data to test with.</p>
 
 <p>Add some duct tape for a gauge, and behold the simplest analog bandwidth meter ever:</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/vwAxRk_5oXA' width='560' />]]></content>
+
+<p><iframe width="640" height="390" src="http://www.youtube.com/embed/vwAxRk_5oXA" frameborder="0" webkitAllowFullScreen="webkitAllowFullScreen"  mozallowfullscreen="mozallowfullscreen" allowFullScreen="allowFullScreen"> </iframe></p>]]></content>
   </entry>
   
   <entry>
@@ -34,7 +35,9 @@
     <updated>2012-01-05T13:11:00+10:00</updated>
     <id>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette</id>
     <content type="html"><![CDATA[<p>Gaugette is a project detailing the construction of custom analog gauges using an Arduino microcontroller and Switec X25.168 stepper motors. Each motor requires 4 digital I/O pins, and a single Arduino can drive three motors. The limit is purely due to Aruidno limit of 14 digital I/O lines.</p>
-<iframe allowfullscreen='allowfullscreen' frameborder='0' height='315' src='http://www.youtube.com/embed/Z-f4m18n48I' width='560' />
+
+<p><iframe width="640" height="390" src="http://www.youtube.com/embed/Z-f4m18n48I" frameborder="0" webkitAllowFullScreen="webkitAllowFullScreen"  mozallowfullscreen="mozallowfullscreen" allowFullScreen="allowFullScreen"> </iframe></p>
+
 <p>Source code for the project is available on <a href='https://github.com/clearwater/gaugette'>GitHub</a>.</p>
 
 <h2 id='motivation'>Motivation</h2>

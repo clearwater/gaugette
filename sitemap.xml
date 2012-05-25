@@ -2,15 +2,15 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/05/what-is-gaugette/</loc>
-        <lastmod>2012-04-05T12:52:46+10:00</lastmod>
+        <lastmod>2012-05-25T11:16:00+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/09/initial-results/</loc>
-        <lastmod>2012-04-05T12:52:46+10:00</lastmod>
+        <lastmod>2012-05-25T11:31:42+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/15/needle-acceleration/</loc>
-        <lastmod>2012-04-05T12:52:46+10:00</lastmod>
+        <lastmod>2012-05-25T11:34:20+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/19/x12-quad-driver-chip/</loc>
@@ -18,7 +18,7 @@
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/23/controlling-two-motors/</loc>
-        <lastmod>2012-04-05T12:52:46+10:00</lastmod>
+        <lastmod>2012-05-25T11:30:39+10:00</lastmod>
     </url>
     <url>
         <loc>
@@ -38,7 +38,7 @@
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/01/28/build-number-one/</loc>
-        <lastmod>2012-04-05T12:52:46+10:00</lastmod>
+        <lastmod>2012-05-25T11:36:11+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/2012/02/04/source-code-cleanup/</loc>
@@ -75,16 +75,20 @@
         <lastmod>2012-05-09T14:17:26+10:00</lastmod>
     </url>
     <url>
+        <loc>http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/</loc>
+        <lastmod>2012-05-25T13:35:33+10:00</lastmod>
+    </url>
+    <url>
         <loc>http://clearwater.github.com/gaugette/about/</loc>
         <lastmod>2012-04-05T12:45:22+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/blog/archives/</loc>
-        <lastmod>2012-05-09T14:17:26+10:00</lastmod>
+        <lastmod>2012-05-25T13:35:33+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/</loc>
-        <lastmod>2012-05-09T14:17:26+10:00</lastmod>
+        <lastmod>2012-05-25T13:35:33+10:00</lastmod>
     </url>
     <url>
         <loc>http://clearwater.github.com/gaugette/resources/</loc>

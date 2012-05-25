@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>LED Gauge Backlighting - Gaugette</title>
+  <title>Buyers Guide - Gaugette</title>
   <meta name="author" content="Guy">
 
   
-  <meta name="description" content="Today I added an LED backlight to my square gauge. I really like how light leaks from the grills at the top and bottom of gauge. I decided not to &hellip;">
+  <meta name="description" content="Manufacturers I am aware of three companies manufacturing compatible motors. All appear to produce a good-quality product. Switec Switec was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting">
+  <link rel="canonical" href="http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide">
   <link href="/gaugette/favicon.png" rel="icon">
   <link href="/gaugette/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/gaugette/javascripts/modernizr-2.0.js"></script>
@@ -82,7 +82,7 @@
   
   <header>
     
-      <h1 class="entry-title">LED Gauge Backlighting</h1>
+      <h1 class="entry-title">Buyers Guide</h1>
     
     
       <p class="meta">
@@ -98,25 +98,66 @@
   
 
 
-<time datetime="2012-02-11T17:14:00+10:00" pubdate data-updated="true">Feb 11<span>th</span>, 2012</time>
+<time datetime="2012-05-25T11:06:00+10:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><img class='right' src='/gaugette/resources/thermo_backlit.png' title='LED Backlighting' />
-<p>Today I added an LED backlight to my square gauge. I really like how light leaks from the grills at the top and bottom of gauge.</p>
+<div class="entry-content"><h2 id='manufacturers'>Manufacturers</h2>
 
-<p>I decided not to use RGB LEDs in this build due to size and pin-count constraints. The white LED was originally part of a solar-powered LED light string.</p>
+<p>I am aware of three companies manufacturing compatible motors. All appear to produce a good-quality product.</p>
 
-<p>These are side-emitting LEDs by virtue of a conical indent in the tip of the lens that refracts much of the light sideways. I tried grinding back the lens and using blobs of hot-glue to make the lighting more diffuse, but in the end I wasn&#8217;t convinced it was an improvement, and so the simpler design won out.</p>
-<img class='left' src='/gaugette/resources/thermo_led.png' title='with face removed' />
-<p>I soldered the 330&#8486; current-limiting resistor to the LED. I trimmed the leads on the LED and resistor really short to get it all to fit. I would have liked the resistor tight against the wall to prevent a dark spot, but it didn&#8217;t work out that way.</p>
+<h3 id='switec_'>Switec <img class='right' src='/gaugette/resources/2012-05-25/x25-168.jpg' /></h3>
 
-<p>The holes for the connection wires had to be drilled right in the extreme inner corner to avoid the stepper motor on the back. The cathode wire goes to a PWM pin on the Arduino, and the anode to ground. I recently added LED control options to the Gaugette software to control the brightness.</p>
-<img class='right' src='http://www.battlecruiserzone.com/Boom1.jpg' />
-<p>ZOMG, now this gauge <a href='http://totallylookslike.icanhascheezburger.com/'>totally looks like</a> the helmets worn by the Viper pilots in the original 80&#8217;s Battlestar Galactica series!</p></div>
+<p>Switec was originally the technology arm of the Swiss watch company Swatch. The stepper business was sold off to Singapore-based <a href='http://jukenswisstech.com/'>Juken Technology</a> in 2009. Switec motors are white, and have part numbers starting with &#8220;X&#8221;.</p>
+
+<h3 id='vid_'>VID <img class='right' src='/gaugette/resources/2012-05-25/vid29-02.jpg' /></h3>
+
+<p>Hong Kong based <a href='http://www.vid.wellgain.com/product.aspx'>VID</a> also manufacture a range of similar motors. Their motors are black, and have a black model number starting with &#8220;vid&#8221;. <br clear='right' /></p>
+
+<h3 id='mcr_'>MCR <img class='right' src='/gaugette/resources/2012-05-25/mr1108.jpg' /></h3>
+
+<p>Chinese company <a href='http://www.mcrmotor.com/en/'>MCR Motor</a> manufacture a range of compatible motors. Their motors are white. with part numbers starting with &#8220;MR&#8221;. <br clear='right' /></p>
+
+<h2 id='x25_product_numbers'>X25 Product Numbers</h2>
+
+<p>Each manufacturer produces a number of variations of the motor.</p>
+<table><thead><tr><th>Switec</th><th>VID</th><th>MCR</th><th>Contacts</th><th>Mounting Pegs</th><th>Internal Stop</th><th>Shaft</th></tr></thead><tbody><tr><td style='text-align: left;'>X25.156</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.166</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.158</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.168</td><td style='text-align: left;'>VID29-02</td><td style='text-align: left;'>MR1108</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.278</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.288</td><td style='text-align: left;'>VID29-04</td><td style='text-align: left;' /><td style='text-align: left;'>rear</td><td style='text-align: left;'>rear</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.559</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.569</td><td style='text-align: left;'>VID29-05</td><td style='text-align: left;'>MR1107</td><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>standard</td>
+</tr><tr><td style='text-align: left;'>X25.579</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.589</td><td style='text-align: left;'>VID29-07</td><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.679</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>no</td><td style='text-align: left;'>long (+2mm)</td>
+</tr><tr><td style='text-align: left;'>X25.689</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>front</td><td style='text-align: left;'>front</td><td style='text-align: left;'>yes</td><td style='text-align: left;'>long (+2mm)</td>
+</tr></tbody></table>
+<h2 id='other_switec_series'>Other Switec Series</h2>
+
+<h3 id='x23_series'>X23 Series</h3>
+
+<p>The X23 motors have an a hollow metal shaft encasing a transparent light guide to make it possible to have an illuminated pointer.</p>
+
+<h3 id='x26_series'>X26 Series</h3>
+
+<p>The X26 motors are dual-shaft analog clock motors. The model numbers are X26.101, X26.103, X26.123, X26.504. See the the &#8220;Switec Series Buyers Guide&#8221; in the <a href='/gaugette/resources'>Resources</a> for more details.</p>
+
+<h3 id='x27_series'>X27 Series</h3>
+
+<p>The X27 motors are a new line replacing the X25 series. The X27 part numbers mirror the X25 series.</p>
+
+<h3 id='x12_motor_drivers'>X12 Motor Drivers</h3>
+
+<p>The X12 part numbers refer to a series of driver chips developed by Switec. I have not been able to locate a supplier of these chips since microcomponents.ch shut down.</p>
+
+<h2 id='suppliers'>Suppliers</h2>
+
+<p>I have not found any well-know online store supplying these parts. They are however cheap and plentiful on ebay. However it can be difficult to determine exactly what you are getting; these motors are generally sold as Switec X25 <em>replacements</em>, without clearly specifying the manufacturer.</p></div>
 
 
   <footer>
@@ -138,7 +179,7 @@
   
 
 
-<time datetime="2012-02-11T17:14:00+10:00" pubdate data-updated="true">Feb 11<span>th</span>, 2012</time>
+<time datetime="2012-05-25T11:06:00+10:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
       
 
 
@@ -146,7 +187,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/" data-via="" data-counturl="http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/" >Tweet</a>
   
   
   
@@ -155,10 +196,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/gaugette/blog/2012/02/06/just-a-pretty-face/" title="Previous Post: Just a Pretty Face">&laquo; Just a Pretty Face</a>
+        <a class="basic-alignment left" href="/gaugette/blog/2012/05/08/how-fast-is-it/" title="Previous Post: How Fast Is It?">&laquo; How Fast Is It?</a>
       
-      
-        <a class="basic-alignment right" href="/gaugette/blog/2012/02/16/using-the-switecx25-library/" title="next Post: Using the SwitecX25 Library">Using the SwitecX25 Library &raquo;</a>
       
     </p>
   </footer>
@@ -287,8 +326,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/';
-        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/02/11/backlighting/';
+        var disqus_identifier = 'http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/';
+        var disqus_url = 'http://clearwater.github.com/gaugette/blog/2012/05/25/buyers-guide/';
         var disqus_script = 'embed.js';
       
     (function () {
