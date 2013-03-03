@@ -5,7 +5,7 @@ This code depends on the SwitecX25 library which is now housed in [a separate re
 
 Project Blog
 ============
-Full details of this project can be found at [the Gaugette Blog](http://clearwater.github.com/gaugette/).
+Full details of this project can be found at [the Gaugette Blog](http://guy.carpenter.id.au/gaugette/).
 
 Using this Code
 ===============
